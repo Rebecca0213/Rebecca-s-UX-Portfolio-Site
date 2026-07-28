@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 300" fill="none" aria-hidden="true">
+  <g class="coming-soon__figure-body" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M68 118 C62 78, 78 48, 110 44 C142 40, 164 62, 168 104 C170 128, 166 148, 158 158" />
+    <path d="M74 96 C88 72, 102 66, 110 66 C122 66, 140 74, 152 96" />
+    <path d="M92 70 C96 84, 94 96, 92 104" />
+    <path d="M110 66 C112 82, 110 96, 110 106" />
+    <path d="M128 70 C126 84, 128 96, 130 104" />
+    <path d="M80 100 C80 148, 140 148, 140 100" />
+    <path d="M94 112 C98 108, 104 108, 108 112" />
+    <path d="M122 112 C126 108, 132 108, 136 112" />
+    <path d="M112 124 C114 128, 118 128, 120 124" />
+    <ellipse cx="92" cy="122" rx="5" ry="3.5" fill="currentColor" stroke="none" opacity="0.35" />
+    <ellipse cx="138" cy="122" rx="5" ry="3.5" fill="currentColor" stroke="none" opacity="0.35" />
+    <path d="M152 78 C160 70, 168 74, 164 82 C172 80, 174 90, 166 92 C160 96, 154 90, 152 78 Z" />
+    <circle cx="158" cy="84" r="2.2" fill="currentColor" stroke="none" />
+    <path d="M104 146 L104 162" />
+    <path d="M126 146 L126 162" />
+    <path d="M78 168 C78 156, 92 152, 110 152 C128 152, 142 156, 142 168 L148 230 C148 242, 136 250, 110 250 C84 250, 72 242, 72 230 Z" />
+    <path d="M96 168 C100 176, 120 176, 124 168" />
+    <path d="M142 176 C156 182, 162 198, 158 214" />
+  </g>
+  <g class="coming-soon__arm" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M78 176 C64 188, 58 206, 66 222" />
+    <path d="M66 222 C74 234, 88 240, 104 238" />
+    <path d="M100 232 C96 238, 100 246, 108 246 C114 246, 118 240, 114 234" />
+    <path d="M108 244 L128 236" />
+    <ellipse cx="152" cy="228" rx="30" ry="13" />
+    <path d="M124 226 C124 214, 180 214, 180 226" />
+    <g class="coming-soon__smoke">
+      <path class="coming-soon__smoke-line coming-soon__smoke-line--a" d="M140 206 C138 196, 142 190, 140 180" />
+      <path class="coming-soon__smoke-line coming-soon__smoke-line--b" d="M152 204 C150 192, 154 186, 152 176" />
+      <path class="coming-soon__smoke-line coming-soon__smoke-line--c" d="M164 206 C166 196, 162 190, 164 180" />
+    </g>
+  </g>
+</svg>

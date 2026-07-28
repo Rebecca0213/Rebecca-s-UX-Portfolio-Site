@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rebecca Szeto — Product Designer & Design Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Grand+Hotel&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Pacifico&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=other-works-tablet-gap" />
+    <link rel="stylesheet" href="turntable.css?v=footer" />
+  </head>
+  <body class="page-home is-loading">
+    <div
+      class="page-loader"
+      id="page-loader"
+      role="status"
+      aria-live="polite"
+      aria-busy="true"
+      aria-label="Loading page"
+    >
+      <div class="page-loader__progress" aria-hidden="true"></div>
+      <div class="page-loader__shell" aria-hidden="true">
+        <div class="page-loader__nav">
+          <span class="skel skel--logo"></span>
+          <div class="page-loader__nav-links">
+            <span class="skel skel--nav"></span>
+            <span class="skel skel--nav"></span>
+            <span class="skel skel--nav"></span>
+            <span class="skel skel--nav"></span>
+          </div>
+        </div>
+
+        <div class="page-loader__content">
+          <div class="page-loader__panel page-loader__panel--home">
+            <div class="page-loader__hero">
+              <span class="skel skel--title"></span>
+              <span class="skel skel--subtitle"></span>
+              <span class="skel skel--circle"></span>
+            </div>
+            <div class="page-loader__works">
+              <span class="skel skel--heading"></span>
+              <div class="page-loader__cards">
+                <span class="skel skel--folder"></span>
+                <span class="skel skel--folder"></span>
+                <span class="skel skel--folder"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="page-loader__panel page-loader__panel--works">
+            <div class="page-loader__works">
+              <span class="skel skel--heading"></span>
+              <div class="page-loader__cards">
+                <span class="skel skel--folder"></span>
+                <span class="skel skel--folder"></span>
+                <span class="skel skel--folder"></span>
+                <span class="skel skel--folder"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="page-loader__panel page-loader__panel--blog">
+            <div class="page-loader__blog">
+              <span class="skel skel--circle"></span>
+              <span class="skel skel--eyebrow"></span>
+              <span class="skel skel--title"></span>
+              <span class="skel skel--line-mid"></span>
+              <span class="skel skel--line-short"></span>
+              <span class="skel skel--cta"></span>
+            </div>
+          </div>
+
+          <div class="page-loader__panel page-loader__panel--about">
+            <div class="page-loader__about">
+              <span class="skel skel--photo"></span>
+              <div class="page-loader__copy">
+                <span class="skel skel--eyebrow"></span>
+                <span class="skel skel--heading"></span>
+                <span class="skel skel--subtitle"></span>
+                <span class="skel skel--line"></span>
+                <span class="skel skel--line"></span>
+                <span class="skel skel--line-mid"></span>
+                <span class="skel skel--line-short"></span>
+                <span class="skel skel--cta"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="page-loader__panel page-loader__panel--contact">
+            <div class="page-loader__contact">
+              <span class="skel skel--eyebrow"></span>
+              <span class="skel skel--title"></span>
+              <span class="skel skel--line-mid"></span>
+              <span class="skel skel--line-short"></span>
+              <span class="skel skel--calendar"></span>
+            </div>
+          </div>
+
+          <div class="page-loader__panel page-loader__panel--case">
+            <div class="page-loader__case">
+              <div class="page-loader__toc">
+                <span class="skel skel--toc"></span>
+                <span class="skel skel--toc"></span>
+                <span class="skel skel--toc"></span>
+                <span class="skel skel--toc"></span>
+                <span class="skel skel--toc"></span>
+              </div>
+              <div class="page-loader__copy">
+                <span class="skel skel--heading"></span>
+                <span class="skel skel--line"></span>
+                <span class="skel skel--line"></span>
+                <span class="skel skel--line-mid"></span>
+                <span class="skel skel--line"></span>
+                <span class="skel skel--line-short"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<header class="nav">
+      <a href="index.html" class="nav__logo">
+        Rebecca S<span class="accent-z accent-z--interactive" tabindex="0">z</span>eto
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="works.html">Works</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About Me</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__row">
+          <!-- Temporarily hidden — remove `hidden` to restore turntable + controls -->
+          <div class="hero__left" hidden>
+            <div class="audio-player-layout">
+              <div class="tt is-playing">
+                <div class="tt__shadow tt__shadow--left"></div>
+                <div class="tt__shadow tt__shadow--right"></div>
+
+                <div class="tt__left">
+                  <div class="tt__dots"></div>
+                  <div class="tt__screen">
+                    <div class="tt__screen-glass"></div>
+                    <div class="tt__screen-glow"></div>
+                    <div class="tt__vu"></div>
+                  </div>
+
+                  <div class="tt__controls">
+                    <span class="tt__label tt__label--levels">LEVELS</span>
+                    <div class="tt__fader-slots"></div>
+                    <div class="tt__faders"></div>
+                    <div class="tt__dock">
+                      <svg
+                        class="tt__dock-frame"
+                        viewBox="0 0 20.673 33.414"
+                        preserveAspectRatio="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M 19.471 0 C 20.135 0 20.673 0.538 20.673 1.202 L 20.673 32.212 C 20.673 32.875 20.135 33.414 19.471 33.414 L 1.202 33.414 C 0.538 33.414 0 32.875 0 32.212 L 0 1.202 C 0 0.538 0.538 0 1.202 0 L 19.471 0 Z M 1.442 5.048 C 1.044 5.048 0.721 5.371 0.721 5.769 L 0.721 31.971 C 0.721 32.37 1.044 32.692 1.442 32.692 L 19.231 32.692 C 19.629 32.692 19.952 32.37 19.952 31.971 L 19.952 5.769 C 19.952 5.371 19.629 5.048 19.231 5.048 L 1.442 5.048 Z"
+                          fill="rgba(255,255,255,0.5)"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                      <span class="tt__label tt__label--dock">CONTROLS</span>
+                      <div class="tt__dock-body">
+                        <div class="tt__dock-chips"></div>
+                        <div class="tt__dock-transport">
+                          <button
+                            type="button"
+                            class="tt__transport-btn tt__transport-btn--play"
+                            aria-label="Play"
+                          >
+                            <svg width="10" height="10" viewBox="0 0 26 26" aria-hidden="true">
+                              <polygon points="18,5 18,21 6,13" fill="rgb(196,196,196)" />
+                            </svg>
+                          </button>
+                          <button
+                            type="button"
+                            class="tt__transport-btn tt__transport-btn--stop"
+                            aria-label="Stop"
+                          >
+                            <svg width="10" height="10" viewBox="0 0 26 26" aria-hidden="true">
+                              <polygon points="6,20 20,20 20,6" fill="rgb(196,196,196)" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tt__right">
+                  <div class="tt__deck" aria-label="Deck controls">
+                    <div class="tt__deck-dial">
+                      <div class="tt__deck-ticks"></div>
+                      <div class="tt__deck-knob">
+                        <span class="tt__deck-knob-pointer" aria-hidden="true"></span>
+                      </div>
+                    </div>
+                    <div class="tt__deck-pads">
+                      <span class="tt__deck-pad tt__deck-pad--lite"></span>
+                      <span class="tt__deck-pad tt__deck-pad--lite"></span>
+                      <span class="tt__deck-pad tt__deck-pad--socket"></span>
+                      <span class="tt__deck-pad tt__deck-pad--socket"></span>
+                      <span class="tt__deck-pad tt__deck-pad--large"></span>
+                      <span class="tt__deck-pad tt__deck-pad--large"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <svg
+                  class="tt__cord"
+                  viewBox="0 0 218.029 182.754"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path class="tt__cord-path" />
+                  <rect class="tt__cord-jack tt__cord-jack--left" x="24.5" y="33" width="2.7" height="3.8" rx="0.35" />
+                  <rect class="tt__cord-jack tt__cord-jack--right" x="109.3" y="33" width="2.7" height="3.8" rx="0.35" />
+                </svg>
+
+                <div class="tt__platter-shadow"></div>
+                <button class="tt__platter" type="button" aria-label="Play or pause">
+                  <div class="tt__grooves"></div>
+                  <div class="tt__platter-sheen"></div>
+                  <div class="tt__platter-highlight"></div>
+                  <div class="tt__platter-hub-ring"></div>
+                  <div class="tt__hub">
+                    <div class="tt__hub-inner-ring"></div>
+                    <div class="tt__hub-spindle"></div>
+                  </div>
+                </button>
+                <div class="tt__platter-finish" aria-hidden="true">
+                  <div class="tt__platter-finish-sheen"></div>
+                  <div class="tt__platter-finish-rim"></div>
+                  <div class="tt__platter-finish-bevel"></div>
+                  <div class="tt__platter-finish-edge"></div>
+                </div>
+                <div class="tt__tonearm" aria-hidden="true">
+                  <div class="tt__tonearm-inner">
+                  <div class="tt__tonearm-rest"></div>
+                  <div class="tt__tonearm-antiskate"></div>
+                  <div class="tt__tonearm-hook"></div>
+                  <div class="tt__tonearm-counter">
+                    <span class="tt__tonearm-counter-hole tt__tonearm-counter-hole--left"></span>
+                    <span class="tt__tonearm-counter-hole tt__tonearm-counter-hole--right"></span>
+                    <span class="tt__tonearm-counter-hub"></span>
+                  </div>
+                  <div class="tt__tonearm-lift">
+                    <span class="tt__tonearm-lift-inner"></span>
+                  </div>
+                  <div class="tt__tonearm-swing">
+                    <div class="tt__tonearm-cable"></div>
+                    <div class="tt__tonearm-plug"></div>
+                    <div class="tt__tonearm-tube"></div>
+                    <div class="tt__tonearm-collar">
+                      <span class="tt__tonearm-collar-base"></span>
+                    </div>
+                    <div class="tt__tonearm-brass"></div>
+                    <div class="tt__tonearm-headshell">
+                      <span class="tt__tonearm-headshell-body"></span>
+                      <span class="tt__tonearm-headshell-dot"></span>
+                      <span class="tt__tonearm-headshell-contact tt__tonearm-headshell-contact--left"></span>
+                      <span class="tt__tonearm-headshell-contact tt__tonearm-headshell-contact--right"></span>
+                      <span class="tt__tonearm-headshell-screw"></span>
+                      <span class="tt__tonearm-headshell-mount"></span>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="audio-player-wrap">
+              <div class="audio-player is-playing">
+                <audio
+                  class="audio-player__audio"
+                  src="https://assets.mixkit.co/music/22/22.mp3"
+                  loop
+                  preload="auto"
+                  playsinline
+                ></audio>
+                <button class="audio-player__play" aria-label="Pause">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+                    <rect x="2" y="1" width="3.5" height="12" rx="0.5" />
+                    <rect x="8.5" y="1" width="3.5" height="12" rx="0.5" />
+                  </svg>
+                </button>
+                <span class="audio-player__time">0:00 / 0:00</span>
+                <div class="audio-player__progress" aria-hidden="true">
+                  <div class="audio-player__progress-fill"></div>
+                </div>
+                <div class="audio-player__volume">
+                  <div class="audio-player__volume-popover">
+                    <div class="audio-player__volume-track">
+                      <input
+                        class="audio-player__volume-slider"
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value="0.75"
+                        aria-label="Volume"
+                        orient="vertical"
+                      />
+                    </div>
+                  </div>
+                  <button class="audio-player__volume-btn" aria-label="Mute" aria-pressed="false">
+                    <svg class="audio-player__volume-icon audio-player__volume-icon--on" width="16" height="14" viewBox="0 0 16 14" fill="currentColor">
+                      <path d="M0 4.5 L4 4.5 L8 1 L8 13 L4 9.5 L0 9.5 Z" />
+                      <path d="M11 4 Q14 7 11 10" stroke="currentColor" fill="none" stroke-width="1.2" />
+                    </svg>
+                    <svg class="audio-player__volume-icon audio-player__volume-icon--off" width="20" height="14" viewBox="0 0 20 14" fill="currentColor" aria-hidden="true">
+                      <path d="M0 4.5 L4 4.5 L8 1 L8 13 L4 9.5 L0 9.5 Z" />
+                      <path d="M11.5 3.5 L15 10.5 M15 3.5 L11.5 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="hero__title-block">
+            <h1 class="hero__title">
+              Rebecca S<span class="name-z-wrap">
+                <span class="accent-z accent-z--interactive" tabindex="0">z</span>
+              </span>eto
+            </h1>
+            <p class="hero__tagline">Product Designer and Builder</p>
+            <span class="hero__award-wrap" tabindex="0">
+              <img
+                class="hero__award"
+                src="assets/about/ux-design-awards-nominated-2022.png?v=original"
+                alt="UX Design Awards nominated 2022"
+                width="204"
+                height="308"
+              />
+              <span class="hero__award-glitter" aria-hidden="true">
+                <span class="hero__award-sparkle hero__award-sparkle--1"></span>
+                <span class="hero__award-sparkle hero__award-sparkle--2"></span>
+                <span class="hero__award-sparkle hero__award-sparkle--3"></span>
+                <span class="hero__award-sparkle hero__award-sparkle--4"></span>
+                <span class="hero__award-sparkle hero__award-sparkle--5"></span>
+                <span class="hero__award-sparkle hero__award-sparkle--6"></span>
+                <span class="hero__award-sparkle hero__award-sparkle--7"></span>
+                <span class="hero__award-sparkle hero__award-sparkle--8"></span>
+              </span>
+            </span>
+            <div class="hero__arrow" aria-hidden="true">
+                <div class="hero__arrow-inner">
+                  <svg
+                    class="hero__arrow-squiggle"
+                    width="60"
+                    height="56"
+                    viewBox="0 0 60 56"
+                    fill="none"
+                  >
+                    <path
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      d="M 3.107 55.057 C 1.006 51.662 0 47.945 0 43.291 C 0 39.106 0.473 37.058 2.249 33.487 C 3.255 31.438 3.965 30.502 6.391 28.102 C 9.172 25.351 9.349 25.116 9.645 23.565 C 10.74 17.536 17.19 11.039 26.155 6.883 C 34.261 3.137 47.427 0.093 55.978 0.005 C 58.907 -0.024 59.647 0.064 59.883 0.415 C 60.298 1.088 59.795 1.205 55.297 1.586 C 44.765 2.405 34.261 4.981 26.569 8.61 C 20.651 11.361 15.77 15.253 13.196 19.234 C 12.19 20.843 10.947 23.799 11.184 24.063 C 11.272 24.151 12.308 23.917 13.491 23.565 C 16.036 22.834 17.515 22.804 19.527 23.39 C 21.628 24.004 22.93 25.409 23.137 27.312 C 23.314 29.243 23.078 30.033 21.983 31.263 C 20.74 32.667 18.965 33.282 16.628 33.136 C 13.521 32.931 11.332 31.467 10.267 28.921 C 9.971 28.219 9.556 27.633 9.32 27.633 C 8.728 27.633 5.592 30.97 4.438 32.872 C 1.036 38.375 0.68 46.16 3.491 52.979 C 4.083 54.384 4.468 55.642 4.379 55.759 C 4.083 56.228 3.728 56.023 3.107 55.057 Z M 18.817 31.438 C 20.208 31.028 21.717 29.36 21.717 28.19 C 21.717 25.907 19.882 24.56 16.687 24.59 C 14.024 24.59 11.361 25.76 11.361 26.931 C 11.361 28.394 12.752 30.238 14.409 31.028 C 16.095 31.789 17.131 31.877 18.817 31.438 Z"
+                    />
+                  </svg>
+                  <svg
+                    class="hero__arrow-plane"
+                    width="34"
+                    height="28"
+                    viewBox="0 0 34 28"
+                    fill="none"
+                  >
+                    <path
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      d="M 12.825 27.638 C 12.484 27.191 11.917 25.315 11.066 21.86 L 10.441 19.418 L 5.873 17.572 C 0.624 15.457 0 15.1 0 14.296 C 0 13.343 1.192 12.806 5.079 12.062 C 7.122 11.675 8.909 11.288 9.079 11.168 C 9.448 10.93 9.448 8.458 9.051 4.259 C 8.682 0.328 8.796 0 10.583 0 C 11.207 0 15.577 1.132 20.258 2.532 C 24.968 3.902 29.678 5.242 30.785 5.51 C 33.14 6.076 34.105 6.671 33.991 7.446 C 33.934 7.773 32.714 9.113 31.239 10.483 C 29.763 11.853 26.642 15.1 24.316 17.721 C 17.194 25.702 16.598 26.328 15.634 27.191 C 14.669 28.055 13.335 28.264 12.825 27.638 Z M 18.074 22.128 C 19.918 20.044 22.642 17.006 24.117 15.398 C 25.593 13.789 26.841 12.33 26.898 12.181 C 27.011 11.913 25.593 12.568 17.081 16.738 C 13.335 18.584 12.2 19.269 12.286 19.627 C 13.392 23.766 14.101 25.911 14.385 25.911 C 14.555 25.911 16.201 24.213 18.074 22.128 Z M 20.684 13.194 C 27.976 9.352 29.111 8.637 27.465 8.845 C 21.961 9.56 13.052 11.496 10.214 12.598 C 9.193 12.985 7.491 13.491 6.384 13.7 C 5.306 13.938 4.284 14.206 4.142 14.325 C 4.001 14.445 4.965 15.07 6.27 15.666 C 7.547 16.291 9.136 17.095 9.76 17.453 L 10.895 18.078 L 12.314 17.482 C 13.108 17.125 16.882 15.219 20.684 13.194 Z M 13.874 9.828 C 15.889 9.292 26.529 7.148 27.323 7.148 C 28.061 7.118 26.671 6.582 23.55 5.659 C 21.762 5.152 18.216 3.991 15.662 3.097 C 13.137 2.204 10.924 1.489 10.753 1.489 C 10.441 1.489 10.47 2.532 10.952 8.428 C 11.037 9.53 11.236 10.424 11.406 10.424 C 11.548 10.424 12.683 10.156 13.874 9.828 Z"
+                    />
+                  </svg>
+                </div>
+              </div>
+          </div>
+
+          <div class="hero__right">
+            <div class="folder-wrapper">
+              <div class="folder-wrapper__stage">
+                <div class="skill-icons" aria-hidden="true">
+                  <div class="skill-icon skill-icon--figma">
+                    <svg width="24" height="34" viewBox="-4 -5 43.5 67" aria-hidden="true">
+                      <path fill="#0ACF83" d="M13 57c5.24 0 9.5-4.26 9.5-9.5V38H13a9.5 9.5 0 0 0 0 19z" />
+                      <path fill="#A259FF" d="M3.5 28.5A9.5 9.5 0 0 1 13 19h9.5v19H13a9.5 9.5 0 0 1-9.5-9.5z" />
+                      <path fill="#F24E1E" d="M3.5 9.5A9.5 9.5 0 0 1 13 0h9.5v19H13A9.5 9.5 0 0 1 3.5 9.5z" />
+                      <path fill="#FF7262" d="M22.5 0H32a9.5 9.5 0 0 1 0 19h-9.5V0z" />
+                      <path fill="#1ABCFE" d="M32 28.5a9.5 9.5 0 1 1-9.5-9.5 9.5 9.5 0 0 1 9.5 9.5z" />
+                    </svg>
+                  </div>
+                  <div class="skill-icon skill-icon--react">
+                    <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true">
+                      <circle cx="16" cy="16" r="2.6" fill="#61DAFB" />
+                      <g fill="none" stroke="#61DAFB" stroke-width="1.4">
+                        <ellipse cx="16" cy="16" rx="13" ry="5" />
+                        <ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(60 16 16)" />
+                        <ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(120 16 16)" />
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="skill-icon skill-icon--framer">
+                    <svg width="34" height="34" viewBox="0 0 19.985 20" fill="none" aria-hidden="true">
+                      <path
+                        fill="#f6ece2"
+                        d="M3.921 13.296 7.852 11.09 7.918 10.898 7.852 10.792 7.66 10.792 7.002 10.751 4.756 10.691 2.808 10.61 0.921 10.509 0.445 10.407 0 9.82 0.045 9.527 0.445 9.259 1.017 9.309 2.282 9.395 4.179 9.527 5.555 9.608 7.594 9.82 7.918 9.82 7.964 9.689 7.852 9.608 7.766 9.527 5.803 8.196 3.678 6.79 2.565 5.98 1.963 5.57 1.66 5.186 1.528 4.346 2.075 3.744 2.808 3.795 2.995 3.845 3.739 4.417 5.328 5.646 7.402 7.174 7.706 7.427 7.827 7.341 7.842 7.281 7.706 7.053 6.577 5.014 5.373 2.939 4.837 2.079 4.695 1.563c-.054-.212-.091-.389-.091-.607L5.232.111 5.576 0 6.405.111 6.754.415 7.27 1.594 8.105 3.451 9.4 5.975 9.78 6.724 9.982 7.417 10.058 7.63 10.19 7.63 10.19 7.508 10.296 6.087 10.493 4.341 10.686 2.095 10.751 1.462 11.065.703 11.687.293 12.173.526 12.573 1.098 12.517 1.467 12.279 3.01 11.814 5.429 11.51 7.048 11.687 7.048 11.89 6.845 12.709 5.758 14.085 4.037 14.693 3.354 15.401 2.601 15.856 2.241 16.716 2.241 17.349 3.182 17.066 4.154 16.18 5.277 15.447 6.228 14.394 7.645 13.736 8.778 13.797 8.869 13.954 8.854 16.332 8.348 17.617 8.115 19.15 7.852 19.843 8.176 19.919 8.505 19.646 9.178 18.007 9.583 16.084 9.967 13.22 10.645 13.185 10.67 13.225 10.721 14.516 10.842 15.067 10.873 16.418 10.873 18.932 11.06 19.59 11.495 19.985 12.026 19.919 12.431 18.907 12.947 17.541 12.623 14.354 11.864 13.261 11.591 13.109 11.591 13.109 11.682 14.02 12.573 15.689 14.08 17.779 16.023 17.885 16.504 17.617 16.883 17.334 16.843 15.497 15.462 14.789 14.839 13.185 13.488 13.079 13.488 13.079 13.63 13.448 14.172 15.401 17.106 15.502 18.007 15.36 18.3 14.855 18.477 14.298 18.376 13.155 16.772 11.976 14.966 11.025 13.347 10.908 13.413 10.346 19.459 10.083 19.767 9.476 20 8.97 19.615 8.702 18.993 8.97 17.764 9.294 16.16 9.557 14.885 9.795 13.301 9.937 12.775 9.927 12.74 9.81 12.755 8.616 14.394 6.8 16.848 5.363 18.386 5.019 18.523 4.422 18.214 4.478 17.662 4.812 17.172 6.8 14.642 7.999 13.074 8.773 12.168 8.768 12.036 8.722 12.036 3.44 15.467 2.499 15.588 2.095 15.209 2.145 14.586 2.338 14.384 3.926 13.291 3.921 13.296z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="skill-icon skill-icon--js">
+                    <div class="skill-icon__js-mark">
+                      <span class="skill-icon__js-text">JS</span>
+                    </div>
+                  </div>
+                  <div class="skill-icon skill-icon--css">
+                    <svg width="28" height="28" viewBox="0 0 512 512" aria-hidden="true">
+                      <path fill="#264DE4" d="M71 460 30 0h451l-41 460-185 52z" />
+                      <path fill="#2965F1" d="M256 472l149-41 35-394H256z" />
+                      <path fill="#EBEBEB" d="M256 208h-75l-5-58h80V94H114l14 171h128zm0 147-63-17-4-45h-56l7 89 116 32z" />
+                      <path fill="#333333" d="M256 208v57h70l-7 74-63 17v59l116-32 16-175zm0-114v56h137l5-56z" />
+                    </svg>
+                    <span class="skill-icon__glare skill-icon__glare--linear" aria-hidden="true"></span>
+                    <span class="skill-icon__glare skill-icon__glare--radial" aria-hidden="true"></span>
+                  </div>
+                  <div class="skill-icon skill-icon--html">
+                    <svg width="28" height="28" viewBox="0 0 512 512" aria-hidden="true">
+                      <path fill="#E44D26" d="M71 460 30 0h451l-41 460-185 52z" />
+                      <path fill="#F16529" d="M256 472l149-41 35-394H256z" />
+                      <path fill="#EBEBEB" d="M256 208h-75l-5-58h80V94H114l14 171h128zm0 147-63-17-4-45h-56l7 89 116 32z" />
+                      <path fill="#333333" d="M256 208v57h70l-7 74-63 17v59l116-32 16-175zm0-114v56h137l5-56z" />
+                    </svg>
+                  </div>
+                  <div class="skill-icon skill-icon--cursor">
+                    <svg width="33" height="33" viewBox="0 0 100 100" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="curTop" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#606060" />
+                          <stop offset="1" stop-color="#3a3a3a" />
+                        </linearGradient>
+                        <linearGradient id="curLU" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#b0b0b0" />
+                          <stop offset="1" stop-color="#7c7c7c" />
+                        </linearGradient>
+                        <linearGradient id="curLL" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#d2d2d2" />
+                          <stop offset="1" stop-color="#9a9a9a" />
+                        </linearGradient>
+                        <linearGradient id="curRU" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#343434" />
+                          <stop offset="1" stop-color="#1d1d1d" />
+                        </linearGradient>
+                        <linearGradient id="curRW" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#f2f2f2" />
+                          <stop offset="1" stop-color="#c6c6c6" />
+                        </linearGradient>
+                      </defs>
+                      <polygon points="50,10 11,31 89,31" fill="url(#curTop)" />
+                      <polygon points="11,31 89,31 50,53" fill="#f7f7f7" />
+                      <polygon points="11,31 50,53 11,71" fill="url(#curLU)" />
+                      <polygon points="50,53 50,92 11,71" fill="url(#curLL)" />
+                      <polygon points="89,31 50,53 89,71" fill="url(#curRU)" />
+                      <polygon points="50,53 89,71 50,92" fill="url(#curRW)" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="folder">
+                  <svg
+                    class="folder__back"
+                    viewBox="0 0 300 275.362"
+                    aria-hidden="true"
+                  >
+                    <defs>
+                      <linearGradient id="folder-back-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="rgb(74, 164, 222)" />
+                        <stop offset="50%" stop-color="rgb(56, 146, 208)" />
+                        <stop offset="100%" stop-color="rgb(42, 130, 192)" />
+                      </linearGradient>
+                      <linearGradient id="folder-back-hi" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="rgba(255, 255, 255, 0.28)" />
+                        <stop offset="18%" stop-color="rgba(255, 255, 255, 0)" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z"
+                      fill="url(#folder-back-grad)"
+                    />
+                    <path
+                      d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z"
+                      fill="url(#folder-back-hi)"
+                    />
+                  </svg>
+
+                  <div class="folder__front">
+                    <div class="folder__front-face"></div>
+                    <div class="folder__front-shine">
+                      <div class="folder__label">
+                        <span class="folder__label-text">skills</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="folder__ridge folder__ridge--upper" aria-hidden="true"></div>
+                  <div class="folder__ridge folder__ridge--lower" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="works" id="works">
+        <div class="works__layout">
+          <div class="works__main">
+            <div class="works__header">
+              <h2 class="works__title">Featured Works</h2>
+              <div class="works__hint" aria-hidden="true">
+                <div class="works__arrow">
+                  <div class="works__arrow-inner">
+                    <svg
+                      class="works__arrow-squiggle"
+                      width="60"
+                      height="56"
+                      viewBox="0 0 60 56"
+                      fill="none"
+                    >
+                      <path
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        d="M 3.107 55.057 C 1.006 51.662 0 47.945 0 43.291 C 0 39.106 0.473 37.058 2.249 33.487 C 3.255 31.438 3.965 30.502 6.391 28.102 C 9.172 25.351 9.349 25.116 9.645 23.565 C 10.74 17.536 17.19 11.039 26.155 6.883 C 34.261 3.137 47.427 0.093 55.978 0.005 C 58.907 -0.024 59.647 0.064 59.883 0.415 C 60.298 1.088 59.795 1.205 55.297 1.586 C 44.765 2.405 34.261 4.981 26.569 8.61 C 20.651 11.361 15.77 15.253 13.196 19.234 C 12.19 20.843 10.947 23.799 11.184 24.063 C 11.272 24.151 12.308 23.917 13.491 23.565 C 16.036 22.834 17.515 22.804 19.527 23.39 C 21.628 24.004 22.93 25.409 23.137 27.312 C 23.314 29.243 23.078 30.033 21.983 31.263 C 20.74 32.667 18.965 33.282 16.628 33.136 C 13.521 32.931 11.332 31.467 10.267 28.921 C 9.971 28.219 9.556 27.633 9.32 27.633 C 8.728 27.633 5.592 30.97 4.438 32.872 C 1.036 38.375 0.68 46.16 3.491 52.979 C 4.083 54.384 4.468 55.642 4.379 55.759 C 4.083 56.228 3.728 56.023 3.107 55.057 Z M 18.817 31.438 C 20.208 31.028 21.717 29.36 21.717 28.19 C 21.717 25.907 19.882 24.56 16.687 24.59 C 14.024 24.59 11.361 25.76 11.361 26.931 C 11.361 28.394 12.752 30.238 14.409 31.028 C 16.095 31.789 17.131 31.877 18.817 31.438 Z"
+                      />
+                    </svg>
+                    <svg
+                      class="works__arrow-plane"
+                      width="34"
+                      height="28"
+                      viewBox="0 0 34 28"
+                      fill="none"
+                    >
+                      <path
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        d="M 12.825 27.638 C 12.484 27.191 11.917 25.315 11.066 21.86 L 10.441 19.418 L 5.873 17.572 C 0.624 15.457 0 15.1 0 14.296 C 0 13.343 1.192 12.806 5.079 12.062 C 7.122 11.675 8.909 11.288 9.079 11.168 C 9.448 10.93 9.448 8.458 9.051 4.259 C 8.682 0.328 8.796 0 10.583 0 C 11.207 0 15.577 1.132 20.258 2.532 C 24.968 3.902 29.678 5.242 30.785 5.51 C 33.14 6.076 34.105 6.671 33.991 7.446 C 33.934 7.773 32.714 9.113 31.239 10.483 C 29.763 11.853 26.642 15.1 24.316 17.721 C 17.194 25.702 16.598 26.328 15.634 27.191 C 14.669 28.055 13.335 28.264 12.825 27.638 Z M 18.074 22.128 C 19.918 20.044 22.642 17.006 24.117 15.398 C 25.593 13.789 26.841 12.33 26.898 12.181 C 27.011 11.913 25.593 12.568 17.081 16.738 C 13.335 18.584 12.2 19.269 12.286 19.627 C 13.392 23.766 14.101 25.911 14.385 25.911 C 14.555 25.911 16.201 24.213 18.074 22.128 Z M 20.684 13.194 C 27.976 9.352 29.111 8.637 27.465 8.845 C 21.961 9.56 13.052 11.496 10.214 12.598 C 9.193 12.985 7.491 13.491 6.384 13.7 C 5.306 13.938 4.284 14.206 4.142 14.325 C 4.001 14.445 4.965 15.07 6.27 15.666 C 7.547 16.291 9.136 17.095 9.76 17.453 L 10.895 18.078 L 12.314 17.482 C 13.108 17.125 16.882 15.219 20.684 13.194 Z M 13.874 9.828 C 15.889 9.292 26.529 7.148 27.323 7.148 C 28.061 7.118 26.671 6.582 23.55 5.659 C 21.762 5.152 18.216 3.991 15.662 3.097 C 13.137 2.204 10.924 1.489 10.753 1.489 C 10.441 1.489 10.47 2.532 10.952 8.428 C 11.037 9.53 11.236 10.424 11.406 10.424 C 11.548 10.424 12.683 10.156 13.874 9.828 Z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <span class="works__hint-text">hover and click</span>
+              </div>
+            </div>
+
+            <div class="works__list">
+              <article class="works__item works__item--capintel">
+                <a class="works__card-link" href="case-studies/digital-financial-proposal.html">
+                <div class="works__card">
+                  <div class="works__peek" aria-hidden="true">
+                    <div class="works__peek-item works__peek-item--1">
+                      <img
+                        src="assets/case-studies/capintel/works-pop/holdings.png"
+                        alt=""
+                        width="280"
+                        height="658"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="works__peek-item works__peek-item--2">
+                      <img
+                        src="assets/case-studies/capintel/works-pop/overview.png"
+                        alt=""
+                        width="408"
+                        height="564"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="works__peek-item works__peek-item--3">
+                      <img
+                        src="assets/case-studies/capintel/works-pop/drawdown.png"
+                        alt=""
+                        width="412"
+                        height="492"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div class="folder folder--works">
+                    <svg class="folder__back" viewBox="0 0 300 275.362" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="works-back-grad-1" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgb(74, 164, 222)" />
+                          <stop offset="50%" stop-color="rgb(56, 146, 208)" />
+                          <stop offset="100%" stop-color="rgb(42, 130, 192)" />
+                        </linearGradient>
+                        <linearGradient id="works-back-hi-1" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgba(255, 255, 255, 0.28)" />
+                          <stop offset="18%" stop-color="rgba(255, 255, 255, 0)" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z" fill="url(#works-back-grad-1)" />
+                      <path d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z" fill="url(#works-back-hi-1)" />
+                    </svg>
+                    <div class="folder__front">
+                      <div class="folder__front-face"></div>
+                      <div class="folder__front-shine">
+                        <span class="folder__title">Digital financial proposal</span>
+                      </div>
+                    </div>
+                    <div class="folder__ridge folder__ridge--upper" aria-hidden="true"></div>
+                    <div class="folder__ridge folder__ridge--lower" aria-hidden="true"></div>
+                  </div>
+                  <div class="works__polaroid" aria-hidden="true">
+                    <div class="works__polaroid-img">
+                      <img
+                        src="assets/case-studies/capintel/works-pop/polaroid.png"
+                        alt=""
+                        width="408"
+                        height="400"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="works__polaroid-badge"><span>@Capintel</span></div>
+                  </div>
+                </div>
+                </a>
+              </article>
+
+              <article class="works__item">
+                <a class="works__card-link" href="case-studies/member-rewards-program.html">
+                <div class="works__card">
+                  <div class="folder folder--works">
+                    <svg class="folder__back" viewBox="0 0 300 275.362" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="works-back-grad-2" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgb(74, 164, 222)" />
+                          <stop offset="50%" stop-color="rgb(56, 146, 208)" />
+                          <stop offset="100%" stop-color="rgb(42, 130, 192)" />
+                        </linearGradient>
+                        <linearGradient id="works-back-hi-2" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgba(255, 255, 255, 0.28)" />
+                          <stop offset="18%" stop-color="rgba(255, 255, 255, 0)" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z" fill="url(#works-back-grad-2)" />
+                      <path d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z" fill="url(#works-back-hi-2)" />
+                    </svg>
+                    <div class="folder__front">
+                      <div class="folder__front-face"></div>
+                      <div class="folder__front-shine">
+                        <span class="folder__title">Member rewards program</span>
+                      </div>
+                    </div>
+                    <div class="folder__ridge folder__ridge--upper" aria-hidden="true"></div>
+                    <div class="folder__ridge folder__ridge--lower" aria-hidden="true"></div>
+                  </div>
+                  <div class="works__polaroid" aria-hidden="true">
+                    <div class="works__polaroid-img"><span>client logo</span></div>
+                    <div class="works__polaroid-badge"><span>@Beem Credit Union</span></div>
+                  </div>
+                </div>
+                </a>
+              </article>
+
+              <article class="works__item">
+                <a class="works__card-link" href="case-studies/digital-banking-app.html">
+                <div class="works__card">
+                  <div class="folder folder--works">
+                    <svg class="folder__back" viewBox="0 0 300 275.362" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="works-back-grad-3" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgb(74, 164, 222)" />
+                          <stop offset="50%" stop-color="rgb(56, 146, 208)" />
+                          <stop offset="100%" stop-color="rgb(42, 130, 192)" />
+                        </linearGradient>
+                        <linearGradient id="works-back-hi-3" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgba(255, 255, 255, 0.28)" />
+                          <stop offset="18%" stop-color="rgba(255, 255, 255, 0)" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z" fill="url(#works-back-grad-3)" />
+                      <path d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z" fill="url(#works-back-hi-3)" />
+                    </svg>
+                    <div class="folder__front">
+                      <div class="folder__front-face"></div>
+                      <div class="folder__front-shine">
+                        <span class="folder__title">Digital banking app</span>
+                      </div>
+                    </div>
+                    <div class="folder__ridge folder__ridge--upper" aria-hidden="true"></div>
+                    <div class="folder__ridge folder__ridge--lower" aria-hidden="true"></div>
+                  </div>
+                  <div class="works__polaroid" aria-hidden="true">
+                    <div class="works__polaroid-img"><span>client logo</span></div>
+                    <div class="works__polaroid-badge"><span>@Beem Credit Union</span></div>
+                  </div>
+                </div>
+                </a>
+              </article>
+
+              <article class="works__item">
+                <a class="works__card-link" href="case-studies/parallel-life.html">
+                <div class="works__card">
+                  <span class="works__soon">Coming soon</span>
+                  <div class="folder folder--works">
+                    <svg class="folder__back" viewBox="0 0 300 275.362" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="works-back-grad-4" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgb(74, 164, 222)" />
+                          <stop offset="50%" stop-color="rgb(56, 146, 208)" />
+                          <stop offset="100%" stop-color="rgb(42, 130, 192)" />
+                        </linearGradient>
+                        <linearGradient id="works-back-hi-4" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgba(255, 255, 255, 0.28)" />
+                          <stop offset="18%" stop-color="rgba(255, 255, 255, 0)" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z" fill="url(#works-back-grad-4)" />
+                      <path d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z" fill="url(#works-back-hi-4)" />
+                    </svg>
+                    <div class="folder__front">
+                      <div class="folder__front-face"></div>
+                      <div class="folder__front-shine">
+                        <span class="folder__title">Parallel life</span>
+                      </div>
+                    </div>
+                    <div class="folder__ridge folder__ridge--upper" aria-hidden="true"></div>
+                    <div class="folder__ridge folder__ridge--lower" aria-hidden="true"></div>
+                  </div>
+                  <div class="works__polaroid" aria-hidden="true">
+                    <div class="works__polaroid-img"><span>client logo</span></div>
+                    <div class="works__polaroid-badge"><span>@Beem Credit Union</span></div>
+                  </div>
+                </div>
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="other-works" id="other-works">
+        <div class="other-works__inner">
+          <h2 class="other-works__title">Other works</h2>
+          <div class="other-works__list">
+            <article class="other-works__card">
+              <div class="other-works__meta">
+                <h3 class="other-works__card-title">Marketing Pages</h3>
+                <p class="other-works__client">Questrade</p>
+              </div>
+              <div class="other-works__image" aria-hidden="true">
+                <div class="other-works__image-slot">
+                  <span>Project image</span>
+                </div>
+              </div>
+              <p class="other-works__label">Label</p>
+              <a class="other-works__open" href="case-studies/marketing-pages.html">Open</a>
+            </article>
+
+            <article class="other-works__card">
+              <div class="other-works__meta">
+                <h3 class="other-works__card-title">CRM Platform</h3>
+                <p class="other-works__client">Beem credit union</p>
+              </div>
+              <div class="other-works__image" aria-hidden="true">
+                <div class="other-works__image-slot other-works__image-slot--soon">
+                  <span>Coming soon</span>
+                </div>
+              </div>
+              <p class="other-works__label">Label</p>
+              <a class="other-works__open" href="case-studies/crm-platform.html">Open</a>
+            </article>
+
+            <article class="other-works__card">
+              <div class="other-works__meta">
+                <h3 class="other-works__card-title">Social Startup Portal</h3>
+                <p class="other-works__client">Meaningful Work</p>
+              </div>
+              <div class="other-works__image" aria-hidden="true">
+                <div class="other-works__image-slot">
+                  <span>Project image</span>
+                </div>
+              </div>
+              <p class="other-works__label">Label</p>
+              <a class="other-works__open" href="case-studies/social-startup-portal.html">Open</a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <footer class="site-footer" id="contact">
+        <div class="site-footer__stage" aria-hidden="false">
+          <div class="site-footer__blob">
+            <div class="site-footer__pill site-footer__pill--research">Research</div>
+            <div class="site-footer__pill site-footer__pill--frontend">Frontend Development</div>
+            <div class="site-footer__pill site-footer__pill--systems">Build Systems</div>
+            <div class="site-footer__pill site-footer__pill--branding">Branding</div>
+
+            <img
+              class="site-footer__figure site-footer__figure--left"
+              src="assets/footer/figure-left.svg"
+              alt=""
+              width="166"
+              height="292"
+            />
+            <img
+              class="site-footer__figure site-footer__figure--right"
+              src="assets/footer/figure-right.svg"
+              alt=""
+              width="215"
+              height="292"
+            />
+
+            <img
+              class="site-footer__sparkle"
+              src="assets/footer/sparkle.svg"
+              alt=""
+              width="76"
+              height="52"
+            />
+
+            <h2 class="site-footer__heading">
+              <div class="site-footer__pill site-footer__pill--ux">UX Design</div>
+              Let's design some digital
+              <span class="site-footer__script">wonder.</span>
+            </h2>
+
+            <div class="site-footer__cta">
+              <p>
+                Nothing great is built alone, so why not make<br />
+                the next big thing together?
+              </p>
+              <p>
+                Feel free to reach out to me personally via<br />
+                <a href="mailto:rebeccaszetodesign@gmail.com">sending a message</a> or <a href="contact.html#book">schedule a time</a> to say<br />
+                hello.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <div class="hero__cursor" aria-hidden="true">
+      <span class="hero__cursor-label">You</span>
+      <svg class="hero__cursor-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none" aria-hidden="true">
+        <g filter="url(#filter0_d_4204_3)">
+          <path d="M8.75418 20L5.62291 4.04092L20 11.9182L12.9181 13.9727L8.75418 20Z" fill="black"/>
+          <path d="M8.75418 20L5.62291 4.04092L20 11.9182L12.9181 13.9727L8.75418 20Z" stroke="white"/>
+        </g>
+        <defs>
+          <filter id="filter0_d_4204_3" x="2.9248" y="2.09064" width="20.3721" height="22.1734" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dy="1"/>
+            <feGaussianBlur stdDeviation="1"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4204_3"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4204_3" result="shape"/>
+          </filter>
+        </defs>
+      </svg>
+    </div>
+
+    <script src="script.js?v=toc-deselect"></script>
+  </body>
+</html>

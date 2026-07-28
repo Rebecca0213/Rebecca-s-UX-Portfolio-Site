@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me — Rebecca Szeto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Grand+Hotel&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Pacifico&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=about-award" />
+  </head>
+  <body class="is-loading page-about">
+    <div
+      class="page-loader"
+      id="page-loader"
+      role="status"
+      aria-live="polite"
+      aria-busy="true"
+      aria-label="Loading page"
+    >
+      <div class="page-loader__progress" aria-hidden="true"></div>
+      <div class="page-loader__shell" aria-hidden="true">
+        <div class="page-loader__nav">
+          <span class="skel skel--logo"></span>
+          <div class="page-loader__nav-links">
+            <span class="skel skel--nav"></span>
+            <span class="skel skel--nav"></span>
+            <span class="skel skel--nav"></span>
+            <span class="skel skel--nav"></span>
+          </div>
+        </div>
+
+        <div class="page-loader__content">
+          <div class="page-loader__panel page-loader__panel--home">
+            <div class="page-loader__hero">
+              <span class="skel skel--title"></span>
+              <span class="skel skel--subtitle"></span>
+              <span class="skel skel--circle"></span>
+            </div>
+            <div class="page-loader__works">
+              <span class="skel skel--heading"></span>
+              <div class="page-loader__cards">
+                <span class="skel skel--folder"></span>
+                <span class="skel skel--folder"></span>
+                <span class="skel skel--folder"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="page-loader__panel page-loader__panel--works">
+            <div class="page-loader__works">
+              <span class="skel skel--heading"></span>
+              <div class="page-loader__cards">
+                <span class="skel skel--folder"></span>
+                <span class="skel skel--folder"></span>
+                <span class="skel skel--folder"></span>
+                <span class="skel skel--folder"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="page-loader__panel page-loader__panel--blog">
+            <div class="page-loader__blog">
+              <span class="skel skel--circle"></span>
+              <span class="skel skel--eyebrow"></span>
+              <span class="skel skel--title"></span>
+              <span class="skel skel--line-mid"></span>
+              <span class="skel skel--line-short"></span>
+              <span class="skel skel--cta"></span>
+            </div>
+          </div>
+
+          <div class="page-loader__panel page-loader__panel--about">
+            <div class="page-loader__about">
+              <span class="skel skel--photo"></span>
+              <div class="page-loader__copy">
+                <span class="skel skel--eyebrow"></span>
+                <span class="skel skel--heading"></span>
+                <span class="skel skel--subtitle"></span>
+                <span class="skel skel--line"></span>
+                <span class="skel skel--line"></span>
+                <span class="skel skel--line-mid"></span>
+                <span class="skel skel--line-short"></span>
+                <span class="skel skel--cta"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="page-loader__panel page-loader__panel--contact">
+            <div class="page-loader__contact">
+              <span class="skel skel--eyebrow"></span>
+              <span class="skel skel--title"></span>
+              <span class="skel skel--line-mid"></span>
+              <span class="skel skel--line-short"></span>
+              <span class="skel skel--calendar"></span>
+            </div>
+          </div>
+
+          <div class="page-loader__panel page-loader__panel--case">
+            <div class="page-loader__case">
+              <div class="page-loader__toc">
+                <span class="skel skel--toc"></span>
+                <span class="skel skel--toc"></span>
+                <span class="skel skel--toc"></span>
+                <span class="skel skel--toc"></span>
+                <span class="skel skel--toc"></span>
+              </div>
+              <div class="page-loader__copy">
+                <span class="skel skel--heading"></span>
+                <span class="skel skel--line"></span>
+                <span class="skel skel--line"></span>
+                <span class="skel skel--line-mid"></span>
+                <span class="skel skel--line"></span>
+                <span class="skel skel--line-short"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<header class="nav">
+      <a href="index.html" class="nav__logo">
+        Rebecca S<span class="accent-z accent-z--interactive" tabindex="0">z</span>eto
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="works.html">Works</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html" aria-current="page">About Me</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="about-page" aria-labelledby="about-title">
+        <div class="about-page__layout">
+          <div class="about-page__photo">
+            <img
+              src="assets/about/rebecca-portrait.jpg?v=2"
+              alt="Portrait of Rebecca Szeto"
+              width="900"
+              height="1024"
+            />
+          </div>
+
+          <div class="about-page__copy">
+            <p class="about-page__eyebrow">About Me</p>
+            <h1 class="about-page__title" id="about-title">Hi, I’m Rebecca</h1>
+            <p class="about-page__role">Product Designer and Builder</p>
+
+            <div class="about-page__body">
+              <p>
+                I’m a product designer creating experiences that bring people together
+                and invite high-level interaction — turning research, systems thinking,
+                and craft into products people actually want to use.
+              </p>
+              <p>
+                I’ve designed a $14M (secured series funding) MVP, and I keep advocating
+                for users through empathy-led research — translating core customer needs
+                into meaningful, inclusive experiences that bridge people and technology.
+              </p>
+              <p>
+                I care about immersive media, mixed realities, and shipping thoughtful
+                interfaces end to end — from flows and prototypes to front-end polish.
+              </p>
+            </div>
+
+            <div class="about-page__actions">
+              <a
+                class="about-page__link"
+                href="https://www.linkedin.com/in/rebeccaempowers/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a class="about-page__link about-page__link--primary" href="contact.html">
+                Contact me
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-page__award">
+          <h2 class="about-page__award-title">Honors &amp; Awards</h2>
+          <figure class="about-page__award-figure">
+            <img
+              src="assets/about/ux-design-award-2022.png"
+              alt="UX Design Awards Nominated 2022 certificate for LinkedIn Mentorship: A Redesign of the LinkedIn Profile Page Interface by Rebecca Szeto, York University"
+              width="719"
+              height="1024"
+            />
+            <figcaption class="about-page__award-caption">
+              UX Design Award | Nominated 2022 — LinkedIn Mentorship: A Redesign of the LinkedIn Profile Page Interface, York University
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <footer class="site-footer" id="contact">
+        <div class="site-footer__stage" aria-hidden="false">
+          <div class="site-footer__blob">
+            <div class="site-footer__pill site-footer__pill--research">Research</div>
+            <div class="site-footer__pill site-footer__pill--frontend">Frontend Development</div>
+            <div class="site-footer__pill site-footer__pill--systems">Build Systems</div>
+            <div class="site-footer__pill site-footer__pill--branding">Branding</div>
+
+            <img
+              class="site-footer__figure site-footer__figure--left"
+              src="assets/footer/figure-left.svg"
+              alt=""
+              width="166"
+              height="292"
+            />
+            <img
+              class="site-footer__figure site-footer__figure--right"
+              src="assets/footer/figure-right.svg"
+              alt=""
+              width="215"
+              height="292"
+            />
+
+            <img
+              class="site-footer__sparkle"
+              src="assets/footer/sparkle.svg"
+              alt=""
+              width="76"
+              height="52"
+            />
+
+            <h2 class="site-footer__heading">
+              <div class="site-footer__pill site-footer__pill--ux">UX Design</div>
+              Let's design some digital
+              <span class="site-footer__script">wonder.</span>
+            </h2>
+
+            <div class="site-footer__cta">
+              <p>
+                Nothing great is built alone, so why not make<br />
+                the next big thing together?
+              </p>
+              <p>
+                Feel free to reach out to me personally via<br />
+                <a href="mailto:rebeccaszetodesign@gmail.com">sending a message</a> or <a href="contact.html#book">schedule a time</a> to say<br />
+                hello.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <div class="hero__cursor" aria-hidden="true">
+      <span class="hero__cursor-label">You</span>
+      <svg class="hero__cursor-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none" aria-hidden="true">
+        <g filter="url(#filter0_d_about_cursor)">
+          <path d="M8.75418 20L5.62291 4.04092L20 11.9182L12.9181 13.9727L8.75418 20Z" fill="black"/>
+          <path d="M8.75418 20L5.62291 4.04092L20 11.9182L12.9181 13.9727L8.75418 20Z" stroke="white"/>
+        </g>
+        <defs>
+          <filter id="filter0_d_about_cursor" x="2.9248" y="2.09064" width="20.3721" height="22.1734" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dy="1"/>
+            <feGaussianBlur stdDeviation="1"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_filter0_d_about_cursor"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_filter0_d_about_cursor" result="shape"/>
+          </filter>
+        </defs>
+      </svg>
+    </div>
+
+    <script src="script.js?v=toc-deselect"></script>
+  </body>
+</html>
