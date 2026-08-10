@@ -4270,7 +4270,7 @@ body.is-ready .case-arch.is-scrolling .case-arch__panel {
   display: grid;
   grid-template-columns: minmax(260px, 380px) minmax(0, 1fr);
   gap: 64px;
-  align-items: start;
+  align-items: center;
 }
 
 .about-page__aside {
@@ -4301,7 +4301,6 @@ body.is-ready .case-arch.is-scrolling .case-arch__panel {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-top: 8px;
 }
 
 .about-page__eyebrow {
