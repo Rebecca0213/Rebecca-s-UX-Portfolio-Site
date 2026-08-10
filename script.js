@@ -806,18 +806,132 @@ if (caseStudyNav && caseStudyToc) {
   );
 }
 
-// Case study analysis-item accordions — only one open at a time
+// Case study iteration pill switcher
+document.querySelectorAll("[data-case-study-pills]").forEach((root) => {
+  const tabs = [...root.querySelectorAll("[data-pill]")];
+  const panels = [...root.querySelectorAll("[data-pill-panel]")];
+
+  const activate = (id) => {
+    tabs.forEach((tab) => {
+      const selected = tab.dataset.pill === id;
+      tab.classList.toggle("is-active", selected);
+      tab.setAttribute("aria-selected", selected ? "true" : "false");
+      tab.tabIndex = selected ? 0 : -1;
+    });
+    panels.forEach((panel) => {
+      panel.hidden = panel.dataset.pillPanel !== id;
+    });
+  };
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      activate(tab.dataset.pill);
+      tab.blur();
+    });
+
+    tab.addEventListener("keydown", (event) => {
+      const index = tabs.indexOf(tab);
+      let next = -1;
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        next = (index + 1) % tabs.length;
+      } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        next = (index - 1 + tabs.length) % tabs.length;
+      } else if (event.key === "Home") {
+        next = 0;
+      } else if (event.key === "End") {
+        next = tabs.length - 1;
+      }
+      if (next < 0) return;
+      event.preventDefault();
+      tabs[next].focus();
+      activate(tabs[next].dataset.pill);
+    });
+  });
+
+  const initial =
+    tabs.find((tab) => tab.classList.contains("is-active"))?.dataset.pill ||
+    tabs[0]?.dataset.pill;
+  if (initial) activate(initial);
+});
+
+// Case study analysis-item accordions — multiple can be open;
+// unified card when all closed, split cards when any are open.
 document.querySelectorAll("[data-case-study-accordions]").forEach((group) => {
   const items = [...group.querySelectorAll("details.case-study__accordion")];
 
+  const syncSplit = () => {
+    group.classList.toggle(
+      "is-split",
+      items.some((item) => item.open)
+    );
+  };
+
   items.forEach((item) => {
+    const summary = item.querySelector("summary");
+    if (!summary) return;
+
+    // Prevent focus ring on pointer click; keyboard focus still works via Tab/Enter.
+    summary.addEventListener("mousedown", (event) => {
+      if (event.detail > 0) event.preventDefault();
+    });
+
     item.addEventListener("toggle", () => {
-      if (!item.open) return;
-      items.forEach((other) => {
-        if (other !== item) other.open = false;
-      });
+      syncSplit();
+      if (document.activeElement === summary) summary.blur();
     });
   });
+
+  syncSplit();
+});
+
+// Custom button accordions (avoids native <summary> focus outline).
+// Multiple can be open at once.
+document.querySelectorAll("[data-case-study-disclosures]").forEach((group) => {
+  const items = [...group.querySelectorAll(".case-study__accordion")];
+
+  const syncSplit = () => {
+    group.classList.toggle(
+      "is-split",
+      items.some((item) => item.classList.contains("is-open"))
+    );
+  };
+
+  const setOpen = (item, open) => {
+    const summary = item.querySelector(".case-study__accordion-summary");
+    const body = item.querySelector(".case-study__accordion-body");
+    item.classList.toggle("is-open", open);
+    if (summary) summary.setAttribute("aria-expanded", open ? "true" : "false");
+    if (body) body.hidden = !open;
+  };
+
+  items.forEach((item) => {
+    const summary = item.querySelector(".case-study__accordion-summary");
+    if (!summary) return;
+
+    summary.addEventListener("mousedown", (event) => {
+      if (event.detail > 0) event.preventDefault();
+    });
+
+    summary.addEventListener("click", () => {
+      const willOpen = !item.classList.contains("is-open");
+      setOpen(item, willOpen);
+      syncSplit();
+      summary.blur();
+
+      if (willOpen) {
+        // Wait a frame so the opened panel lays out before scrolling.
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        requestAnimationFrame(() => {
+          item.scrollIntoView({
+            behavior: reduceMotion ? "auto" : "smooth",
+            block: "start",
+          });
+        });
+      }
+    });
+  });
+
+  syncSplit();
 });
 
 // Case study arch — scroll-linked title/panel motion (after load enter)
@@ -860,4 +974,103 @@ document.querySelectorAll("[data-case-study-accordions]").forEach((group) => {
     readyObserver.observe(document.body, { attributes: true, attributeFilter: ["class"] });
   }
 })();
+
+// Beem home widget embed — match frame height to scaled prototype content
+(() => {
+  const embeds = Array.from(document.querySelectorAll("[data-beem-proto-embed]"));
+  if (!embeds.length) return;
+
+  const applyHeight = (embed, height) => {
+    // Grow with prototype content (e.g. expand-all accordion) — no viewport cap.
+    const next = `${Math.ceil(height)}px`;
+    embed.style.height = next;
+    embed.style.minHeight = next;
+    embed.style.maxHeight = "none";
+    embed.style.aspectRatio = "unset";
+  };
+
+  window.addEventListener("message", (event) => {
+    const data = event.data;
+    if (!data || data.type !== "beem-proto-size" || typeof data.height !== "number") return;
+    if (!Number.isFinite(data.height) || data.height <= 0) return;
+
+    embeds.forEach((embed) => {
+      const frame = embed.querySelector("iframe");
+      if (!frame || frame.contentWindow !== event.source) return;
+      applyHeight(embed, data.height);
+    });
+  });
+
+  // Ask already-loaded frames to re-report size (e.g. after bfcache / late listeners)
+  embeds.forEach((embed) => {
+    const frame = embed.querySelector("iframe");
+    if (!frame) return;
+    frame.addEventListener("load", () => {
+      try {
+        frame.contentWindow?.postMessage({ type: "beem-proto-request-size" }, "*");
+      } catch {
+        /* ignore */
+      }
+    });
+  });
+})();
+
+// Case study image carousels (e.g. fund-flow default → hover → click)
+document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
+  const slides = [...root.querySelectorAll(".case-study__carousel-slide")];
+  if (slides.length < 2) return;
+
+  const labelEl = root.querySelector("[data-carousel-label]");
+  const prevBtn = root.querySelector("[data-carousel-prev]");
+  const nextBtn = root.querySelector("[data-carousel-next]");
+  const dotsWrap = root.querySelector("[data-carousel-dots]");
+  let index = Math.max(
+    0,
+    slides.findIndex((slide) => slide.classList.contains("is-active"))
+  );
+
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "case-study__carousel-dot";
+    dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+    dotsWrap?.appendChild(dot);
+    return dot;
+  });
+
+  const goTo = (nextIndex) => {
+    index = Math.max(0, Math.min(slides.length - 1, nextIndex));
+    slides.forEach((slide, i) => {
+      const active = i === index;
+      slide.classList.toggle("is-active", active);
+      slide.hidden = !active;
+    });
+    dots.forEach((dot, i) => {
+      const active = i === index;
+      dot.classList.toggle("is-active", active);
+      dot.setAttribute("aria-current", active ? "true" : "false");
+    });
+    if (labelEl) {
+      labelEl.textContent = slides[index].dataset.label || `Slide ${index + 1}`;
+    }
+    if (prevBtn) prevBtn.disabled = index === 0;
+    if (nextBtn) nextBtn.disabled = index === slides.length - 1;
+  };
+
+  prevBtn?.addEventListener("click", () => goTo(index - 1));
+  nextBtn?.addEventListener("click", () => goTo(index + 1));
+  dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+
+  root.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      goTo(index - 1);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      goTo(index + 1);
+    }
+  });
+
+  goTo(index);
+});
 

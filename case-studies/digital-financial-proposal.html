@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Grand+Hotel&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Pacifico&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=nav-pill" />
+    <link rel="stylesheet" href="../styles.css?v=final-titles" />
   </head>
   <body class="is-loading page-case-study page-case-study--capintel">
     <div
@@ -206,359 +206,598 @@
           <section class="case-study__section" id="user-research">
             <h2>User Research</h2>
             <h3 class="case-study__subsection">Navigation Bar Research Results</h3>
+            <p>
+              First, navigation is an important part of the proposal that we had to address. In the past, going through PDF proposals was not the best experience (especially if you have many pages to flip through). The upside to having the proposal digitally is the ease of creating an experience where navigating/jumping to different sections of the proposal can be made relatively intuitive and convenient for the user.
+            </p>
+            <p>
+              Below are some of the iterations that we came up with as a team that the user might find helpful using to help them navigate through the digital proposal — we ended up choosing iteration 2.
+            </p>
 
-            <div class="case-study__accordions" data-case-study-accordions>
-              <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">Iteration 1</summary>
-                <div class="case-study__accordion-body">
-                  <p>
-                    This iteration has the navigation menu on the sidebar – expanded. The user would need to scroll through the menu to get to the end of the list of menu items if the section they’re looking for is near-bottom.
-                  </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/nav-mockup-1.png"
-                      alt="Iteration 1 expanded sidebar navigation prototype"
-                      width="695"
-                      height="355"
-                      loading="lazy"
-                    />
-                  </figure>
-                  <p class="case-study__card-result">
-                    <strong>Research results:</strong> ~65% direct success rate; 5.8% bounce (give up) rate
-                  </p>
-                  <div class="case-study__card-quotes">
-                    <p class="case-study__card-quotes-label">Quotes and observations from users</p>
-                    <ul>
-                      <li>
-                        “Easy to find..but <span class="case-study__card-emphasis">need to scroll down all the way to find item.</span>”
-                      </li>
-                      <li>
-                        <span class="case-study__card-emphasis">unable to find “Assets Allocation”;</span>
-                        spent 2m42s on task (checked task 4x and clicked on “Top 5 Country Allocations” multiple times) – gave up task
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </details>
-
-              <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">
+            <div class="case-study__accordions" data-case-study-disclosures>
+              <div class="case-study__accordion case-study__accordion--recommended">
+                <button
+                  type="button"
+                  class="case-study__accordion-summary"
+                  aria-expanded="false"
+                  aria-controls="nav-iter-panel-2"
+                >
                   <span class="case-study__accordion-summary-text">
                     Iteration 2
-                    <span class="case-study__card-badge">Chosen iteration</span>
+                    <span class="case-study__card-badge case-study__card-badge--recommended">Chosen iteration</span>
                   </span>
-                </summary>
-                <div class="case-study__accordion-body">
+                </button>
+                <div class="case-study__accordion-body" id="nav-iter-panel-2" hidden>
+                  <p class="case-study__accordion-why">
+                    Easy to find content item grouped under a bigger and relevant category.
+                  </p>
                   <p>
                     This iteration has the navigation menu on the side. The analysis menu items are nested within accordions to save real estate of the screen.
                   </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/nav-mockup-2.png"
-                      alt="Iteration 2 accordion sidebar navigation prototype"
-                      width="715"
-                      height="425"
+                  <div class="case-study__embed">
+                    <iframe
+                      title="Iteration 2 accordion sidebar navigation — interactive prototype"
+                      src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fgetuxis2oFrGsAmMRmIqg4%2FOmni---1.0%3Fnode-id%3D2-14942%26scaling%3Dmin-zoom%26content-scaling%3Dfixed%26starting-point-node-id%3D2%253A15087%26page-id%3D2%253A14913"
+                      allowfullscreen
                       loading="lazy"
-                    />
-                  </figure>
-                  <p class="case-study__card-result">
-                    <strong>Research results:</strong> 100% direct success rate
+                    ></iframe>
+                  </div>
+                  <p class="case-study__embed-link">
+                    <a
+                      href="https://www.figma.com/proto/getuxis2oFrGsAmMRmIqg4/Omni---1.0?node-id=2-14942&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=2%3A15087&amp;page-id=2%3A14913"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open clickable prototype
+                    </a>
                   </p>
-                  <div class="case-study__card-quotes">
-                    <p class="case-study__card-quotes-label">Quotes and observations from users</p>
-                    <ul>
-                      <li>
-                        “Intuitive/Easy – [with help of content item]
-                        <span class="case-study__card-emphasis">grouped under a bigger and relevant category.</span>”
-                      </li>
-                      <li>
-                        <span class="case-study__card-emphasis">quickly found “Top 5 Country Allocations” (quicker than iterations 3 and 4)</span>
-                      </li>
-                    </ul>
+                  <div class="case-study__stat-grid">
+                    <div class="case-study__stat">
+                      <p class="case-study__stat-label">Direct success rate</p>
+                      <p class="case-study__stat-value">100%</p>
+                    </div>
+                  </div>
+                  <div class="case-study__insights">
+                    <h4 class="case-study__insights-title">Quotes and observations</h4>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-quote">
+                        “Intuitive/Easy – [with help of content item] grouped under a bigger and relevant category.”
+                      </p>
+                      <p class="case-study__insight-note">
+                        Content grouped under a bigger and relevant category made the item easy to find.
+                      </p>
+                    </div>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-note">
+                        Quickly found “Top 5 Country Allocations” — quicker than iterations 3 and 4.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </details>
+              </div>
 
-              <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">Iteration 3</summary>
-                <div class="case-study__accordion-body">
+              <div class="case-study__accordion">
+                <button
+                  type="button"
+                  class="case-study__accordion-summary"
+                  aria-expanded="false"
+                  aria-controls="nav-iter-panel-1"
+                >
+                  Iteration 1
+                </button>
+                <div class="case-study__accordion-body" id="nav-iter-panel-1" hidden>
+                  <p>
+                    This iteration has the navigation menu on the sidebar – expanded. The user would need to scroll through the menu to get to the end of the list of menu items if the section they’re looking for is near-bottom.
+                  </p>
+                  <div class="case-study__embed">
+                    <iframe
+                      title="Iteration 1 expanded sidebar navigation — interactive prototype"
+                      src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fgetuxis2oFrGsAmMRmIqg4%2FOmni---1.0%3Fnode-id%3D2-14972%26scaling%3Dmin-zoom%26content-scaling%3Dfixed%26starting-point-node-id%3D2%253A15087%26page-id%3D2%253A14913"
+                      allowfullscreen
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+                  <p class="case-study__embed-link">
+                    <a
+                      href="https://www.figma.com/proto/getuxis2oFrGsAmMRmIqg4/Omni---1.0?node-id=2-14972&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;starting-point-node-id=2%3A15087&amp;page-id=2%3A14913"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open clickable prototype
+                    </a>
+                  </p>
+                  <div class="case-study__stat-grid">
+                    <div class="case-study__stat">
+                      <p class="case-study__stat-label">Direct success rate</p>
+                      <p class="case-study__stat-value">~65%</p>
+                    </div>
+                    <div class="case-study__stat">
+                      <p class="case-study__stat-label">Bounce (give up) rate</p>
+                      <p class="case-study__stat-value">5.8%</p>
+                    </div>
+                  </div>
+                  <div class="case-study__insights">
+                    <h4 class="case-study__insights-title">Quotes and observations</h4>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-quote">
+                        “Easy to find..but need to scroll down all the way to find item.”
+                      </p>
+                      <p class="case-study__insight-note">
+                        Sidebar required scrolling all the way to reach lower menu items.
+                      </p>
+                    </div>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-note">
+                        Unable to find “Assets Allocation”; spent 2m42s on task (checked task 4x and clicked on “Top 5 Country Allocations” multiple times) — gave up.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="case-study__accordion">
+                <button
+                  type="button"
+                  class="case-study__accordion-summary"
+                  aria-expanded="false"
+                  aria-controls="nav-iter-panel-3"
+                >
+                  Iteration 3
+                </button>
+                <div class="case-study__accordion-body" id="nav-iter-panel-3" hidden>
                   <p>
                     The navigation bar is at the top for this iteration, with a dropdown coming down that shows the different analysis items upon the user clicking on the menu headings.
                   </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/nav-mockup-3.png"
-                      alt="Iteration 3 top navigation with dropdowns prototype"
-                      width="720"
-                      height="377"
+                  <div class="case-study__embed case-study__embed--wide">
+                    <iframe
+                      title="Iteration 3 top navigation with dropdowns — interactive prototype"
+                      src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fgetuxis2oFrGsAmMRmIqg4%2FOmni---1.0%3Fnode-id%3D2-15019%26scaling%3Dscale-down-width%26content-scaling%3Dfixed%26starting-point-node-id%3D2%253A15087%26page-id%3D2%253A14913"
+                      allowfullscreen
                       loading="lazy"
-                    />
-                  </figure>
-                  <p class="case-study__card-result">
-                    <strong>Research results:</strong> 94% indirect success rate; ~5.8% bounce (give up) rate
+                    ></iframe>
+                  </div>
+                  <p class="case-study__embed-link">
+                    <a
+                      href="https://www.figma.com/proto/getuxis2oFrGsAmMRmIqg4/Omni---1.0?node-id=2-15019&amp;scaling=scale-down-width&amp;content-scaling=fixed&amp;starting-point-node-id=2%3A15087&amp;page-id=2%3A14913"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open clickable prototype
+                    </a>
                   </p>
-                  <div class="case-study__card-quotes">
-                    <p class="case-study__card-quotes-label">Quotes and observations from users</p>
-                    <ul>
-                      <li>
-                        “I think ‘[Drawdown Details]’ is under ‘Holding Details’ – I click and it’s not. [Category title]
-                        <span class="case-study__card-emphasis">threw me off a bit – would think “Drawdown Details” be under “Holding Details.”</span>”
-                      </li>
-                    </ul>
+                  <div class="case-study__stat-grid">
+                    <div class="case-study__stat">
+                      <p class="case-study__stat-label">Indirect success rate</p>
+                      <p class="case-study__stat-value">94%</p>
+                    </div>
+                    <div class="case-study__stat">
+                      <p class="case-study__stat-label">Bounce (give up) rate</p>
+                      <p class="case-study__stat-value">5.8%</p>
+                    </div>
+                  </div>
+                  <div class="case-study__insights">
+                    <h4 class="case-study__insights-title">Quotes and observations</h4>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-quote">
+                        “I think ‘Drawdown details’ is under ‘Holding details’ — I click and it’s not.”
+                      </p>
+                      <p class="case-study__insight-note">
+                        Category title threw the user off — they expected it grouped under Holding details.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </details>
+              </div>
 
-              <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">Iteration 4</summary>
-                <div class="case-study__accordion-body">
+              <div class="case-study__accordion">
+                <button
+                  type="button"
+                  class="case-study__accordion-summary"
+                  aria-expanded="false"
+                  aria-controls="nav-iter-panel-4"
+                >
+                  Iteration 4
+                </button>
+                <div class="case-study__accordion-body" id="nav-iter-panel-4" hidden>
                   <p>
                     The last iteration shows the menu hidden underneath a hamburger icon on the top right corner of the proposal. Upon clicking into it, the analysis items are nested within accordions.
                   </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/nav-mockup-4.png"
-                      alt="Iteration 4 hamburger menu navigation prototype"
-                      width="715"
-                      height="350"
+                  <div class="case-study__embed case-study__embed--wide">
+                    <iframe
+                      title="Iteration 4 hamburger menu navigation — interactive prototype"
+                      src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fgetuxis2oFrGsAmMRmIqg4%2FOmni---1.0%3Fnode-id%3D2-15065%26scaling%3Dscale-down-width%26content-scaling%3Dfixed%26starting-point-node-id%3D2%253A15087%26page-id%3D2%253A14913"
+                      allowfullscreen
                       loading="lazy"
-                    />
-                  </figure>
-                  <p class="case-study__card-result">
-                    <strong>Research results:</strong> 47% direct success rate; 52.9% indirect success rate
+                    ></iframe>
+                  </div>
+                  <p class="case-study__embed-link">
+                    <a
+                      href="https://www.figma.com/proto/getuxis2oFrGsAmMRmIqg4/Omni---1.0?node-id=2-15065&amp;scaling=scale-down-width&amp;content-scaling=fixed&amp;starting-point-node-id=2%3A15087&amp;page-id=2%3A14913"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open clickable prototype
+                    </a>
                   </p>
-                  <div class="case-study__card-quotes">
-                    <p class="case-study__card-quotes-label">Quotes and observations from users</p>
-                    <ul>
-                      <li>
-                        “Says ‘Proposal’ and there’s 2 little dashes – I kinda guessed on that. Look at ‘Advisor Fees’ and the ‘Fee Breakdown’ is right there.
-                        <span class="case-study__card-emphasis">Wasn’t easy to see where the nav bar is – a lot of apps I see now have 3 dashes on the upper left hand corner.</span>”
-                      </li>
-                      <li>User took 15–20 seconds to find the nav bar</li>
-                    </ul>
+                  <div class="case-study__stat-grid">
+                    <div class="case-study__stat">
+                      <p class="case-study__stat-label">Direct success rate</p>
+                      <p class="case-study__stat-value">47%</p>
+                    </div>
+                    <div class="case-study__stat">
+                      <p class="case-study__stat-label">Indirect success rate</p>
+                      <p class="case-study__stat-value">52.9%</p>
+                    </div>
+                  </div>
+                  <div class="case-study__insights">
+                    <h4 class="case-study__insights-title">Quotes and observations</h4>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-quote">
+                        “Says ‘Proposal’ and there’s 2 little dashes — I kinda guessed on that. Look at ‘Advisor Fees’ and the ‘Fee Breakdown’ is right there.”
+                      </p>
+                      <p class="case-study__insight-note">
+                        Wasn’t easy to see where the nav bar is — a lot of apps use 3 dashes on the upper left. User took 15–20 seconds to find it.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </details>
+              </div>
             </div>
 
             <h3 class="case-study__subsection case-study__subsection--follow">Analysis Items Research</h3>
-            <p>
-              Second of all, we need to address the different analysis items within the proposal (there are around 30 of them in total).
-            </p>
-            <p>Things to consider are:</p>
-            <ul class="case-study__list">
-              <li>
-                How should we design each of the analysis items (each analysis item is in itself an individual entity that requires individual consideration; e.g., which chart type or data visualization that would best represent that type of data)
-              </li>
-              <li>
-                The interactions within the analysis items itself that the user can interact with
-              </li>
-              <li>
-                Considering the different screen sizes (e.g., desktop, tablet, mobile) and making all the modules responsive
-              </li>
-            </ul>
-            <p>
-              Let’s look at 2 of the analysis items (the lo-fi wireframes) that I’ve created and the research results/user feedback that came out of them (that’s going to inform the next phase of the design process – Hi-Fi mockups). Below, we’re going to show the 2 analysis items “Risk Reward Analysis” and “Fixed Income Credit Quality” as examples to show you my design process. The 3 considerations mentioned above are going to be guiding this process.
-            </p>
 
-            <p class="case-study__group-title">Lo-Fi Wireframes (and their research results)</p>
-
-            <h4 class="case-study__item-title">Risk Reward Analysis</h4>
-            <p class="case-study__def-label">Simple definition of this analysis item:</p>
-            <ul class="case-study__list">
-              <li>
-                Risk/reward analysis of an investment is a useful tool/data that compares an investment’s potential losses with its potential profit
-              </li>
-            </ul>
-            <p>
-              When I first started out with ideating the lo-fi wireframes for this module, I researched how risk reward analysis are usually presented and how they’re currently shown in our PDF proposals. After I figured that they were presented in scatterplots format, I began wireframing a scatterplot into the module while coming up with ways to make the chart and data interactive upon the user’s interaction with it.
-            </p>
-            <p>
-              Some of the <strong>interactions</strong> that I’ve added into this module are showing a data point’s details upon hover (<strong>hover tooltip</strong>), a <strong>time selector</strong>, and a <strong>portfolio selector</strong> (the user can select which investment portfolio’s data that they want to view).
-            </p>
-            <p>
-              In terms of creating <strong>responsive designs/lo-fi wireframes</strong>, <strong>different behaviours</strong> are considered as they accommodate to different screen sizes.
-            </p>
-
-            <figure class="case-study__card-figure case-study__card-figure--solo">
-              <img
-                src="../assets/case-studies/capintel/rra-wireframe.png"
-                alt="Risk/Reward Analysis lo-fi wireframe with time selector, portfolio legend, scatterplot, and hover tooltip"
-                width="910"
-                height="500"
-                loading="lazy"
-              />
-            </figure>
-            <p>
-              This wireframe shows the different interactive elements such as the time selector (to show specific data within a certain timeframe), the hover interaction, and of course, how we would show multiple data points (for multiple portfolios using the portfolio selector).
-            </p>
-
-            <p class="case-study__group-title">Interactions (Hover Tooltip)</p>
-            <div class="case-study__iterations case-study__iterations--pair">
-              <article class="case-study__card">
-                <header class="case-study__card-header">
-                  <h4 class="case-study__card-title">Iteration 1</h4>
-                </header>
-                <figure class="case-study__card-figure">
-                  <img
-                    src="../assets/case-studies/capintel/rra-tooltip-1.png"
-                    alt="Hover tooltip with solid dark background on Risk/Reward Analysis scatterplot"
-                    width="470"
-                    height="350"
-                    loading="lazy"
-                  />
-                </figure>
-                <p>
-                  One of the interactions (other than the time selector and portfolio selector) – the hover tooltip – allows the user to see more detailed info about the data point once hovered over.
-                </p>
-                <p class="case-study__card-result">
-                  “I prefer that the value is shown with a solid background, differentiating it from the data within the scatterplot more clearly.”
-                </p>
-              </article>
-
-              <article class="case-study__card">
-                <header class="case-study__card-header">
-                  <h4 class="case-study__card-title">Iteration 2</h4>
-                </header>
-                <figure class="case-study__card-figure">
-                  <img
-                    src="../assets/case-studies/capintel/rra-tooltip-2.png"
-                    alt="Hover highlight with data labels on the scatterplot grid without a filled tooltip"
-                    width="470"
-                    height="350"
-                    loading="lazy"
-                  />
-                </figure>
-                <p>
-                  This iteration highlights the data point upon hover and the data info sits on the grid of the scatterplot without a background fill.
-                </p>
-                <p class="case-study__card-result">
-                  “I prefer this one as it has the big green dot which stands out and makes the image/chart more clear.”
-                </p>
-              </article>
-            </div>
-            <p class="case-study__card-result case-study__card-result--wide">
-              Both Iteration 1 and Iteration 2 are brought into the next design phase – users prefer to have both the data point highlighted upon hover and the hover tooltip to have a solid background so that the more detailed information is more legible.
-            </p>
-
-            <p class="case-study__group-title">
-              Different Behaviours of Smaller Screen Sizes (Tablets/Phones) – Responsive Design
-            </p>
-            <div class="case-study__iterations case-study__iterations--pair">
-              <article class="case-study__card">
-                <header class="case-study__card-header">
-                  <h4 class="case-study__card-title">Iteration 1</h4>
-                </header>
-                <figure class="case-study__card-figure">
-                  <img
-                    src="../assets/case-studies/capintel/rra-responsive-1.png"
-                    alt="Smaller screen Risk/Reward chart with axis intervals increased to fit all data"
-                    width="470"
-                    height="400"
-                    loading="lazy"
-                  />
-                </figure>
-                <p>
-                  In this iteration for smaller screen sizes, in order to accommodate more data points with a smaller screen, intervals are bumped up from 1 to 2 in order to show/fit all data in the scatterplot.
-                </p>
-                <div class="case-study__card-quotes">
-                  <p class="case-study__card-quotes-label">Research results</p>
-                  <ul>
-                    <li>
-                      “I prefer this chart because I want all the info available by not having to do dig into the chart to do more work to see what I want to see.”
-                    </li>
-                    <li>
-                      “I like the doubled intervals as it allows me to see the whole graph without having to move the screen.”
-                    </li>
-                  </ul>
+            <div class="case-study__analysis-lead">
+              <div class="case-study__stat-grid">
+                <div class="case-study__stat">
+                  <p class="case-study__stat-label">Analysis items in the proposal</p>
+                  <p class="case-study__stat-value">~30</p>
                 </div>
-              </article>
+              </div>
 
-              <article class="case-study__card">
-                <header class="case-study__card-header">
-                  <h4 class="case-study__card-title">Iteration 2</h4>
-                </header>
-                <figure class="case-study__card-figure">
-                  <img
-                    src="../assets/case-studies/capintel/rra-responsive-2.png"
-                    alt="Smaller screen Risk/Reward chart with drag interaction to pan across data"
-                    width="470"
-                    height="400"
-                    loading="lazy"
-                  />
-                </figure>
-                <p>
-                  In this iteration, intervals remain the same, but the interaction of dragging across the screen to view more data points is created to fit more data.
-                </p>
-                <p class="case-study__card-result">
-                  “I think giving the user more control as in this chart just makes it more confusing because now there is a unique interface element that the user has to understand to consume the information rather than just making sense of a single presentation.”
-                </p>
-              </article>
+              <p class="case-study__analysis-consider-label">Things to consider for each:</p>
+              <ul class="case-study__analysis-considerations">
+                <li>
+                  <strong>Visual design</strong> — each analysis item is its own entity; which chart type or visualization best fits its data.
+                </li>
+                <li>
+                  <strong>Interactions</strong> — what the user can interact with inside each analysis item.
+                </li>
+                <li>
+                  <strong>Responsiveness</strong> — how each module adapts across desktop, tablet, and mobile.
+                </li>
+              </ul>
+
+              <p>
+                These 2 examples show my design process ahead of the Hi-Fi mockup phase, guided by the 3 considerations above:
+              </p>
+
+              <div class="case-study__example-pills" aria-label="Example analysis items">
+                <a class="case-study__example-pill" href="#risk-reward-analysis">Risk reward analysis</a>
+                <a class="case-study__example-pill" href="#fixed-income-credit-quality">Fixed income credit quality</a>
+              </div>
+            </div>
+
+            <div class="case-study__module" id="risk-reward-analysis">
+              <h4 class="case-study__module-title">Risk reward analysis</h4>
+
+              <p class="case-study__module-eyebrow">Simple definition</p>
+              <p class="case-study__module-def">
+                Compares an investment’s potential losses against its potential profit.
+              </p>
+              <p class="case-study__module-note">
+                Modeled on the scatterplot format used in current PDF proposals.
+              </p>
+
+              <p class="case-study__module-label">Key interactions:</p>
+              <ul class="case-study__module-list">
+                <li>
+                  <strong>Hover tooltip</strong>
+                  <span> — shows a data point’s details on hover.</span>
+                </li>
+                <li>
+                  <strong>Time selector</strong>
+                  <span> — filters the chart to a specific timeframe.</span>
+                </li>
+                <li>
+                  <strong>Portfolio selector</strong>
+                  <span> — switches which portfolio’s data is shown.</span>
+                </li>
+              </ul>
+
+              <p class="case-study__module-note case-study__module-note--body">
+                In terms of creating responsive designs/lo-fi wireframes, different behaviours are considered as they accommodate to different screen sizes.
+              </p>
+
+              <figure class="case-study__module-figure">
+                <img
+                  src="../assets/case-studies/capintel/rra-wireframe.png?v=scatterplot"
+                  alt="Risk/Reward Analysis scatterplot with time selector, portfolio legend, and hover tooltip showing Std and Return"
+                  width="850"
+                  height="425"
+                  loading="lazy"
+                />
+                <figcaption>
+                  Return plotted against standard deviation, with the interactions above applied.
+                </figcaption>
+              </figure>
+            </div>
+
+            <p class="case-study__group-title case-study__group-title--underlined">1st Test: Hover Tooltip Interaction</p>
+            <div class="case-study__accordions" data-case-study-disclosures>
+              <div class="case-study__accordion">
+                <button
+                  type="button"
+                  class="case-study__accordion-summary"
+                  aria-expanded="false"
+                  aria-controls="rra-tooltip-panel-1"
+                >
+                  Iteration 1
+                </button>
+                <div class="case-study__accordion-body" id="rra-tooltip-panel-1" hidden>
+                  <p>
+                    One of the interactions (other than the time selector and portfolio selector) – the hover tooltip – allows the user to see more detailed info about the data point once hovered over.
+                  </p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/capintel/rra-tooltip-1.png?v=solid-tooltip"
+                      alt="Hover tooltip with solid dark background on Risk/Reward Analysis scatterplot"
+                      width="558"
+                      height="473"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <div class="case-study__insights">
+                    <h4 class="case-study__insights-title">Quotes and observations</h4>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-quote">
+                        “I prefer that the value is shown with a solid background, differentiating it from the data within the scatterplot more clearly.”
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="case-study__accordion">
+                <button
+                  type="button"
+                  class="case-study__accordion-summary"
+                  aria-expanded="false"
+                  aria-controls="rra-tooltip-panel-2"
+                >
+                  Iteration 2
+                </button>
+                <div class="case-study__accordion-body" id="rra-tooltip-panel-2" hidden>
+                  <p>
+                    This iteration highlights the data point upon hover and the data info sits on the grid of the scatterplot without a background fill.
+                  </p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/capintel/rra-tooltip-2.png?v=open-tooltip"
+                      alt="Hover highlight with data labels on the scatterplot grid without a filled tooltip"
+                      width="558"
+                      height="473"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <div class="case-study__insights">
+                    <h4 class="case-study__insights-title">Quotes and observations</h4>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-quote">
+                        “I prefer this one as it has the big green dot which stands out and makes the image/chart more clear.”
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="case-study__decision">
+              <p class="case-study__decision-label">Decision</p>
+              <p class="case-study__decision-title">
+                Both Iteration 1 and Iteration 2 move forward to the next design phase.
+              </p>
+              <p class="case-study__decision-label">Based on user preference</p>
+              <ul class="case-study__decision-list">
+                <li>Highlight the data point on hover</li>
+                <li>Solid background on the hover tooltip, for legibility</li>
+              </ul>
+            </div>
+
+            <p class="case-study__group-title case-study__group-title--underlined">
+              Test 2: Different Behaviours of Smaller Screen Sizes (Tablets/Phones) – Responsive Design
+            </p>
+            <div class="case-study__accordions" data-case-study-disclosures>
+              <div class="case-study__accordion case-study__accordion--recommended">
+                <button
+                  type="button"
+                  class="case-study__accordion-summary"
+                  aria-expanded="false"
+                  aria-controls="rra-responsive-panel-1"
+                >
+                  <span class="case-study__accordion-summary-text">
+                    Iteration 1
+                    <span class="case-study__card-badge case-study__card-badge--recommended">Chosen iteration</span>
+                  </span>
+                </button>
+                <div class="case-study__accordion-body" id="rra-responsive-panel-1" hidden>
+                  <p>
+                    In this iteration for smaller screen sizes, in order to accommodate more data points with a smaller screen, intervals are bumped up from 1 to 2 in order to show/fit all data in the scatterplot.
+                  </p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/capintel/rra-responsive-1.png?v=intervals"
+                      alt="Smaller screen Risk/Reward chart with axis intervals increased to fit all data"
+                      width="558"
+                      height="473"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <div class="case-study__insights">
+                    <h4 class="case-study__insights-title">Quotes and observations</h4>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-quote">
+                        “I prefer this chart because I want all the info available by not having to do dig into the chart to do more work to see what I want to see.”
+                      </p>
+                    </div>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-quote">
+                        “I like the doubled intervals as it allows me to see the whole graph without having to move the screen.”
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="case-study__accordion">
+                <button
+                  type="button"
+                  class="case-study__accordion-summary"
+                  aria-expanded="false"
+                  aria-controls="rra-responsive-panel-2"
+                >
+                  Iteration 2
+                </button>
+                <div class="case-study__accordion-body" id="rra-responsive-panel-2" hidden>
+                  <p>
+                    In this iteration, intervals remain the same, but the interaction of dragging across the screen to view more data points is created to fit more data.
+                  </p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/capintel/rra-responsive-2.png?v=drag"
+                      alt="Smaller screen Risk/Reward chart with drag interaction to pan across data"
+                      width="558"
+                      height="473"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <div class="case-study__insights">
+                    <h4 class="case-study__insights-title">Quotes and observations</h4>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-quote">
+                        “I think giving the user more control as in this chart just makes it more confusing because now there is a unique interface element that the user has to understand to consume the information rather than just making sense of a single presentation.”
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <p class="case-study__card-result case-study__card-result--wide">
               Iteration 1 is brought into the next design phase – people prefer scaling the scatterplot by bumping up the intervals rather than dragging across the screen to view more values.
             </p>
 
-            <h4 class="case-study__item-title">Fixed Income Credit Quality</h4>
-            <p class="case-study__def-label">Simple definition of this analysis item:</p>
-            <ul class="case-study__list">
-              <li>
-                Credit quality is a measurement of an individual’s or company’s creditworthiness – it is an indicator of credit risk. Credit quality is also one of the principal criteria used for judging the investment quality of a bond or fixed income product.
-              </li>
-            </ul>
-            <p>
-              When I first started creating the lo-fi wireframes for this analysis item, I took a few different aspects of fixed income credit quality into consideration.
-            </p>
-            <p>
-              First, I have to consider the different credit ratings and the type of chart best to display them (“AAA” and “AA” (high credit quality) and “A” and “BBB” (medium credit quality); credit ratings for fixed incomes below these designations (“BB,” “B,” “CCC,” etc.) are considered low credit quality, and are commonly referred to as “junk bonds/fixed income products.”
-            </p>
-            <p>
-              Second of all, I had to consider how to show the percentages of the credit ratings each portfolio is comprised of in the chosen chart type.
-            </p>
+            <div class="case-study__module case-study__module--considerations" id="fixed-income-credit-quality">
+              <h4 class="case-study__module-title">Fixed income credit quality</h4>
 
-            <p class="case-study__group-title">2 Different Iterations of Showing Fixed Income Credit Quality</p>
-            <div class="case-study__iterations case-study__iterations--pair">
-              <article class="case-study__card">
-                <header class="case-study__card-header">
-                  <h4 class="case-study__card-title">Iteration 1</h4>
-                </header>
-                <figure class="case-study__card-figure">
-                  <img
-                    src="../assets/case-studies/capintel/ficq-iter-1.png"
-                    alt="Stacked bar chart showing Fixed Income Credit Quality by portfolio"
-                    width="320"
-                    height="175"
-                    loading="lazy"
-                  />
-                </figure>
-                <p>
-                  In this first iteration, each individual investment portfolio is displayed in a vertical stacked bar chart (with each block in the bar representing a percentage of the credit quality that is in that portfolio – e.g., there is 17% of AAA rated fixed income product(s) in Roy’s Off Book Portfolio). A legend is included to differentiate the colour-coded ratings in the bars.
-                </p>
-                <p class="case-study__card-result">
-                  60% of users find this iteration better at showing distribution of credit ratings and 55% believe it to be better at comparing the different portfolios. “Its easier to see quickly the differences in percentages with this one.”
-                </p>
-              </article>
+              <p class="case-study__module-eyebrow">Simple definition</p>
+              <p class="case-study__module-def">
+                A measurement of an individual’s or company’s creditworthiness, indicating credit risk. One of the principal criteria for judging the investment quality of a bond or fixed income product.
+              </p>
 
-              <article class="case-study__card">
-                <header class="case-study__card-header">
-                  <h4 class="case-study__card-title">Iteration 2</h4>
-                </header>
-                <figure class="case-study__card-figure">
-                  <img
-                    src="../assets/case-studies/capintel/ficq-iter-2.png"
-                    alt="Grouped bar chart showing Fixed Income Credit Quality by portfolio"
-                    width="320"
-                    height="175"
-                    loading="lazy"
-                  />
-                </figure>
-                <p>
-                  In the second iteration, each credit rating of a portfolio is represented by an individual colour-coded bar chart (instead of a single stacked bar chart as in the last example). Similar to the last iteration, a legend is included to differentiate the colour-coded bars.
-                </p>
-                <p class="case-study__card-result">
-                  “I prefer the 1st iteration because the percentages are explicitly written inside each bar which are quicker to read than matching values against the vertical axis.”
-                </p>
-              </article>
+              <p class="case-study__module-label">Design considerations:</p>
+              <ul class="case-study__module-list">
+                <li>
+                  <strong>Credit rating tiers</strong>
+                  <span> — which chart type best displays these groupings.</span>
+                  <ul class="case-study__module-sublist">
+                    <li>
+                      <strong>High quality</strong>
+                      <span> — AAA, AA</span>
+                    </li>
+                    <li>
+                      <strong>Medium quality</strong>
+                      <span> — A, BBB</span>
+                    </li>
+                    <li>
+                      <strong>Low quality (junk)</strong>
+                      <span> — BB, B, CCC and below</span>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Portfolio composition</strong>
+                  <span> — how to show each portfolio’s percentage breakdown across rating tiers in the chosen chart type.</span>
+                </li>
+              </ul>
+            </div>
+
+            <p class="case-study__group-title case-study__group-title--underlined">2 Different Iterations of Showing Fixed Income Credit Quality</p>
+            <div class="case-study__accordions" data-case-study-disclosures>
+              <div class="case-study__accordion case-study__accordion--recommended">
+                <button
+                  type="button"
+                  class="case-study__accordion-summary"
+                  aria-expanded="false"
+                  aria-controls="ficq-iter-panel-1"
+                >
+                  <span class="case-study__accordion-summary-text">
+                    Iteration 1
+                    <span class="case-study__card-badge case-study__card-badge--recommended">Chosen iteration</span>
+                  </span>
+                </button>
+                <div class="case-study__accordion-body" id="ficq-iter-panel-1" hidden>
+                  <p>
+                    In this first iteration, each individual investment portfolio is displayed in a vertical stacked bar chart (with each block in the bar representing a percentage of the credit quality that is in that portfolio – e.g., there is 17% of AAA rated fixed income product(s) in Roy’s Off Book Portfolio). A legend is included to differentiate the colour-coded ratings in the bars.
+                  </p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/capintel/ficq-iter-1.png?v=nobox6"
+                      alt="Stacked bar chart showing Fixed Income Credit Quality by portfolio"
+                      width="974"
+                      height="415"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <div class="case-study__stat-grid">
+                    <div class="case-study__stat">
+                      <p class="case-study__stat-label">Better at showing distribution</p>
+                      <p class="case-study__stat-value">60%</p>
+                    </div>
+                    <div class="case-study__stat">
+                      <p class="case-study__stat-label">Better at comparing portfolios</p>
+                      <p class="case-study__stat-value">55%</p>
+                    </div>
+                  </div>
+                  <div class="case-study__insights">
+                    <h4 class="case-study__insights-title">Quotes and observations</h4>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-quote">
+                        “Its easier to see quickly the differences in percentages with this one.”
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="case-study__accordion">
+                <button
+                  type="button"
+                  class="case-study__accordion-summary"
+                  aria-expanded="false"
+                  aria-controls="ficq-iter-panel-2"
+                >
+                  Iteration 2
+                </button>
+                <div class="case-study__accordion-body" id="ficq-iter-panel-2" hidden>
+                  <p>
+                    In the second iteration, each credit rating of a portfolio is represented by an individual colour-coded bar chart (instead of a single stacked bar chart as in the last example). Similar to the last iteration, a legend is included to differentiate the colour-coded bars.
+                  </p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/capintel/ficq-iter-2.png?v=nobox6"
+                      alt="Grouped bar chart showing Fixed Income Credit Quality by portfolio"
+                      width="968"
+                      height="461"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <div class="case-study__insights">
+                    <h4 class="case-study__insights-title">Quotes and observations</h4>
+                    <div class="case-study__insight">
+                      <p class="case-study__insight-quote">
+                        “I prefer the 1st iteration because the percentages are explicitly written inside each bar which are quicker to read than matching values against the vertical axis.”
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="case-study__findings">
@@ -571,135 +810,381 @@
                   </blockquote>
                 </li>
                 <li>
-                  Need to clarify that the breakdown is a breakdown of credit ratings of the funds within a portfolio, not the amount allocation – include description of what the credit ratings mean and that the portfolios are not funds
+                  Users may read the breakdown as amount allocation rather than credit ratings.
+                  <p class="case-study__finding-action">
+                    <strong>Action</strong> — add a description of what the credit ratings mean, and clarify that portfolios are not funds.
+                  </p>
                   <blockquote class="case-study__quote">
                     “I think that they are telling me the breakdown of the fixed income portion of my investments and telling me the amounts in each fund category. I think that this is a snapshot of all my wealth. Personal being saving accounts and then broken down by type of fund. Environmental, high returns, etc… tell me which types of investments I have.”
                   </blockquote>
                 </li>
                 <li>
-                  General explanation of what “fixed income includes” or show breakdown of type of fixed income investments within a portfolio
+                  Open question: how to explain what “fixed income” includes.
+                  <ul class="case-study__finding-options">
+                    <li><strong>Option A</strong> — a general explanation of what fixed income includes.</li>
+                    <li><strong>Option B</strong> — a breakdown of fixed income investment types within the portfolio.</li>
+                  </ul>
                 </li>
               </ul>
             </div>
 
-            <p>
-              Iteration 1 chosen to be implemented for Hi-Fi along with several other changes to be made for next iteration:
-            </p>
-            <figure class="case-study__card-figure case-study__card-figure--solo">
-              <img
-                src="../assets/case-studies/capintel/ficq-chosen.png"
-                alt="Chosen Fixed Income Credit Quality stacked bar chart with annotated changes for the next iteration"
-                width="820"
-                height="420"
-                loading="lazy"
-              />
-            </figure>
-            <ul class="case-study__list">
-              <li>Description of what fixed income credit quality is (and the type of investments it includes)</li>
-              <li>Show breakdown of type of investments in a portfolio that pertains to the respective credit ratings</li>
-              <li>Explain the legend (credit ratings)</li>
-              <li>Make it clear that the portfolios are portfolios and are not funds</li>
-            </ul>
-
-            <p class="case-study__group-title">Research Across 10 Analysis Items</p>
+            <h3 class="case-study__subsection case-study__subsection--follow">Research Across Analysis Items</h3>
             <div class="case-study__accordions" data-case-study-accordions>
               <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">1. Portfolio Holdings Summary</summary>
+                <summary class="case-study__accordion-summary">Portfolio Holdings Summary</summary>
                 <div class="case-study__accordion-body">
-                  <p>Shows the different funds held in different investment portfolios that the client holds.</p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/analysis/01-holdings.png"
-                      alt="Portfolio Holdings Summary research: flow testing and chart vs table iterations"
-                      width="1024"
-                      height="1400"
-                      loading="lazy"
-                    />
-                  </figure>
-                  <p class="case-study__card-result">
-                    17/20 (85%) people find it easy to get to the chart data by clicking on the name of the fund. 15/20 (75%) of users prefer all charts (iteration A). Based on the users’ feedback, we decided that the flow for figuring out fund distribution data is intuitive and having a chart instead of a table to show the distribution is preferred.
-                  </p>
+                  <div class="case-study__research-test">
+                    <h4 class="case-study__research-test-title">Test 1 — Fund flow</h4>
+                    <p class="case-study__research-test-desc">
+                      How easily users can locate a fund’s data within a portfolio.
+                    </p>
+                    <div
+                      class="case-study__carousel"
+                      data-case-study-carousel
+                      aria-roledescription="carousel"
+                      aria-label="Fund flow interaction states"
+                    >
+                      <div class="case-study__carousel-toolbar">
+                        <p class="case-study__carousel-label" data-carousel-label>Default</p>
+                        <div class="case-study__carousel-controls">
+                          <button
+                            type="button"
+                            class="case-study__carousel-btn"
+                            data-carousel-prev
+                            aria-label="Previous slide"
+                          >
+                            <span aria-hidden="true">←</span>
+                          </button>
+                          <div class="case-study__carousel-dots" data-carousel-dots></div>
+                          <button
+                            type="button"
+                            class="case-study__carousel-btn"
+                            data-carousel-next
+                            aria-label="Next slide"
+                          >
+                            <span aria-hidden="true">→</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="case-study__carousel-viewport">
+                        <ul class="case-study__carousel-track">
+                          <li class="case-study__carousel-slide is-active" data-label="Default">
+                            <figure class="case-study__card-figure case-study__card-figure--bare">
+                              <img
+                                src="../assets/case-studies/capintel/phs-flow-default.png?v=1"
+                                alt="Default: portfolio holdings summary with empty insights panel"
+                                width="866"
+                                height="559"
+                                loading="lazy"
+                              />
+                            </figure>
+                          </li>
+                          <li class="case-study__carousel-slide" data-label="Hover" hidden>
+                            <figure class="case-study__card-figure case-study__card-figure--bare">
+                              <img
+                                src="../assets/case-studies/capintel/phs-flow-hover.png?v=1"
+                                alt="Hover: highlighting a holding in the list"
+                                width="866"
+                                height="559"
+                                loading="lazy"
+                              />
+                            </figure>
+                          </li>
+                          <li class="case-study__carousel-slide" data-label="Click" hidden>
+                            <figure class="case-study__card-figure case-study__card-figure--bare">
+                              <img
+                                src="../assets/case-studies/capintel/phs-flow-click.png?v=1"
+                                alt="Click: selected fund shows weight and trend line over time"
+                                width="866"
+                                height="559"
+                                loading="lazy"
+                              />
+                            </figure>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <p class="case-study__research-test-caption">
+                      3-screen flow: default portfolio view → hover a fund → click to see its weight and a trend line over time.
+                    </p>
+                    <div class="case-study__stat case-study__stat--inline">
+                      <p class="case-study__stat-label">Found it easy to get to fund data by clicking the fund name</p>
+                      <p class="case-study__stat-value">85%</p>
+                      <p class="case-study__stat-sub">17 of 20 users</p>
+                    </div>
+                  </div>
+
+                  <div class="case-study__research-test">
+                    <h4 class="case-study__research-test-title">Test 2 — Chart vs. table</h4>
+                    <p class="case-study__research-test-desc">
+                      Whether users prefer viewing fund distribution entirely in charts, or part table and part chart.
+                    </p>
+                    <div class="case-study__research-options">
+                      <div class="case-study__research-option case-study__research-option--chosen">
+                        <span class="case-study__research-option-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <circle cx="12" cy="12" r="8" />
+                            <path d="M12 4a8 8 0 0 1 8 8h-8V4z" fill="currentColor" stroke="none" opacity="0.35" />
+                          </svg>
+                        </span>
+                        <p>
+                          <strong>Iteration A</strong>
+                          <span class="case-study__card-badge case-study__card-badge--recommended">Chosen iteration</span>
+                          — donut chart for fund breakdown, line chart for weight over time.
+                        </p>
+                        <figure class="case-study__card-figure case-study__card-figure--bare">
+                          <img
+                            src="../assets/case-studies/capintel/phs-iter-a.png?v=1"
+                            alt="Iteration A: Portfolio Holdings Summary with donut chart and line chart"
+                            width="866"
+                            height="559"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </div>
+                      <div class="case-study__research-option">
+                        <span class="case-study__research-option-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <rect x="4" y="5" width="16" height="14" rx="1.5" />
+                            <path d="M4 10h16M4 14h16M10 5v14" />
+                          </svg>
+                        </span>
+                        <p>
+                          <strong>Iteration B</strong> — table for weight over time, donut chart plus value summary.
+                        </p>
+                        <figure class="case-study__card-figure case-study__card-figure--bare">
+                          <img
+                            src="../assets/case-studies/capintel/phs-iter-b.png?v=1"
+                            alt="Iteration B: Portfolio Holdings Summary with table and donut chart"
+                            width="866"
+                            height="507"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </div>
+                    </div>
+                    <div class="case-study__stat case-study__stat--inline">
+                      <p class="case-study__stat-label">Prefer all charts (Iteration A)</p>
+                      <p class="case-study__stat-value">75%</p>
+                      <p class="case-study__stat-sub">15 of 20 users</p>
+                    </div>
+                    <blockquote class="case-study__quote">
+                      “I think iteration A looks cleaner and easier to read. It also gives you a quick visual representation of performance compared to numbers on a table.”
+                    </blockquote>
+                  </div>
                 </div>
               </details>
 
               <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">2. Drawdown Details</summary>
+                <summary class="case-study__accordion-summary">Drawdown Details</summary>
                 <div class="case-study__accordion-body">
                   <p>
-                    Drawdown is an investment term that refers to the decline in value of a single investment or an investment portfolio from a relative peak value to a relative trough. The Drawdown Details table includes metrics like maximum decline, months of decline, peak date, valley date, and recovery time. Based on user feedback, the table (details) and the chart (analysis) were merged into one module to improve understanding.
+                    Drawdown is an investment term that refers to the decline in value of a single investment or an investment portfolio from a relative peak value to a relative trough. The Drawdown Details table includes metrics like maximum decline, months of decline, peak date, valley date, and recovery time.
                   </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/analysis/02-drawdown-details.png"
-                      alt="Drawdown Details research: table and chart integration findings"
-                      width="1024"
-                      height="1400"
-                      loading="lazy"
-                    />
-                  </figure>
-                  <p class="case-study__card-result">
-                    16/20 users preferred having the table and chart together. Users preferred interactivity within the table and favored the table being placed above the chart. Decisions included showing drawdown details by default, placing the table at the top, and adding info icons for terminology.
-                  </p>
+                  <div class="case-study__research-test">
+                    <h4 class="case-study__research-test-title">Test 1 — Chart vs. chart + table</h4>
+                    <p class="case-study__research-test-desc">
+                      Whether users prefer drawdown analysis as a chart alone, or as drawdown details that combine the analysis chart with a metrics table.
+                    </p>
+                    <div class="case-study__research-options">
+                      <div class="case-study__research-option">
+                        <p>
+                          <strong>Iteration A</strong> — Drawdown Analysis chart only.
+                        </p>
+                        <figure class="case-study__card-figure case-study__card-figure--bare">
+                          <img
+                            src="../assets/case-studies/capintel/dd-iter-chart.png?v=nobox3"
+                            alt="Iteration A: Drawdown Analysis chart only"
+                            width="977"
+                            height="408"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </div>
+                      <div class="case-study__research-option case-study__research-option--chosen">
+                        <p>
+                          <strong>Iteration B</strong>
+                          <span class="case-study__card-badge case-study__card-badge--recommended">Chosen iteration</span>
+                          — Drawdown Details: analysis chart + metrics table.
+                        </p>
+                        <figure class="case-study__card-figure case-study__card-figure--bare">
+                          <img
+                            src="../assets/case-studies/capintel/dd-iter-table.png?v=nobox3"
+                            alt="Iteration B: Drawdown Details with analysis chart and metrics table"
+                            width="787"
+                            height="975"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </div>
+                    </div>
+                    <div class="case-study__stat case-study__stat--inline">
+                      <p class="case-study__stat-label">Preferred table and chart together</p>
+                      <p class="case-study__stat-value">80%</p>
+                      <p class="case-study__stat-sub">16 of 20 users</p>
+                    </div>
+                    <p class="case-study__card-result">
+                      Users preferred interactivity within the table and favored the table being placed above the chart. Decisions included showing drawdown details by default, placing the table at the top, and adding info icons for terminology.
+                    </p>
+                  </div>
+
+                  <div class="case-study__research-test">
+                    <h4 class="case-study__research-test-title">Test 2 — Table–chart interactivity</h4>
+                    <p class="case-study__research-test-desc">
+                      Whether users preferred interactivity that links the metrics table to the chart (selecting a value highlights the matching point), and what they said about it.
+                    </p>
+                    <figure class="case-study__card-figure case-study__card-figure--bare">
+                      <img
+                        src="../assets/case-studies/capintel/dd-iter-interact.png?v=1"
+                        alt="Drawdown Details interactivity: selecting Max Drawdown in the table highlights the matching point on the chart with a tooltip"
+                        width="780"
+                        height="975"
+                        loading="lazy"
+                      />
+                    </figure>
+                    <div class="case-study__card-result">
+                      <p>
+                        Majority of users prefer having the interactivity on the table as it helps them to:
+                      </p>
+                      <ul class="case-study__takeaway-list">
+                        <li>Focus on a single portfolio for analysis</li>
+                        <li>Know exactly what it hit on the chart and when</li>
+                        <li>
+                          See the exact period for the activity on the chart — when the decline starts and ends
+                        </li>
+                        <li>Also prefer seeing the table above the chart</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </details>
 
               <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">3. Risk Reward Analysis</summary>
-                <div class="case-study__accordion-body">
-                  <p>
-                    The risk reward analysis marks the prospective reward an investor can earn for every dollar they risk on an investment. Many investors use risk reward to compare the expected returns of an investment with the amount of risk they must undertake to earn these returns.
-                  </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/analysis/03-risk-reward.png"
-                      alt="Risk Reward Analysis research: interval scaling vs drag, and hover vs benchmark line"
-                      width="1024"
-                      height="1400"
-                      loading="lazy"
-                    />
-                  </figure>
-                  <p class="case-study__card-result">
-                    Based on the users’ feedback, we went with the 1st iteration for test A (scale intervals to show all data) and the 2nd iteration for test B (add a benchmark line for comparison).
-                  </p>
-                </div>
-              </details>
-
-              <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">4. Overview</summary>
+                <summary class="case-study__accordion-summary">Overview</summary>
                 <div class="case-study__accordion-body">
                   <p>
                     Overview is a summary of the investor client’s entire investment portfolio – showing all the portfolios he/she has and their performance over time (based on increase/decrease on percentage) on a line chart.
                   </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/analysis/04-overview.png"
-                      alt="Overview research: line chart vs bar chart iterations"
-                      width="1024"
-                      height="1400"
-                      loading="lazy"
-                    />
-                  </figure>
-                  <p class="case-study__card-result">
-                    11/20 users (55%) prefer the line chart; 9/20 (45%) prefer the bar chart. Based on feedback, we decided to go with the 2nd iteration (bar chart) in the Hi-Fi phase because it helps users understand both positive and negative growth, and distinguishes every portfolio clearly without overlapping.
-                  </p>
+                  <div class="case-study__research-test">
+                    <h4 class="case-study__research-test-title">Iteration 1 — Line chart</h4>
+                    <p class="case-study__research-test-desc">
+                      Performance over time shown as a multi-portfolio line chart.
+                    </p>
+                    <figure class="case-study__card-figure case-study__card-figure--bare">
+                      <img
+                        src="../assets/case-studies/capintel/overview-iter-1.png?v=1"
+                        alt="Iteration 1: Overview line chart comparing portfolio performance over time"
+                        width="896"
+                        height="465"
+                        loading="lazy"
+                      />
+                    </figure>
+                    <div class="case-study__stat case-study__stat--inline">
+                      <p class="case-study__stat-label">Prefer line chart over bar chart</p>
+                      <p class="case-study__stat-value">55%</p>
+                      <p class="case-study__stat-sub">11 of 20 users</p>
+                    </div>
+                    <div class="case-study__card-result">
+                      <ul class="case-study__takeaway-list">
+                        <li>
+                          Colour coding the lines for their respective portfolios helps users interpret the info on the chart at a glance
+                        </li>
+                        <li>
+                          Depends on how many lines/portfolios we’re comparing before it gets cluttered
+                        </li>
+                        <li>
+                          Prefer to be able to hover over any point to show the info rather than just one of the points
+                        </li>
+                        <li>
+                          Some people don’t know what’s being shown — we can perhaps give them more context by including the x and y axis on the chart itself
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="case-study__research-test">
+                    <div class="case-study__research-option case-study__research-option--chosen">
+                      <p>
+                        <strong>Iteration 2</strong>
+                        <span class="case-study__card-badge case-study__card-badge--recommended">Chosen iteration</span>
+                        — Bar chart: performance over time as a grouped bar chart, so positive and negative growth are easier to distinguish.
+                      </p>
+                      <figure class="case-study__card-figure case-study__card-figure--bare">
+                        <img
+                          src="../assets/case-studies/capintel/overview-iter-2.png?v=nobg2"
+                          alt="Iteration 2: Overview bar chart comparing portfolio performance over time"
+                          width="884"
+                          height="453"
+                          loading="lazy"
+                        />
+                      </figure>
+                      <div class="case-study__result-stack">
+                        <div class="case-study__stat case-study__stat--inline">
+                          <p class="case-study__stat-label">Prefer bar chart over line chart</p>
+                          <p class="case-study__stat-value">45%</p>
+                          <p class="case-study__stat-sub">9 of 20 users</p>
+                        </div>
+                        <div class="case-study__card-result">
+                          <ul class="case-study__takeaway-list">
+                            <li>Nice that the bar chart shows negative growth</li>
+                            <li>
+                              Some users appreciate seeing individual values upon hover; others prefer the 1st tooltip where multiple portfolios are shown for ease of comparison
+                            </li>
+                            <li>
+                              Looks cleaner and the values more distinguishable because the bars don’t overlap like the lines do for the line chart
+                            </li>
+                            <li>
+                              But bar charts are harder to compare multiple portfolios over time periods compared to the line chart
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </details>
 
               <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">5. Risk Profile</summary>
+                <summary class="case-study__accordion-summary">Risk Profile</summary>
                 <div class="case-study__accordion-body">
                   <p>
                     For risk profile, think of it as an assessment of your risk appetite when it comes to investing. As the name states, it is a profile of how tolerant you are for risk and the type of investor you are. On risk profile, there is a target breakdown of how an investor wants to break down their investments and their actual breakdown (e.g., across different risk finance products).
                   </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/analysis/05-risk-profile.png"
-                      alt="Risk Profile research: values always visible vs values on hover"
-                      width="1024"
-                      height="1400"
-                      loading="lazy"
-                    />
-                  </figure>
+                  <div class="case-study__research-test">
+                    <div class="case-study__research-option case-study__research-option--chosen">
+                      <p>
+                        <strong>Iteration 1</strong>
+                        <span class="case-study__card-badge case-study__card-badge--recommended">Chosen iteration</span>
+                        — Show actual and target breakdown of investments visually (horizontal stacked bar chart) and in text underneath.
+                      </p>
+                      <figure class="case-study__card-figure case-study__card-figure--bare">
+                        <img
+                          src="../assets/case-studies/capintel/risk-profile-iter-1.png?v=1"
+                          alt="Iteration 1: Risk Profile with actual and target stacked bar charts and text breakdown"
+                          width="939"
+                          height="625"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </div>
+                  </div>
+
+                  <div class="case-study__research-test">
+                    <h4 class="case-study__research-test-title">Iteration 2</h4>
+                    <p class="case-study__research-test-desc">
+                      Show actual and target breakdown of investments in horizontal stacked bar chart format only; only show values upon hover.
+                    </p>
+                    <figure class="case-study__card-figure case-study__card-figure--bare">
+                      <img
+                        src="../assets/case-studies/capintel/risk-profile-iter-2.png?v=1"
+                        alt="Iteration 2: Risk Profile stacked bar charts with values revealed on hover"
+                        width="939"
+                        height="576"
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+
                   <p class="case-study__card-result">
                     Based on the feedback, more users preferred to have all the values shown without hover and that’s the iteration we went with for the Hi-Fi phase.
                   </p>
@@ -707,41 +1192,63 @@
               </details>
 
               <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">6. Calendar Year Returns</summary>
-                <div class="case-study__accordion-body">
-                  <p>
-                    Calendar Year Returns shows the returns for all the different investment portfolios for different time periods (years). (e.g., percentage in returns/loss in 2019, 2020, 2021, etc.).
-                  </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/analysis/06-calendar-year.png"
-                      alt="Calendar Year Returns research note"
-                      width="1024"
-                      height="600"
-                      loading="lazy"
-                    />
-                  </figure>
-                  <p class="case-study__card-result">
-                    The research results for Overview is also applied to Calendar Year Returns. Calendar Year Returns is going to show as multiple bar charts that show both positive and negative growth.
-                  </p>
-                </div>
-              </details>
-
-              <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">7. Hypothetical Return Graph</summary>
+                <summary class="case-study__accordion-summary">Hypothetical Return Graph</summary>
                 <div class="case-study__accordion-body">
                   <p>
                     Hypothetical Return Graph shows a projected return in growth for the clients’ different investment portfolios over time.
                   </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/analysis/07-hypothetical.png"
-                      alt="Hypothetical Return Graph research: portfolio value in header pills vs on chart"
-                      width="1024"
-                      height="1400"
-                      loading="lazy"
-                    />
-                  </figure>
+                  <div class="case-study__research-test">
+                    <h4 class="case-study__research-test-title">Iteration 1</h4>
+                    <p class="case-study__research-test-desc">
+                      In this 1st iteration, the current value of a portfolio is being shown in the pill next to the name of the portfolio on the top header section above the chart.
+                    </p>
+                    <figure class="case-study__card-figure case-study__card-figure--bare">
+                      <img
+                        src="../assets/case-studies/capintel/hypo-iter-1.png?v=1"
+                        alt="Iteration 1: Hypothetical Return Graph with portfolio values in header pills"
+                        width="961"
+                        height="401"
+                        loading="lazy"
+                      />
+                    </figure>
+                    <div class="case-study__card-result">
+                      <ul class="case-study__takeaway-list">
+                        <li>
+                          Users prefer to see everything at a glance – both the portfolio and its current value side by side
+                        </li>
+                        <li>
+                          Users prefer seeing the y-axis showing the most recent value on the right side
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="case-study__research-test">
+                    <h4 class="case-study__research-test-title">Iteration 2</h4>
+                    <p class="case-study__research-test-desc">
+                      In this 2nd iteration, the current value of a portfolio is being shown on the side of the line chart under the header section.
+                    </p>
+                    <figure class="case-study__card-figure case-study__card-figure--bare">
+                      <img
+                        src="../assets/case-studies/capintel/hypo-iter-2.png?v=1"
+                        alt="Iteration 2: Hypothetical Return Graph with current values shown on the side of the chart"
+                        width="954"
+                        height="401"
+                        loading="lazy"
+                      />
+                    </figure>
+                    <div class="case-study__card-result">
+                      <ul class="case-study__takeaway-list">
+                        <li>
+                          Used to seeing the value of investment on the graph itself rather than on the top of the graph – like that it can be toggled on/off
+                        </li>
+                        <li>
+                          Current value is more prominent/obvious – value highlighted in bold colours (also more visually appealing)
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
                   <p class="case-study__card-result">
                     In consideration of having more portfolios (an analysis item can show up to 6 portfolios) be shown on the chart, we decided to have the portfolio value on the top (next to the portfolio name instead of having it on the chart) to save on real estate as the number of portfolios increases on the chart.
                   </p>
@@ -749,72 +1256,167 @@
               </details>
 
               <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">8. Risk Metrics</summary>
-                <div class="case-study__accordion-body">
-                  <p>
-                    <em>Risk Metrics</em> shows a couple of metrics that measure risk in a client’s investment portfolio (e.g., standard deviation, maximum drawdown).
-                  </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/analysis/08-risk-metrics.png"
-                      alt="Risk Metrics research note"
-                      width="1024"
-                      height="600"
-                      loading="lazy"
-                    />
-                  </figure>
-                  <p class="case-study__card-result">
-                    Since there is a lot of informational content in this analysis item, a table is used. No research was necessary.
-                  </p>
-                </div>
-              </details>
-
-              <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">9. Drawdown Analysis</summary>
+                <summary class="case-study__accordion-summary">Drawdown Analysis</summary>
                 <div class="case-study__accordion-body">
                   <p>
                     Drawdown is an investment term that refers to the decline in value of a single investment or an investment portfolio from a relative peak value to a relative trough. Drawdown Analysis is the counterpart module to Drawdown Details.
                   </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/analysis/09-drawdown-analysis.png"
-                      alt="Drawdown Analysis research: line chart vs bar chart iterations"
-                      width="1024"
-                      height="1400"
-                      loading="lazy"
-                    />
-                  </figure>
-                  <p class="case-study__card-result">
-                    Based on the feedback, we went with the 1st iteration as it better visualizes the dip – hence, drawdown analysis (maximum decline). The downward orientation shows the information better; as a team we just had to figure out how to clearly delineate between the different portfolios once there are more than 2 shown on the chart.
-                  </p>
+                  <div class="case-study__research-test">
+                    <div class="case-study__research-option case-study__research-option--chosen">
+                      <p>
+                        <strong>Iteration 1</strong>
+                        <span class="case-study__card-badge case-study__card-badge--recommended">Chosen iteration</span>
+                        — Drawdown is shown in a line chart format (declines are shown as troughs) and indicates a dip (maximum decline). If there are multiple portfolios shown, one gets overlapped over the other – specific values are shown upon hover.
+                      </p>
+                      <figure class="case-study__card-figure case-study__card-figure--bare">
+                        <img
+                          src="../assets/case-studies/capintel/dda-iter-1.png?v=1"
+                          alt="Iteration 1: Drawdown Analysis line chart with overlapping portfolios and hover values"
+                          width="936"
+                          height="376"
+                          loading="lazy"
+                        />
+                      </figure>
+                      <div class="case-study__card-result">
+                        <ul class="case-study__takeaway-list">
+                          <li>
+                            Makes more sense for people because this design shows every data point so you can actually see the trend over time – the other one doesn’t show the daily volatility which is important for some users
+                          </li>
+                          <li>
+                            People like that the data is oriented downwards rather than upwards (which is more intuitive than the other one orienting the negative values upwards)
+                          </li>
+                          <li>Easy to compare overall trend seeing continuous data over time</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="case-study__research-test">
+                    <h4 class="case-study__research-test-title">Iteration 2</h4>
+                    <p class="case-study__research-test-desc">
+                      In this iteration, investment declines are shown in bar chart format – with each colour coded bar representing a portfolio.
+                    </p>
+                    <figure class="case-study__card-figure case-study__card-figure--bare">
+                      <img
+                        src="../assets/case-studies/capintel/dda-iter-2.png?v=1"
+                        alt="Iteration 2: Drawdown Analysis bar chart with colour-coded portfolios"
+                        width="936"
+                        height="344"
+                        loading="lazy"
+                      />
+                    </figure>
+                    <div class="case-study__card-result">
+                      <ul class="case-study__takeaway-list">
+                        <li>
+                          Bar charts – easier to read and data not muddled/overlapped together like the 1st design (easier to compare the data)
+                        </li>
+                        <li>
+                          Some users are not used to seeing the line chart – bar charts are simpler and more familiar for them
+                        </li>
+                        <li>Side by side nature allows for easy comparison</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="case-study__card-result case-study__decision-takeaway">
+                    <p class="case-study__decision-takeaway-lead">
+                      Went with iteration 1 (line chart) — it best visualizes the dip for drawdown analysis (maximum decline).
+                    </p>
+                    <p class="case-study__decision-takeaway-label">Strengths:</p>
+                    <ul class="case-study__takeaway-list">
+                      <li>Downward orientation makes more sense when the chart shows negative values</li>
+                      <li>Shows trend over time, which the bar chart lacks</li>
+                      <li>Shows daily volatility, versus monthly/weekly data on the bar chart</li>
+                    </ul>
+                    <p class="case-study__decision-takeaway-label">Limitation:</p>
+                    <ul class="case-study__takeaway-list">
+                      <li>
+                        2 portfolios’ data overlap and look muddled together — harder to compare
+                      </li>
+                    </ul>
+                    <hr class="case-study__decision-takeaway-rule" />
+                    <p class="case-study__decision-takeaway-next">
+                      <strong>Next</strong> — figure out how to clearly delineate between portfolios when more than 2 are shown on the chart.
+                    </p>
+                  </div>
                 </div>
               </details>
 
               <details class="case-study__accordion">
-                <summary class="case-study__accordion-summary">10. Assets Allocation</summary>
+                <summary class="case-study__accordion-summary">Assets Allocation</summary>
                 <div class="case-study__accordion-body">
                   <p>
                     Assets Allocation shows the investor where their investments are allocated across different products (e.g., Fixed Income, Canadian Equity, Cash, etc.) and the percentage allocated to each for each portfolio that the client/investor holds.
                   </p>
-                  <figure class="case-study__card-figure">
-                    <img
-                      src="../assets/case-studies/capintel/analysis/10-assets-allocation.png"
-                      alt="Assets Allocation research findings and annotated next-iteration changes"
-                      width="1024"
-                      height="1400"
-                      loading="lazy"
-                    />
-                  </figure>
-                  <div class="case-study__findings">
-                    <p class="case-study__findings-title">Research results &amp; next changes</p>
-                    <ul class="case-study__list">
-                      <li>Add spacing between the charts so it’s easier to read</li>
-                      <li>Change portfolio names so it’s more obvious that they’re portfolios</li>
-                      <li>Use colours that are distinctive from each other so that users can tell the different assets apart</li>
-                      <li>
-                        Determine what should appear under each asset class — e.g. funds/stocks under cash causes confusion for users — add a description of the type of asset and its relationship to the table in the next screen
-                      </li>
-                    </ul>
+                  <p>
+                    <em>
+                      In the test for this analysis item, we wanted to figure out whether users understand how to get from the 1st screen (on the left – breakdown of financial product types and weight for each portfolio) to the 2nd screen (on the right – which shows a breakdown of the funds inside a financial product type (e.g., US equity)).
+                    </em>
+                  </p>
+                  <div class="case-study__research-test">
+                    <div class="case-study__research-options">
+                      <div class="case-study__research-option">
+                        <figure class="case-study__card-figure case-study__card-figure--bare">
+                          <img
+                            src="../assets/case-studies/capintel/aa-default.png?v=1"
+                            alt="Screen 1: Assets Allocation treemap comparing portfolio asset-class breakdowns"
+                            width="1024"
+                            height="738"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </div>
+                      <div class="case-study__research-option">
+                        <figure class="case-study__card-figure case-study__card-figure--bare">
+                          <img
+                            src="../assets/case-studies/capintel/aa-detail.png?v=1"
+                            alt="Screen 2: Cash category detail with holdings breakdown after clicking a box"
+                            width="1024"
+                            height="750"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="case-study__card-result case-study__points-takeaway">
+                    <p class="case-study__findings-title">Major points and suggestions</p>
+                    <div class="case-study__point">
+                      <p class="case-study__point-title"><strong>Layout</strong></p>
+                      <p>
+                        <strong>Issue</strong> — the charts for the 2 portfolios sit too close together, making it hard to tell at a glance which chart belongs to which portfolio.
+                      </p>
+                      <p>
+                        <strong>Suggestion</strong> — add more space between the charts so they read as distinct and less cluttered.
+                      </p>
+                    </div>
+                    <div class="case-study__point">
+                      <p class="case-study__point-title"><strong>Portfolio names</strong></p>
+                      <p>
+                        <strong>Issue</strong> — portfolio names are causing confusion, especially when the module shows 2 portfolios’ data at once.
+                      </p>
+                      <p>
+                        <strong>Suggestion</strong> — change the labeling and add extra labeling to indicate which portfolio corresponds to which data — the portfolio pill currently sits too far from the chart data for people to connect the two.
+                      </p>
+                    </div>
+                    <div class="case-study__point">
+                      <p class="case-study__point-title"><strong>Colour use</strong></p>
+                      <p>
+                        <strong>Issue</strong> — the colours chosen are too similar, and only blue and purple are used — this causes confusion, as people expect those colours to be tied to a category when assets aren’t actually grouped by “blue” or “purple.” The colour in the 2nd screen’s table is also too closely related to the 260 portfolio colour, adding to the confusion.
+                      </p>
+                      <p>
+                        <strong>Suggestion</strong> — use colours that are easier to tell apart for the distribution.
+                      </p>
+                    </div>
+                    <div class="case-study__point">
+                      <p class="case-study__point-title"><strong>Cash asset clarification</strong></p>
+                      <p>
+                        <strong>Issue</strong> — confusion exists between an asset class (e.g. cash) and what people expect to see under it upon clicking in.
+                      </p>
+                      <p>
+                        <strong>Suggestion</strong> — add a description at the top of the table explaining the relationship between cash and the funds/stocks within it, e.g. “Here are the funds/stocks you’ve invested under fixed income.”
+                      </p>
+                    </div>
                   </div>
                 </div>
               </details>
@@ -832,12 +1434,27 @@
             <p>Below is a snapshot of the different action items that we’re going to carry out in our next design phase:</p>
 
             <figure class="case-study__media case-study__card-figure--solo">
-              <div class="case-study__card-figure">
+              <div class="case-study__card-figure case-study__card-figure--bare">
                 <img
-                  src="../assets/case-studies/capintel/advisor-interviews.png"
-                  alt="Advisor interviews process: Miro board of major categories and action items, and an Advisor needs prioritization scale from Need less to Need More across 10 action items"
-                  width="1200"
-                  height="1600"
+                  src="../assets/case-studies/capintel/advisor-categories.png?v=2"
+                  alt="Major categories and action items board from advisor interviews"
+                  width="993"
+                  height="1024"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption class="case-study__figcaption">
+                Research findings theming and categorization
+              </figcaption>
+            </figure>
+
+            <figure class="case-study__media case-study__card-figure--solo">
+              <div class="case-study__card-figure case-study__card-figure--bare">
+                <img
+                  src="../assets/case-studies/capintel/advisor-needs.png?v=1"
+                  alt="Advisor needs prioritization scale from Need less to Need More across 10 action items"
+                  width="1024"
+                  height="388"
                   loading="lazy"
                 />
               </div>
@@ -874,12 +1491,32 @@
 
           <section class="case-study__section" id="final-thoughts">
             <h2>Final Thoughts</h2>
+
+            <h3 class="case-study__final-title">Challenges</h3>
+            <p>Multiple user groups had to be considered: financial advisors and their clients.</p>
+            <ul class="case-study__list">
+              <li>Clients can be further segmented by level of financial literacy</li>
+              <li>The application risks feeling technical and jargon-heavy for people unfamiliar with finance</li>
+              <li>
+                Advisors want control over what they share with clients — balancing that against broad accessibility drives many design decisions
+              </li>
+            </ul>
+
+            <h3 class="case-study__final-title case-study__subsection--follow">Status</h3>
+            <div class="case-study__stat-grid">
+              <div class="case-study__stat">
+                <p class="case-study__stat-label">Analysis items for MVP</p>
+                <p class="case-study__stat-value">10</p>
+              </div>
+              <div class="case-study__stat">
+                <p class="case-study__stat-label">Modules in Hi/Mid fidelity</p>
+                <p class="case-study__stat-value">20</p>
+              </div>
+            </div>
             <p>
-              There were many challenges to this project as multiple user groups have to be considered (both financial advisors and their clients). On an even deeper level, people who invest can be further categorized into many more groups based on the difference in their level of financial literacy. Creating an application that can be seen as technical and jargon heavy for even people not familiar with finance can be a challenge. The goal is to accommodate as many users as possible while still keeping in mind that financial advisors still want to have control over what they want to share with their clients – it is important to keep the balance when making design decisions.
+              Research is complete on nearly every analysis item, with findings applied to the Hi-Fi mockups. Action items are prioritized for the beta phase, going out to pro-active users.
             </p>
-            <p>
-              Research has been done on pretty much every analysis item going into the digital financial proposal application – with research results taken into consideration and applied in the Hi-Fi mockups. Action items are being prioritized and implemented in the beta phase that will go out to our proactive users to try out. What we’ve seen so far are the 10 analysis items we have for our MVP; as we go into beta phase and gather feedback from our actual users, it is going to further inform us in terms of how we should be proceeding with the other 20 modules that are in Hi/Mid fidelity right now.
-            </p>
+            <p>Beta feedback informed how the remaining 20 modules proceed.</p>
           </section>
           </div>
         </div>
@@ -960,6 +1597,6 @@
       </svg>
     </div>
 
-    <script src="../script.js?v=nav-pill"></script>
+    <script src="../script.js?v=case-carousel"></script>
   </body>
 </html>

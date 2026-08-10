@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Grand+Hotel&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Pacifico&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=nav-pill" />
+    <link rel="stylesheet" href="../styles.css?v=questrade-cs" />
   </head>
   <body class="is-loading page-case-study page-case-study--questrade">
     <div
@@ -158,66 +158,606 @@
         <div class="case-study__layout">
           <aside class="case-study__nav" aria-label="Case study sections">
             <a class="case-study__back" href="../works.html">← Back</a>
-            <ul class="case-study__toc">
+                        <ul class="case-study__toc">
               <li><a href="#overview">Overview</a></li>
+              <li><a href="#results">Results</a></li>
+              <li><a href="#process">Process</a></li>
               <li><a href="#the-problem">The Problem</a></li>
-              <li><a href="#requirements-and-constraints">Requirements and Constraints</a></li>
-              <li><a href="#user-research">User Research</a></li>
-              <li><a href="#brainstorm">Brainstorm</a></li>
-              <li><a href="#system-design">System Design</a></li>
-              <li><a href="#architect">Architect</a></li>
-              <li><a href="#final-delivery">Final Delivery</a></li>
-              <li><a href="#post-design">Post Design</a></li>
+              <li><a href="#opportunity">Opportunity &amp; Goal</a></li>
+              <li><a href="#assumptions">Assumptions</a></li>
+              <li><a href="#constraints">Constraints</a></li>
+              <li><a href="#research">Research &amp; Insights</a></li>
+              <li><a href="#recommendations">Design Recommendations</a></li>
+              <li><a href="#design-changes">Design Changes</a></li>
+              <li><a href="#final-thoughts">Final Thoughts</a></li>
             </ul>
           </aside>
 
-          <div class="case-study__content">
+                    <div class="case-study__content">
           <section class="case-study__section" id="overview">
             <h2>Overview</h2>
-            <p>Marketing pages for Questrade focused on clear product storytelling and conversion-minded layout across key campaign and acquisition surfaces.</p>
+            <p>
+              Questwealth Portfolios (QWP) is a product under Questrade (Investing) that offers its customers managed investing services — ETF portfolios handpicked by financial experts/advisors. The purpose of the QWP product landing page is to get more existing customers and new prospects on the website to convert and open a QWP/managed investing account with us.
+            </p>
+            <p>
+              In this project to redesign the QWP product page, I’m responsible for researching why our QWP Product page has an astounding 80% bounce rate (and a low conversion rate) and to come up with a design optimization solution, especially when the robo-advice market is bound to see a massive market size growth in the next 10 years.
+            </p>
+            <p><strong>Duration:</strong> Entire last quarter of 2023</p>
+            <p><strong>Role:</strong> UX Research and UX and UI Design; Design Handoff</p>
+          </section>
+
+          <section class="case-study__section" id="results">
+            <h2>Results</h2>
+            <h3 class="case-study__final-title">Reached 40% of yearly conversion goal (account openings) in just 1 quarter</h3>
+            <p>New Account Openings ~+40% in Q1</p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-04-24-at-7.52.57-am.png"
+                      alt="Chart showing new account openings up about 40% in Q1"
+                      width="1488"
+                      height="838"
+                      loading="lazy"
+                    />
+                  </figure>
+            <h3 class="case-study__final-title case-study__subsection--follow">Bounce rate of landing page went from 80% to 30%</h3>
+            <p>Bounce Rate: 80% — May 1 – Oct 31, 2023</p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-04-21-at-4.26.26-pm.png"
+                      alt="Analytics screenshot showing ~80% bounce rate before redesign"
+                      width="1690"
+                      height="892"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>Bounce Rate: ~30% — Nov 1 – Apr 21, 2024</p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-04-21-at-4.28.43-pm.png"
+                      alt="Analytics screenshot showing ~30% bounce rate after redesign"
+                      width="1684"
+                      height="904"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>
+              After the new design for the page was pushed live in December, the bounce rate for the QWP landing page saw a drastic decrease — it went from a consistent ~80% for many months (since Jan 2023 and prior) to a bounce rate of ~30% for multiple months after its deployment.
+            </p>
+            <p>
+              To make for a fair comparison, I set the 2 date ranges to be a period of 6 months long each (i.e. May 1 – Oct 31, 2023 and Nov 1 – Apr 21, 2024) with the sessions being rather similar (around ~500k each during the time period). Though there is a dip in bounce rate during December, it is also important to note that there were also less sessions/users visiting the landing page during the holiday season — but for the months after, we’re seeing a consistent much lower bounce rate compared to before when we had the old landing page.
+            </p>
+          </section>
+
+          <section class="case-study__section" id="process">
+            <h2>Process</h2>
+            <h3 class="case-study__final-title">UX Researcher</h3>
+            <p>Collect insights, analyze insights, design strategy sync with team. Collected insights from:</p>
+            <ul class="case-study__list">
+              <li>Marketing Strategy and Communications deck — target persona; communication objectives &amp; key messaging</li>
+              <li>QWP Competitive Analysis — Wealthsimple, BMO SmartFolio, RBC InvestEase, NestWealth, Vanguard Digital Advisor, Betterment</li>
+              <li>QWP Baselines (traffic and site analytics insight report) — overall baselines and per-page engagement/conversion metrics</li>
+              <li>QWP SEO Research — top keywords and volume</li>
+              <li>Google Analytics and Power BI — analyzed insights into hypotheses and design solutions; synced design strategy with product owner and stakeholders</li>
+            </ul>
+            <h3 class="case-study__final-title case-study__subsection--follow">UX/UI Designer</h3>
+            <ul class="case-study__list">
+              <li>Low fidelity wireframes — first draft based on design strategy; mapped basic steps in a user-flow / wire-flow</li>
+              <li>Design sync with stakeholders — feedback from designers, stakeholders, and product owners</li>
+              <li>High fidelity wireframes — refined from feedback; additional versions and viewports where necessary</li>
+              <li>Dev handoff — answered questions; provided component specs and behaviours</li>
+            </ul>
           </section>
 
           <section class="case-study__section" id="the-problem">
             <h2>The Problem</h2>
-            <p>The opportunity was to present complex financial products in a way that felt approachable, trustworthy, and easy to act on.</p>
+            <p>
+              The proposal to redesign the QWP product page stems from the challenges product and business see in the performance analytics of the QWP pages, specifically the QWP product page which is the main homepage.
+            </p>
+            <p>
+              There is an astounding 82% bounce rate and 87% exit rate for the QWP product page. Of the 1285 OAA (“Open an Account” — CTA) clicks, only 5.72% turn into leads, and eventually account creation (conversion).
+            </p>
+            <p>
+              Even after the user creates a QWP (i.e. managed investing) account, the number of investment accounts (e.g., RRSP, TFSA, FHSA, etc.) that they hold in their QWP account is lower than industry average (1.29 accounts per QWP client vs. 1.38 within industry).
+            </p>
           </section>
 
-          <section class="case-study__section" id="requirements-and-constraints">
-            <h2>Requirements and Constraints</h2>
-            <p>The work needed flexible page patterns that could support multiple campaigns while staying consistent with brand and product messaging.</p>
+          <section class="case-study__section" id="opportunity">
+            <h2>Opportunity &amp; Goal</h2>
+            <p>
+              These problems present themselves in front of the opportunity of the growing robo-advising market (the AUM/total market value of investments managed will go from $18.6 B in 2022 to $265.8 B in 2032). There’s lots to leverage but the QWP product and its homepage are lagging in page performance (engagement and clicks) and conversion.
+            </p>
+            <p>
+              The solution at a high level is to increase engagement and clicks (on the OAA CTA) of the QWP product page and increase conversion of QWP accounts as a product overall.
+            </p>
           </section>
 
-          <section class="case-study__section" id="user-research">
-            <h2>User Research</h2>
-
+          <section class="case-study__section" id="assumptions">
+            <h2>Assumptions</h2>
+            <p>Assumptions why the current problems/challenges exist:</p>
+            <ul class="case-study__list">
+              <li>Canadians don’t know the impact fees have on their investment performance (i.e. high fees lower their returns)</li>
+              <li>There is low consumer awareness of QWP, and little understanding of what QWP is</li>
+              <li>
+                Consumers want to “try before they buy” — they think switching is difficult, and want to compare results/experience before willing to fully commit:
+                <em>“I’m not gonna move everything there, but I’m definitely willing to check it out and see.”</em>
+              </li>
+            </ul>
+            <p>
+              From the above, success metrics would be a decrease in bounce and exit rates for the QWP product/homepage; increase in OAA/CTA clicks, and account creation.
+            </p>
+            <p class="case-study__final-title">Target persona signals</p>
+            <ul class="case-study__list">
+              <li>Top motivation to invest is building wealth and retiring comfortably</li>
+              <li>Currently investing at the bank with a branch-level advisor who defaults them into mutual funds</li>
+              <li>Not aware of other alternatives that fit their knowledge, comfort, or involvement capacity</li>
+              <li>High consumer barrier with perceived difficulty of switching</li>
+              <li>
+                Paying for “comfort”:
+                <em>“When it comes to investing – I need a professional to do it for me, I just don’t have the time, skills or knowledge to take that on myself. It’s better to invest with an advisor at the bank, even if it costs me a little bit more and the service is not great”</em>
+              </li>
+              <li>They don’t realize how those seemingly small fees can add up and have a major negative impact on their long-term wealth and financial success.</li>
+            </ul>
           </section>
 
-          <section class="case-study__section" id="brainstorm">
-            <h2>Brainstorm</h2>
-
+          <section class="case-study__section" id="constraints">
+            <h2>Constraints</h2>
+            <h3 class="case-study__final-title">User data doesn’t exist</h3>
+            <p>
+              One of the biggest constraints in the preface of this project is that user data doesn’t exist to explain the low conversion and engagement rate on the QWP product page. We have the data and analytics to show problems exist, but the “why” is unknown — why users bounce and exit at a high rate, engage (click on CTAs) and convert (open an account) at a low rate. Hence, the “challenges that the user faces” outlined are assumptions made by the marketing and product team. These assumptions hold heavy weight in directing the communication/messaging on the page.
+            </p>
+            <p>
+              Without real users to talk to, I had to rely on the only resources available — data/analytics showing a conversion and engagement problem exists, and a marketing strategy deck with the marketing and product teams’ assumptions of why the problem(s) exists.
+            </p>
+            <h3 class="case-study__final-title case-study__subsection--follow">Designing for websites — a more unique problem compared to web apps</h3>
+            <p>
+              This problem is more unique to designing a page on a website than a web or mobile app. A user already using a web or mobile app is already a customer and likely someone we can reach out to for feedback. Website users come and go without us being able to identify who they are and their behavioural patterns — and it’s not likely we’ll gather much insight into why they bounced or don’t click our CTAs. A website also needs marketing messaging and SEO keywords to drive business results — balancing user-centric design while solving real business problems for stakeholders is crucial.
+            </p>
+            <p>
+              Given these constraints, I had to work beyond the assumptions given and figure out possible reasons myself as the UX researcher and designer. Usability testing that I pushed for was also skipped due to pushing out the newly designed product page before year end. How the new product page fares is highly dependent on new analytics/performance data — and other drivers of engagement include the marketing copy itself and marketing direction constraints the design has to work within.
+            </p>
           </section>
 
-          <section class="case-study__section" id="system-design">
-            <h2>System Design</h2>
-
+          <section class="case-study__section" id="research">
+            <h2>Research &amp; Insights</h2>
+            <p>
+              After understanding the problem, business, product, and marketing requirements and constraints, I started analyzing the different QWP pages — with the QWP product page/homepage as the primary page to analyze.
+            </p>
+            <ul class="case-study__list">
+              <li>What are users looking for?</li>
+              <li>What questions are they trying to answer?</li>
+              <li>What are they concerned about?</li>
+              <li>What are they hesitant or frustrated about?</li>
+            </ul>
+            <p>Exposure Rate July 1 – Sept 30, 2023 — All users (Desktop &amp; Mobile)</p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-17-at-4.21.57-pm-382x1024.png"
+                      alt="Exposure rate heatmap of QWP product page sections on desktop"
+                      width="382"
+                      height="1024"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>
+              This image shows the exposure rate of different sections of the QWP product page for the laptop and desktop viewport. A lot of the content below the first 2 folds gets viewed/exposed at a much lower rate — and it’s alarming that we don’t have the CTA in the first fold, something crucial to conversions.
+            </p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-17-at-4.37.22-pm-1024x517.png"
+                      alt="SEO research showing keyword volume for robo advisor vs Questwealth Portfolios"
+                      width="1024"
+                      height="517"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>
+              From SEO research, “robo advisor” / “robo investing” ranks much higher in volume than the product name “questwealth portfolios/QWP.” These are the keywords users input into Google before finding our page. If we want more visitors, messaging and copy should cater to keywords people actually use. Frequently asked questions also show users are unfamiliar with managed/robo investing as a concept.
+            </p>
+            <p>
+              From this data, we can infer that the product page should have “managed/robo investing” as a headline rather than “Questwealth Portfolios.” QWP can still be part of branding in the hero (less prominent), but a more relevant keyword as the main headline helps retain users since they’d find it more relevant. Since there’s a lot of searched questions about what managed/robo investing is, an explanation at the top of the page is necessary.
+            </p>
+            <p>
+              <strong>Overarching thesis:</strong> in order for the user to go through the customer journey of Awareness → Consideration → Preference → Conversion, we need to first build confidence, followed by trust, and convenience of converting/switching.
+            </p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-17-at-4.44.16-pm-1024x428.png"
+                      alt="Thesis diagram: confidence, trust, and convenience across the customer journey"
+                      width="1024"
+                      height="428"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-17-at-4.44.28-pm-1024x709.png"
+                      alt="Persona pain points mapped to confidence, trust, and convenience"
+                      width="1024"
+                      height="709"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-17-at-4.58.22-pm-1024x540.png"
+                      alt="Research synthesis connecting pain points to conversion strategy"
+                      width="1024"
+                      height="540"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>We also took into consideration marketing messaging that needs to be adhered to:</p>
+            <ul class="case-study__list">
+              <li>Low Fees</li>
+              <li>Portfolios managed for you</li>
+              <li>Alternative to Mutual Funds</li>
+              <li>Retire up to 30% Wealthier</li>
+            </ul>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-19-at-6.20.49-pm-1024x685.png"
+                      alt="Business objectives for QWP page and Questrade website"
+                      width="1024"
+                      height="685"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>
+              Before proposing design recommendations, we looked at business objectives for the QWP page and for Qcom (Questrade website) as a whole. QWP page objectives are the “what” (OKRs) we want to achieve; high-level Qcom objectives are like “how.” We used Qcom objectives to keep design strategy aligned with business goals.
+            </p>
+            <p>With the above, we came up with 3 high-level hypotheses for beneficial changes:</p>
+            <ul class="case-study__list">
+              <li>Optimize pages for mobile</li>
+              <li>
+                Content is not engaging enough to keep users interested — SEO shows a discrepancy between keywords users search for and keywords in our branding/copy, so users bounce once they land and find the content doesn’t resonate. Create content that’s more engaging and relevant.
+              </li>
+              <li>
+                Distractions derail users from converting — the current QWP product page has 14 CTAs driving customers to many different landing pages. This disconnected experience moves users away from our conversion channel.
+              </li>
+            </ul>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-19-at-6.29.26-pm-1024x368.png"
+                      alt="Three hypotheses for improving the QWP product page"
+                      width="1024"
+                      height="368"
+                      loading="lazy"
+                    />
+                  </figure>
           </section>
 
-          <section class="case-study__section" id="architect">
-            <h2>Architect</h2>
-
+          <section class="case-study__section" id="recommendations">
+            <h2>Design Recommendations</h2>
+            <p>
+              Using the overarching thesis of confidence, trust, and convenience — and the 3 hypotheses (optimize for mobile, more engaging content, remove distractions) — we came up with 14 design recommendations. Each is tied to a Law of UX, the overarching thesis, business objectives and pain points (with data), and the customer journey stage it pertains to.
+            </p>
+                  <figure class="case-study__media">
+                    <div class="case-study__card-figure case-study__card-figure--bare">
+                      <img
+                        src="../assets/case-studies/questrade/screenshot-2024-03-19-at-9.00.20-pm-699x1024.png"
+                        alt="Design recommendations rough draft overview"
+                        width="699"
+                        height="1024"
+                        loading="lazy"
+                      />
+                    </div>
+                    <figcaption class="case-study__figcaption">Design recommendations rough draft</figcaption>
+                  </figure>
+            <p>UX laws and journey framing used to structure recommendations:</p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-25-at-7.29.34-am.png"
+                      alt="Hick’s Law recommendation framing"
+                      width="408"
+                      height="492"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-25-at-7.55.55-am.png"
+                      alt="Serial Position Effect recommendation framing"
+                      width="710"
+                      height="996"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-25-at-8.00.26-am.png"
+                      alt="Law of Common Region recommendation framing"
+                      width="390"
+                      height="622"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-25-at-8.10.23-am.png"
+                      alt="Awareness stage recommendations"
+                      width="648"
+                      height="252"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-25-at-8.11.15-am-459x1024.png"
+                      alt="Consideration stage recommendations"
+                      width="459"
+                      height="1024"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-25-at-8.12.06-am.png"
+                      alt="Conversion stage recommendations"
+                      width="714"
+                      height="738"
+                      loading="lazy"
+                    />
+                  </figure>
+            <h3 class="case-study__final-title case-study__subsection--follow">1. Put the Primary CTA above the fold</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-19-at-9.12.03-pm-1024x242.png"
+                      alt="1. Put the Primary CTA above the fold"
+                      width="1024"
+                      height="242"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>The current CTA appears below the fold (on both desktop and mobile) — having a clear action button visible right when the user lands that directs them to act on a business-driving goal is essential to increasing conversion.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">2. Define what QWP is using keywords people search for</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-19-at-9.49.18-pm-1024x293.png"
+                      alt="2. Define what QWP is using keywords people search for"
+                      width="1024"
+                      height="293"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>Based on SEO research, people want to know things like: Is robo-investing a good idea? What is robo investing? What is a managed investment? Addressing these at the top of the page assures users they landed somewhere relevant.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">3. Explain features on the landing page</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-19-at-10.04.41-pm-1024x241.png"
+                      alt="3. Explain features on the landing page"
+                      width="1024"
+                      height="241"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>We currently ask users to click to a “Features” page (rarely clicked). Communicating features at a glance on the landing page is more efficient and accessible.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">4. Bring returns to the top where the chart is</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-20-at-11.13.11-am-1024x315.png"
+                      alt="4. Bring returns to the top where the chart is"
+                      width="1024"
+                      height="315"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>Emphasize and make clear on the calculator what returns look like in a set timeframe so users can “try before they buy.”</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">5. Describe the fees structure / pricing on-page</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-20-at-11.14.04-am-1024x220.png"
+                      alt="5. Describe the fees structure / pricing on-page"
+                      width="1024"
+                      height="220"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>People care about average fees for managed investing. Redirecting to a separate Pricing page (rarely clicked) is worse than explaining pricing clearly on the product page.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">6. Add customer testimonials</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-20-at-11.15.02-am-1024x203.png"
+                      alt="6. Add customer testimonials"
+                      width="1024"
+                      height="203"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>Account Types and related pages have low engagement — customer testimonials that build trust/credibility belong on the QWP product page.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">7. Add expert profile</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-20-at-11.15.49-am-1024x246.png"
+                      alt="7. Add expert profile"
+                      width="1024"
+                      height="246"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>A real professional’s face and credentials on the landing page helps build trust and confidence — crucial for conversion.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">8. Emphasize convenience of switching and funding</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-20-at-11.16.39-am-1024x474.png"
+                      alt="8. Emphasize convenience of switching and funding"
+                      width="1024"
+                      height="474"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>Communicating convenience is the third part of the strategy. Emphasizing ease of switching makes it easier for users to get started.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">9. Show how easy it is to get started, manage, and review investments</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-20-at-11.20.49-am-1024x654.png"
+                      alt="9. Show how easy it is to get started, manage, and review investments"
+                      width="1024"
+                      height="654"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>Highlight ease of starting and how easy it is for customers to manage investments on the platform.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">10. Account types at a glance — goal-oriented copy</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-20-at-11.22.29-am-1024x297.png"
+                      alt="10. Account types at a glance — goal-oriented copy"
+                      width="1024"
+                      height="297"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>Show different account types and features at a glance so users know what they’re converting to.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">11. New CTA mentioning combining QWP and SDI accounts</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-20-at-11.25.08-am-1024x198.png"
+                      alt="11. New CTA mentioning combining QWP and SDI accounts"
+                      width="1024"
+                      height="198"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>Product/marketing asked to leverage opening both SDI and QWP accounts — included toward the end of the page for flexibility.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">12. Talk to a human before you open an account</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-20-at-11.26.14-am-1024x213.png"
+                      alt="12. Talk to a human before you open an account"
+                      width="1024"
+                      height="213"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>If a user reaches the bottom with questions, offer a real person over the phone before they exit.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">13. Robo-advisor related articles and common FAQs</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-20-at-11.27.02-am-1024x208.png"
+                      alt="13. Robo-advisor related articles and common FAQs"
+                      width="1024"
+                      height="208"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>If still unsure, users can visit related articles on account types and managed investing before deciding.</p>
+            <h3 class="case-study__final-title case-study__subsection--follow">14. Popular portfolios and historical performance</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-04-21-at-7.41.01-pm-1024x406.png"
+                      alt="14. Popular portfolios and historical performance"
+                      width="1024"
+                      height="406"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>Outline most popular portfolios and historical performance to show people they can safely invest in their future.</p>
           </section>
 
-          <section class="case-study__section" id="final-delivery">
-            <h2>Final Delivery</h2>
-
+          <section class="case-study__section" id="design-changes">
+            <h2>Design Changes</h2>
+            <p>Design changes implemented for this cycle:</p>
+            <ul class="case-study__list">
+              <li>Rec #1: Put the primary CTA above the fold and near the end (Serial Position Effect)</li>
+              <li>Rec #2: Define what QWP is using keywords people search for (robo-advisor, managed investing, etc.)</li>
+              <li>Rec #3: Explain the most important features on the landing page</li>
+              <li>Rec #5: Description of the fees structure/pricing</li>
+              <li>Rec #10: Account types at a glance — goal-oriented copy</li>
+              <li>Rec #14: Popular portfolios and historical performance</li>
+            </ul>
+            <h3 class="case-study__final-title case-study__subsection--follow">UX wireframes — desktop, tablet, mobile</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-02-27-at-5.46.45-pm-541x1024.png"
+                      alt="Desktop and tablet UX wireframes for the redesigned QWP page"
+                      width="541"
+                      height="1024"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-02-27-at-5.48.14-pm-500x1024.png"
+                      alt="Mobile UX wireframes for the redesigned QWP page"
+                      width="500"
+                      height="1024"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>
+              After UX wireframes, UI work starts — component specs (if not in the design system), padding for accessibility, font sizes for visual hierarchy, etc.
+            </p>
+            <h3 class="case-study__final-title case-study__subsection--follow">1. Describing specs and behaviour of new components to devs</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-25-at-8.07.01-pm-1024x554.png"
+                      alt="Portfolio card component specs for developer handoff"
+                      width="1024"
+                      height="554"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>
+              Since the portfolio card is a new component not yet in the design system, including it required clear specs for developers — including donut chart size and static rather than dynamic behaviour.
+            </p>
+            <h3 class="case-study__final-title case-study__subsection--follow">2. Better accessibility — increased padding</h3>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-25-at-9.36.01-pm-1024x443.png"
+                      alt="Before and after padding increase on learning article cards"
+                      width="1024"
+                      height="443"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>
+              To allow easier interaction (especially on mobile) and better legibility, we increased padding within the learning article card.
+            </p>
+            <p>Additional specs documentation:</p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-03-28-at-5.59.03-pm-973x1024.png"
+                      alt="Additional component specs documentation for handoff"
+                      width="973"
+                      height="1024"
+                      loading="lazy"
+                    />
+                  </figure>
           </section>
 
-          <section class="case-study__section" id="post-design">
-            <h2>Post Design</h2>
-
-            <h3 class="case-study__subsection">Telemetry</h3>
+          <section class="case-study__section" id="final-thoughts">
+            <h2>Final Thoughts</h2>
+            <p>
+              We achieved our goal of decreasing bounce rate by nearly 50%. Aside from growing account openings by 40% in the first quarter, the click rate for a new CTA — “Explore Portfolios” — is getting 10.9% in clicks. That’s remarkable since the conversion rate for a great landing page is usually ~9.5% — people are interested in learning more about the product, and the page can generate leads.
+            </p>
+            <p>
+              This shows a substantial number of people are still at an awareness/consideration stage when they visit — educating themselves about the product. Targeting this group for education and exploration gets the start of the funnel right.
+            </p>
+            <p>
+              Constraints remain — copy relevancy is decided by the content team (out of scope for designers), and organic/paid traffic levels matter — so the results are remarkable given scope, timeline, and restrictions.
+            </p>
+            <p>Click rate on CTA button before design change — 1.5%</p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-04-23-at-5.30.20-pm.png"
+                      alt="CTA click rate analytics before the design change"
+                      width="558"
+                      height="488"
+                      loading="lazy"
+                    />
+                  </figure>
+            <p>Click rate on CTA button after design change — 1.95% CTA button and 10.9% for “Explore Portfolios” button (highlighted in yellow)</p>
+                  <figure class="case-study__card-figure case-study__card-figure--bare">
+                    <img
+                      src="../assets/case-studies/questrade/screenshot-2024-04-23-at-5.30.40-pm.png"
+                      alt="CTA click rates after the design change including Explore Portfolios at 10.9%"
+                      width="232"
+                      height="490"
+                      loading="lazy"
+                    />
+                  </figure>
           </section>
-          </div>
+</div>
         </div>
       </article>
 
@@ -296,6 +836,6 @@
       </svg>
     </div>
 
-    <script src="../script.js?v=nav-pill"></script>
+    <script src="../script.js?v=questrade-cs"></script>
   </body>
 </html>
