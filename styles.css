@@ -2045,6 +2045,21 @@ aside.sticky-note .sticky-note__resize {
   gap: 4px;
 }
 
+.other-works__item--badged {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.other-works__award {
+  display: block;
+  width: 64px;
+  height: auto;
+  flex-shrink: 0;
+}
+
 .other-works__card {
   position: relative;
   width: 320px;
@@ -5493,9 +5508,19 @@ body.is-ready .case-arch.is-scrolling .case-arch__panel {
     gap: 24px;
   }
 
+  .other-works__item--badged {
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+  }
+
   .other-works__card {
     width: 100%;
     max-width: 320px;
+  }
+
+  .other-works__award {
+    width: 52px;
   }
 
   .about-page,
