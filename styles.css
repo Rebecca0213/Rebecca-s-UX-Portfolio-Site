@@ -1456,16 +1456,13 @@ body.page-case-study .page-loader__panel--case {
 
 .works__item--noted {
   position: relative;
-  width: auto;
+  width: 300px;
   max-width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
+  display: block;
 }
 
 .works__item--noted .works__card-link {
-  flex-shrink: 0;
+  display: block;
 }
 
 aside.sticky-note {
@@ -1494,9 +1491,32 @@ aside.sticky-note {
 }
 
 aside.sticky-note.sticky-note--works {
-  flex-shrink: 0;
-  transform: rotate(1.75deg);
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  z-index: 3;
+  width: 200px;
+  min-width: 0;
+  max-width: 200px;
+  min-height: 0;
+  margin: 0;
+  transform: translate(-50%, -50%) rotate(1.75deg);
   transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+aside.sticky-note.sticky-note--works .sticky-note__body {
+  padding: 12px 14px 22px;
+}
+
+aside.sticky-note.sticky-note--works .sticky-note__text {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.works__item--noted .folder--works .folder__title {
+  position: relative;
+  z-index: 4;
 }
 
 .works__item--peek:hover aside.sticky-note.sticky-note--works,
@@ -5404,41 +5424,13 @@ body.is-ready .case-arch.is-scrolling .case-arch__panel {
   }
 
   .works__item--noted {
-    position: relative;
     width: min(300px, 100%);
-    display: block;
-  }
-
-  .works__item--noted .works__card-link {
-    display: block;
   }
 
   aside.sticky-note.sticky-note--works {
-    position: absolute;
-    left: 50%;
-    top: 38%;
-    z-index: 3;
     width: min(200px, 70%);
-    min-width: 0;
     max-width: 200px;
-    min-height: 0;
-    margin: 0;
     transform: translate(-50%, -50%) rotate(1deg);
-    pointer-events: none;
-  }
-
-  aside.sticky-note.sticky-note--works .sticky-note__body {
-    padding: 12px 14px 22px;
-  }
-
-  aside.sticky-note.sticky-note--works .sticky-note__text {
-    font-size: 12px;
-    line-height: 1.4;
-  }
-
-  .works__item--noted .folder--works .folder__title {
-    position: relative;
-    z-index: 4;
   }
 
   .works__item--peek:hover aside.sticky-note.sticky-note--works,
