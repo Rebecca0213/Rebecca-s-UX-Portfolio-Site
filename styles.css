@@ -1465,6 +1465,19 @@ body.page-case-study .page-loader__panel--case {
   display: block;
 }
 
+.works__card-link--inert {
+  cursor: default;
+}
+
+.works__card-link--inert .works__card {
+  cursor: default;
+}
+
+.works__card-link--inert:hover .works__card,
+.works__card-link--inert .works__card:hover {
+  transform: none;
+}
+
 aside.sticky-note {
   --sticky-ink: #16324f;
   --sticky-bar: #7eb6e8;
@@ -1664,6 +1677,19 @@ aside.sticky-note .sticky-note__resize {
 
 .other-works__open--push {
   margin-top: auto;
+}
+
+.other-works__open--inert {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.45;
+  filter: none;
+  transform: none;
+}
+
+.other-works__open--inert:hover {
+  filter: none;
+  transform: none;
 }
 
 /* Peek screens: tablet + desktop when there is room to the right; off on mobile */
