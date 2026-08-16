@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LinkedIn Redesign — Rebecca Szeto</title>
+    <title>LinkedIn Mentorship: A Redesign — Rebecca Szeto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Grand+Hotel&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Pacifico&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=nav-longest" />
+    <link rel="stylesheet" href="../styles.css?v=li-toc-scroll" />
   </head>
-  <body class="is-loading page-case-study page-case-study--purple">
+  <body class="is-loading page-case-study page-case-study--linkedin">
     <div
       class="page-loader"
       id="page-loader"
@@ -137,28 +137,9 @@
     <main>
       <section class="case-arch" aria-label="Case study title">
         <div class="case-arch__panel">
-          <div class="case-arch__collage case-arch__collage--beem" aria-hidden="true">
-            <!-- top frame -->
-            <img class="case-arch__shape case-arch__shape--1" src="../assets/case-studies/beem/shapes/bubble.svg" alt="" width="120" height="138" />
-            <img class="case-arch__shape case-arch__shape--2" src="../assets/case-studies/beem/shapes/stack.svg" alt="" width="126" height="113" />
-            <img class="case-arch__shape case-arch__shape--3" src="../assets/case-studies/beem/shapes/pill.svg" alt="" width="175" height="125" />
-            <img class="case-arch__shape case-arch__shape--4" src="../assets/case-studies/beem/shapes/star.svg" alt="" width="117" height="129" />
-            <img class="case-arch__shape case-arch__shape--5" src="../assets/case-studies/beem/shapes/chevron.svg" alt="" width="87" height="126" />
-            <img class="case-arch__shape case-arch__shape--6" src="../assets/case-studies/beem/shapes/bubble.svg" alt="" width="110" height="127" />
-            <img class="case-arch__shape case-arch__shape--7" src="../assets/case-studies/beem/shapes/stack.svg" alt="" width="115" height="104" />
-            <img class="case-arch__shape case-arch__shape--8" src="../assets/case-studies/beem/shapes/pill.svg" alt="" width="150" height="108" />
-            <img class="case-arch__shape case-arch__shape--9" src="../assets/case-studies/beem/shapes/star-dark.svg" alt="" width="100" height="110" />
-            <!-- side / corner frame -->
-            <img class="case-arch__shape case-arch__shape--10" src="../assets/case-studies/beem/shapes/chevron.svg" alt="" width="70" height="100" />
-            <img class="case-arch__shape case-arch__shape--11" src="../assets/case-studies/beem/shapes/star-lilac.svg" alt="" width="90" height="99" />
-            <img class="case-arch__shape case-arch__shape--12" src="../assets/case-studies/beem/shapes/bubble.svg" alt="" width="95" height="110" />
-            <img class="case-arch__shape case-arch__shape--13" src="../assets/case-studies/beem/shapes/stack.svg" alt="" width="100" height="90" />
-            <img class="case-arch__shape case-arch__shape--14" src="../assets/case-studies/beem/shapes/pill.svg" alt="" width="130" height="93" />
-            <img class="case-arch__shape case-arch__shape--15" src="../assets/case-studies/beem/shapes/star-dark.svg" alt="" width="85" height="94" />
-            <img class="case-arch__shape case-arch__shape--16" src="../assets/case-studies/beem/shapes/chevron.svg" alt="" width="64" height="92" />
-          </div>
           <div class="case-arch__intro">
-            <h1 class="case-arch__title">LinkedIn Redesign</h1>
+            <h1 class="case-arch__title">LinkedIn Mentorship: A Redesign</h1>
+            <p class="case-arch__subtitle">A personal project</p>
           </div>
           <div class="case-arch__curve" aria-hidden="true">
             <svg viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
@@ -173,65 +154,813 @@
             <a class="case-study__back" href="../works.html">← Back</a>
             <ul class="case-study__toc">
               <li><a href="#overview">Overview</a></li>
-              <li><a href="#the-problem">The Problem</a></li>
-              <li><a href="#requirements-and-constraints">Requirements and Constraints</a></li>
+              <li><a href="#product-film">Product Film</a></li>
+              <li><a href="#the-challenges">The Challenges</a></li>
+              <li><a href="#success-metrics">Success Metrics</a></li>
               <li><a href="#user-research">User Research</a></li>
-              <li><a href="#brainstorm-wireframes">Brainstorm/Wireframes</a></li>
-              <li><a href="#system-design">System Design</a></li>
-              <li><a href="#architect">Architect</a></li>
-              <li><a href="#final-delivery">Final Delivery</a></li>
-              <li><a href="#post-design">Post Design</a></li>
+              <li><a href="#crazy-8s-workshop">Crazy 8s Workshop</a></li>
+              <li><a href="#userflows-and-sketches">Userflows and Sketches</a></li>
+              <li>
+                <a class="case-study__toc-link--wrap" href="#1st-user-testing"
+                  >1st User Testing,<br />Rainbow Sheet Results, and Action Items</a
+                >
+              </li>
+              <li><a href="#moodboard">Moodboard</a></li>
+              <li><a href="#design-style-guide">Design Style Guide</a></li>
+              <li><a href="#2nd-user-testing">2nd User Testing and Heatmaps</a></li>
+              <li><a href="#final-screens">Final Screens and Features</a></li>
+              <li><a href="#final-thoughts">Final Thoughts</a></li>
             </ul>
           </aside>
 
           <div class="case-study__content">
-          <p class="case-study__coming-soon" role="status">Coming soon — this case study write-up is on the way.</p>
           <section class="case-study__section" id="overview">
             <h2>Overview</h2>
+            <figure class="case-study__media case-study__media--overview">
+              <img
+                src="../assets/case-studies/linkedin/linkedin-mentorship-overview.png?v=1"
+                alt="LinkedIn Mentorship redesign showcase with desktop video call and floating web app screens"
+                width="2048"
+                height="894"
+              />
+            </figure>
             <p>
-              LinkedIn Mentorship: a redesign of the LinkedIn profile page interface — nominated for a UX Design Award in 2022 (York University).
+              LinkedIn launched in 2003 as a professional networking and career development hub, but its magic has faded — with job competition at an all-time high, “networking” has become a superficial feature, and job seekers are left applying to hundreds of roles with little to no feedback on how to close their skill and experience gaps.
+            </p>
+            <p>
+              LinkedIn Mentorship reimagines networking through a redesigned profile page ecosystem where job seekers can book 1-on-1 sessions with accredited industry professionals for career advice, portfolio reviews, and open Q&amp;A — turning networking from a passive feature into real, actionable guidance that makes candidates more competitive in their search.
+            </p>
+            <p class="case-study__disclaimer">
+              *All information in this case study is my own and does not necessarily reflect the views of LinkedIn.
             </p>
           </section>
 
-          <section class="case-study__section" id="the-problem">
-            <h2>The Problem</h2>
-            <p>Case study write-up coming soon.</p>
+          <section class="case-study__section" id="product-film">
+            <h2>Product Film</h2>
+            <div class="case-study__embed case-study__embed--video">
+              <iframe
+                title="LinkedIn Mentorship product film"
+                src="https://www.youtube.com/embed/pu79ajiHYM0?start=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+            <p class="case-study__embed-link">
+              <a href="https://www.youtube.com/watch?v=pu79ajiHYM0&amp;t=1s" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+            </p>
           </section>
 
-          <section class="case-study__section" id="requirements-and-constraints">
-            <h2>Requirements and Constraints</h2>
-            <p>Case study write-up coming soon.</p>
+          <section class="case-study__section" id="the-challenges">
+            <h2>The Challenges</h2>
+            <div class="case-study__duo">
+              <header class="case-study__duo-header">
+                <h3 class="case-study__subsection">Meet Sam and Alex</h3>
+                <p class="case-study__duo-lead">
+                  Two personas shaped how mentor credibility and scheduling needed to work.
+                </p>
+              </header>
+              <div class="case-study__duo-grid">
+                <article class="case-study__duo-card">
+                  <div class="case-study__duo-avatar case-study__duo-avatar--photo">
+                    <img
+                      src="../assets/case-studies/linkedin/persona-sam.png?v=1"
+                      alt=""
+                      width="320"
+                      height="400"
+                    />
+                  </div>
+                  <h4 class="case-study__duo-name">Sam</h4>
+                  <div class="case-study__duo-pain-block">
+                    <p class="case-study__duo-label">Pain point</p>
+                    <p class="case-study__duo-pain">
+                      Determining if a professional is influential and credible in their space, and closely affiliated with their industry peers.
+                    </p>
+                  </div>
+                  <blockquote class="case-study__duo-quote">
+                    <span class="case-study__duo-mark" aria-hidden="true">“</span>
+                    <p>
+                      When I view someone’s LinkedIn profile to see if they can help connect me with an opportunity, I want to determine if they’re credible on the spot, so I only connect with the right people.
+                    </p>
+                  </blockquote>
+                </article>
+                <article class="case-study__duo-card">
+                  <div class="case-study__duo-avatar case-study__duo-avatar--photo">
+                    <img
+                      src="../assets/case-studies/linkedin/persona-alex.png?v=1"
+                      alt=""
+                      width="320"
+                      height="400"
+                    />
+                  </div>
+                  <h4 class="case-study__duo-name">Alex</h4>
+                  <div class="case-study__duo-pain-block">
+                    <p class="case-study__duo-label">Pain point</p>
+                    <p class="case-study__duo-pain">
+                      Difficulty and inconvenience scheduling a virtual meeting with the professional.
+                    </p>
+                  </div>
+                  <blockquote class="case-study__duo-quote">
+                    <span class="case-study__duo-mark" aria-hidden="true">“</span>
+                    <p>
+                      When a person accepts my invitation to have a conversation, I want to schedule a call as soon as possible, so I don’t miss out on a job opportunity.
+                    </p>
+                  </blockquote>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="case-study__section" id="success-metrics">
+            <h2>Success Metrics</h2>
+            <h3 class="case-study__subsection">Project Impact</h3>
+            <div class="case-study__impact-row">
+              <div class="case-study__impact-main">
+                <p class="case-study__impact-lead">
+                  Talking to people: user research and user testing
+                </p>
+                <div class="case-study__impact">
+                  <article class="case-study__impact-step">
+                    <div class="case-study__impact-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                        <path d="M5 16.5V7.8c0-1 .8-1.8 1.8-1.8h8.4c1 0 1.8.8 1.8 1.8v5.2c0 1-.8 1.8-1.8 1.8H10l-3.2 2.6V14.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <div class="case-study__impact-copy">
+                      <h4 class="case-study__impact-title">Research</h4>
+                      <p>
+                        The real impact of this project came from the conversations I had with participants throughout. Talking to job seekers new to an industry — my target user group — surfaced a real tension: the threshold for entry keeps rising, yet many jobs are surprisingly left unfilled.
+                      </p>
+                      <p>
+                        That gap led to the solution: <strong>a mentorship platform built into LinkedIn</strong>, where mentors give juniors career advice through 1-on-1 and group sessions, virtually.
+                      </p>
+                    </div>
+                  </article>
+                  <article class="case-study__impact-step">
+                    <div class="case-study__impact-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                        <rect x="6" y="3.5" width="12" height="17" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M9 8h6M9 12h6M9 16h3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                        <path d="M15.2 15.2l1.1 1.1 2.2-2.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <div class="case-study__impact-copy">
+                      <h4 class="case-study__impact-title">Testing</h4>
+                      <p>
+                        Two stages of user testing showed that integrating a new ecosystem into an established platform like LinkedIn means reckoning with three things at once:
+                      </p>
+                      <ul class="case-study__impact-list">
+                        <li>
+                          <span class="case-study__impact-bullet" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                              <path d="M9 4h3v3h3v3h-3v3H9v-3H6V7h3V4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                              <path d="M14 13h3v3h3v3h-3v3h-3v-3h-3v-3h3v-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                            </svg>
+                          </span>
+                          <span><strong>Seamless integration</strong> alongside LinkedIn’s existing features</span>
+                        </li>
+                        <li>
+                          <span class="case-study__impact-bullet" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                              <rect x="6" y="11" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                              <path d="M8.5 11V8.5a3.5 3.5 0 0 1 7 0V11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                            </svg>
+                          </span>
+                          <span><strong>Access model</strong> — set as a <em>Premium</em> member product in this case</span>
+                        </li>
+                        <li>
+                          <span class="case-study__impact-bullet" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                              <path d="M5 18V10M10 18V7M15 18v-5M20 18V5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                            </svg>
+                          </span>
+                          <span><strong>Competitive positioning</strong> — how LinkedIn Mentorship ranks against alternatives</span>
+                        </li>
+                      </ul>
+                      <p>
+                        Those conversations, across both phases, shaped a final product that addresses all three.
+                      </p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <figure class="case-study__impact-media">
+                <img
+                  src="../assets/case-studies/linkedin/project-impact-message.png"
+                  alt="LinkedIn message praising the mentorship project concept"
+                  width="420"
+                  height="798"
+                  loading="lazy"
+                />
+                <figcaption class="case-study__impact-caption">
+                  A member from the audience I presented to sent me a message on LinkedIn about how this is something that would really benefit him and how this is something he has been searching for all along. There is definitely a need for this among people new to a career whether they’re looking to learn more or already in their career transition phase.
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="case-study__kpi">
+              <div class="case-study__kpi-head">
+                <h3 class="case-study__subsection">KPIs to Track</h3>
+                <span class="case-study__kpi-badge">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="7" fill="currentColor"/>
+                    <path d="M5 8.2l2 2 4-4.2" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  All successful
+                </span>
+              </div>
+              <p class="case-study__kpi-lead">Results from the latest round of user testing</p>
+              <ul class="case-study__kpi-list">
+                <li>Participants understand how to search for a mentor on the platform.</li>
+                <li>Participants find it straightforward to check the credibility of a mentor.</li>
+                <li>Participants understand how to select the skills they want to be mentored in and connect with the mentor.</li>
+                <li>Participants know how to check the status of connection requests sent to mentors.</li>
+                <li>Participants know how to manage bookings with mentors.</li>
+                <li>Participants understand how to join a scheduled meeting with a mentor.</li>
+                <li>Participants understand how to join a group mentoring workshop.</li>
+                <li>Participants report satisfactory comments on using the product and each individual feature.</li>
+              </ul>
+              <p class="case-study__kpi-note">
+                *Please refer to <a href="#final-thoughts">Final Thoughts</a> for KPIs to track for real users, should/when this product launches.
+              </p>
+            </div>
           </section>
 
           <section class="case-study__section" id="user-research">
             <h2>User Research</h2>
-
+            <h3 class="case-study__subsection">User Interview</h3>
+            <p>
+              For my user research, I decided to conduct a semi-structured user interview with my participant. Through speaking with my participant (a UX student looking to enter the UX field – a new space for her) in the interview, I learned that in her case, she’s experiencing this concern of not knowing how to approach and/ a new career like most of my other users I’m targeting for this project.
+            </p>
+            <p>
+              After the user interview, I noted all the important and/ interesting points that the participant mentioned during the interview by listening to the entire audio recording of the conversation.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">Affinity Mapping</h3>
+            <p>
+              This video shows my research synthesis process for my user interview responses by conducting an affinity mapping activity to identify the themes, which in turn helped to write the problem statements for this project.
+            </p>
+            <div class="case-study__embed case-study__embed--video">
+              <iframe
+                title="Affinity mapping process"
+                src="https://www.youtube.com/embed/A115R0Ft4WY"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+            <p class="case-study__embed-link">
+              <a href="https://www.youtube.com/watch?v=A115R0Ft4WY" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">Affinity Mapping Activity</h3>
+            <p>
+              For my affinity map, I’ve identified 9 unique themes in my participant’s responses, which I in turn transformed into 9 unique problem statements that I believe my target user group are facing.
+            </p>
+            <figure class="case-study__card-figure">
+              <img
+                src="../assets/case-studies/linkedin/affinity-mapping-activity.png"
+                alt="Affinity map on a whiteboard with nine numbered theme clusters, sticky notes, and handwritten research notes"
+                width="1024"
+                height="772"
+                loading="lazy"
+              />
+            </figure>
+            <h3 class="case-study__subsection case-study__subsection--follow">Problem Statements</h3>
+            <div class="case-study__problem-pairs">
+              <article class="case-study__problem-pair">
+                <div class="case-study__problem-card">
+                  <header class="case-study__problem-card-head">
+                    <span class="case-study__problem-theme">Theme #6</span>
+                    <h4 class="case-study__problem-name">The Careful Connector</h4>
+                  </header>
+                  <p>
+                    The user wants to be sure the professional they’re connecting with is credible — including how closely affiliated they are with their industry peers — but it’s hard to tell from the info on a LinkedIn profile page alone.
+                  </p>
+                  <p class="case-study__problem-statement">
+                    A <strong>Careful Connector</strong> who feels <strong>confused</strong> about wanting to find people with industry connections needs to <strong>identify the industry connections someone has</strong>, but faces <strong>difficulty knowing how closely affiliated those connections actually are</strong> — the profile can be misleading.
+                  </p>
+                  <ul class="case-study__problem-meta">
+                    <li>
+                      <span class="case-study__problem-meta-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M8 7h11M8 12h11M8 17h11M5 7h.01M5 12h.01M5 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                      </span>
+                      <span><strong>Step:</strong> Identify the relevant industry connections that person has</span>
+                    </li>
+                    <li>
+                      <span class="case-study__problem-meta-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M12 4.5L21 20H3L12 4.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                      </span>
+                      <span><strong>Obstacle:</strong> Might be misleading — the person may not be as closely affiliated as it appears</span>
+                    </li>
+                    <li>
+                      <span class="case-study__problem-meta-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="12" cy="12" r="8.2" stroke="currentColor" stroke-width="1.7"/><path d="M9 15.2c.9-.8 2-.8 3-.8s2.1 0 3 .8M9.2 10.2h.01M14.8 10.2h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                      </span>
+                      <span><strong>Feeling:</strong> Confused</span>
+                    </li>
+                  </ul>
+                </div>
+                <figure class="case-study__card-figure">
+                  <img
+                    src="../assets/case-studies/linkedin/problem-statement-worksheet-theme-6.png"
+                    alt="Problem statement worksheet for Theme #6 The Careful Connector"
+                    width="791"
+                    height="1024"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+              <article class="case-study__problem-pair">
+                <div class="case-study__problem-card">
+                  <header class="case-study__problem-card-head">
+                    <span class="case-study__problem-theme">Theme #1</span>
+                    <h4 class="case-study__problem-name">Job / Career Seeker</h4>
+                  </header>
+                  <p>
+                    The user wants to message their new connection to set up time to chat, learn about the industry, and ask questions — but on LinkedIn today, that takes a lot of back-and-forth over each other’s availability.
+                  </p>
+                  <p class="case-study__problem-statement">
+                    A <strong>Job/Career Seeker</strong> who feels <strong>frustrated</strong> about having a conversation about a job or career needs to <strong>set up a time and date to chat</strong>, but faces <strong>difficulty scheduling a time that works for both parties</strong>.
+                  </p>
+                  <ul class="case-study__problem-meta">
+                    <li>
+                      <span class="case-study__problem-meta-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M8 7h11M8 12h11M8 17h11M5 7h.01M5 12h.01M5 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                      </span>
+                      <span><strong>Step:</strong> Set up time and date to chat</span>
+                    </li>
+                    <li>
+                      <span class="case-study__problem-meta-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M12 4.5L21 20H3L12 4.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                      </span>
+                      <span><strong>Obstacle:</strong> Difficulty setting up a time and date due to each other’s schedules</span>
+                    </li>
+                    <li>
+                      <span class="case-study__problem-meta-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="12" cy="12" r="8.2" stroke="currentColor" stroke-width="1.7"/><path d="M9 15.2c.9-.8 2-.8 3-.8s2.1 0 3 .8M9.2 10.2h.01M14.8 10.2h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                      </span>
+                      <span><strong>Feeling:</strong> Frustrated</span>
+                    </li>
+                  </ul>
+                </div>
+                <figure class="case-study__card-figure">
+                  <img
+                    src="../assets/case-studies/linkedin/problem-statement-worksheet-theme-1.png"
+                    alt="Problem statement worksheet for Theme #1 Job / Career Seeker"
+                    width="787"
+                    height="1024"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow">UX Research Final Presentation and Workshop Plan Proposal</h3>
+            <p>
+              This is a video of me presenting my UX research process and workshop proposal plan to the class and the instructor. See how I answered a thought-provoking challenge question pertaining to team collaboration between different team members from each department towards the end of the video!
+            </p>
+            <div class="case-study__embed case-study__embed--video">
+              <iframe
+                title="UX research final presentation and workshop plan proposal"
+                src="https://www.youtube.com/embed/b1Q0AaixQr4"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+            <p class="case-study__embed-link">
+              <a href="https://www.youtube.com/watch?v=b1Q0AaixQr4" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+            </p>
+            <div class="case-study__workshop-head">
+              <h3 class="case-study__subsection">The Workshop</h3>
+              <p class="case-study__workshop-note">(I executed the actual workshop outside of class – here’s the intro:)</p>
+            </div>
+            <p>
+              A workshop video executed according to the workshop plan proposed in class. The actual execution of the workshop wasn’t required, but I decided to take this on outside of class to have it as a learning experience.
+            </p>
+            <div class="case-study__embed case-study__embed--video">
+              <iframe
+                title="The workshop"
+                src="https://www.youtube.com/embed/h177wtqF34Q"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+            <p class="case-study__embed-link">
+              <a href="https://www.youtube.com/watch?v=h177wtqF34Q" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">Divergent Game</h3>
+            <p>
+              Here’s the Divergent Game to get the entire project team (imaginary – it’s just me and another person!) to brainstorm all the possible challenges of the current interface and possible solutions.
+            </p>
+            <div class="case-study__embed case-study__embed--video">
+              <iframe
+                title="Divergent game"
+                src="https://www.youtube.com/embed/iF9nVrWpjWM"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+            <p class="case-study__embed-link">
+              <a href="https://www.youtube.com/watch?v=iF9nVrWpjWM" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">Whiteboard Challenge</h3>
+            <p>
+              Sharing and Collaboration Ideas from the Challenge Cards Game – 20 Minutes Whiteboard Challenge!
+            </p>
+            <div class="case-study__embed case-study__embed--video">
+              <iframe
+                title="Whiteboard challenge"
+                src="https://www.youtube.com/embed/Fu4kf39283k"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+            <p class="case-study__embed-link">
+              <a href="https://www.youtube.com/watch?v=Fu4kf39283k" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+            </p>
           </section>
 
-          <section class="case-study__section" id="brainstorm-wireframes">
-            <h2>Brainstorm/Wireframes</h2>
-
+          <section class="case-study__section" id="crazy-8s-workshop">
+            <div class="case-study__section-head">
+              <h2>Crazy 8s Workshop</h2>
+              <p class="case-study__section-note">(Creative Brainstorming – An Agile Design Sprint)</p>
+            </div>
+            <p>
+              I like that the Crazy 8s Workshop forces me to not be fixated and attached to only 1 or 2 solutions during the entire session. The limited time that I have on each frame (1 minute each) naturally pushes me to the next frame once the 1 minute is up. No matter how good I think an idea is, I move onto the next one without dwelling or perfecting on any specific solution.
+            </p>
+            <p>
+              This allows me to consider alternatives, to come up with as many different ideas as possible under the time limit, and most importantly, be open minded to different possibilities when quantity is a requirement and not an option.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">Presenting my 2 Design Problems to my Classmates for Our Crazy 8s Sketching Workshop</h3>
+            <div class="case-study__embed case-study__embed--video">
+              <iframe
+                title="Presenting design problems for Crazy 8s sketching workshop"
+                src="https://www.youtube.com/embed/DsFXEsibBKY"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+            <p class="case-study__embed-link">
+              <a href="https://www.youtube.com/watch?v=DsFXEsibBKY" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">Crazy 8s Sketches</h3>
           </section>
 
-          <section class="case-study__section" id="system-design">
-            <h2>System Design</h2>
-
+          <section class="case-study__section" id="userflows-and-sketches">
+            <h2>Userflows and Sketches</h2>
+            <p>
+              Taking my learnings from my user research (user interview) and research synthesis (affinity mapping and problem statements), the features to be created are determined, and the following user flows are created and turned into first initial sketches (low-fidelity wireframes).
+            </p>
+            <p>
+              Here are 4 out of the 7 features:
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">Userflow</h3>
+            <p>
+              Even in the early stages of low-fidelity mockups, I was cognizant of creating multiple routes for the user. Should they deviate from the main path, there’s always alternative routes that would lead them back to the main one.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">Sketches</h3>
+            <p>
+              After having decided on the features and flow for each feature, I created low-fidelity wireframes for each feature. They give an overview of the frames included for each flow and where buttons are on each frame (highlighted in red). This shows the general flow of how each frame transitions to the next.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">Mid-Fidelity Wireframes</h3>
+            <p>
+              For the mid-fidelity wireframes, I created a grayscale version of all the frames that I drew out in my sketches. These frames all include real content of what would actually appear in the final product with font matching to that which is currently being used on LinkedIn.
+            </p>
+            <p>
+              I used the column layout for aligning everything. I worked with a 12 column grid with a 15px gutter. (That kept all my frames aligned, but I later realized that it wasn’t scaled to what was actually on LinkedIn’s browser. In other words, my frames were all aligned but they were all blown up – everything was too big. I had to scale everything down to LinkedIn’s sizing later on.)
+            </p>
           </section>
 
-          <section class="case-study__section" id="architect">
-            <h2>Architect</h2>
+          <section class="case-study__section" id="1st-user-testing">
+            <h2>1st User Testing, Rainbow Sheet Results, and Action Items</h2>
+            <h3 class="case-study__subsection">1st User Testing Results</h3>
+            <h3 class="case-study__subsection case-study__subsection--follow">Main Action Items under 1st User Testing</h3>
+            <div class="case-study__action-rows">
+              <article class="case-study__action-row">
+                <div class="case-study__action-copy">
+                  <div class="case-study__finding">
+                    <span class="case-study__finding-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="10.5" cy="10.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M15 15l4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                      Finding
+                    </span>
+                    <p>All 3 participants struggled with the first user flow (search wireframes) — they didn’t intuitively filter results by category, even though filter categories exist under the search bar.</p>
+                  </div>
+                  <div class="case-study__action-item">
+                    <span class="case-study__action-item-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 3.5 10.8c-.7.5-1.1 1.2-1.2 2.2H9.7c-.1-1-.5-1.7-1.2-2.2A6 6 0 0 1 12 3z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      Action item
+                    </span>
+                    <ul>
+                      <li>Create an onboarding wireframe series with its own entry point — mentorship becomes a standalone ecosystem on the platform, with a dedicated portal/dashboard on login.</li>
+                      <li>Keeps users focused on what they set out to find, without unrelated content diverting attention in search results.</li>
+                      <li>Feature gated to Premium/paid users only.</li>
+                    </ul>
+                  </div>
+                </div>
+                <figure class="case-study__action-slot" aria-label="Image slot for finding 1">
+                  <span>Add image</span>
+                </figure>
+              </article>
 
+              <article class="case-study__action-row">
+                <div class="case-study__action-copy">
+                  <div class="case-study__finding">
+                    <span class="case-study__finding-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="10.5" cy="10.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M15 15l4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                      Finding
+                    </span>
+                    <p>The Credibility Stats page and its meters were confusing — one participant asked how the percentage adds up, another questioned what a 100% full meter means, and noted that a maxed-out meter might not represent credibility well, or motivate the mentor to keep engaging.</p>
+                  </div>
+                  <div class="case-study__action-item">
+                    <span class="case-study__action-item-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 3.5 10.8c-.7.5-1.1 1.2-1.2 2.2H9.7c-.1-1-.5-1.7-1.2-2.2A6 6 0 0 1 12 3z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      Action item
+                    </span>
+                    <ul>
+                      <li>Replace the meter bar with a badge system, per participant #3’s suggestion — no ceiling means no drop-off in motivation once a mentor “maxes out.”</li>
+                      <li>Badges clearly state the thresholds required to earn them, viewable on hover/click — transparent credentialing builds user confidence in connecting with a mentor.</li>
+                    </ul>
+                  </div>
+                </div>
+                <figure class="case-study__action-slot" aria-label="Image slot for finding 2">
+                  <span>Add image</span>
+                </figure>
+              </article>
+
+              <article class="case-study__action-row">
+                <div class="case-study__action-copy">
+                  <div class="case-study__finding">
+                    <span class="case-study__finding-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="10.5" cy="10.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M15 15l4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                      Finding
+                    </span>
+                    <p>Participant #2 found it tedious to return to the profile page every time just to check whether a mentor had accepted their connection request.</p>
+                  </div>
+                  <div class="case-study__action-item">
+                    <span class="case-study__action-item-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 3.5 10.8c-.7.5-1.1 1.2-1.2 2.2H9.7c-.1-1-.5-1.7-1.2-2.2A6 6 0 0 1 12 3z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      Action item
+                    </span>
+                    <ul>
+                      <li>Surface invitation status on the “My Network” page, under a dedicated tab for mentor requests — separate from general LinkedIn connect requests.</li>
+                      <li>Mentor requests carry selected coaching skills, so they need a distinct look and flow from general connections.</li>
+                    </ul>
+                  </div>
+                </div>
+                <figure class="case-study__action-slot" aria-label="Image slot for finding 3">
+                  <span>Add image</span>
+                </figure>
+              </article>
+            </div>
+            <p class="case-study__action-note">
+              <strong>Note:</strong> My instructor also suggested to have the booking system within the LinkedIn messaging dm chat itself because it would make the experience more seamless, hence, I changed all the frames to have it in the chat box instead of where I originally put the booking feature to speak with a mentor (that is, the mentor’s profile page). In the 2nd user testing, I learned from all 5 of my participants that putting it in the profile page where I initially had it would be more understandable and make more sense. It was a hassle changing back all the frames for that feature back to its original placement, but it was a learning experience.
+            </p>
           </section>
 
-          <section class="case-study__section" id="final-delivery">
-            <h2>Final Delivery</h2>
-
+          <section class="case-study__section" id="moodboard">
+            <h2>Moodboard</h2>
+            <p>
+              Mood board created to inspire colour palette for overall project and the visual design of features to be built.
+            </p>
           </section>
 
-          <section class="case-study__section" id="post-design">
-            <h2>Post Design</h2>
+          <section class="case-study__section" id="design-style-guide">
+            <h2>Design Style Guide</h2>
+            <p>
+              I decided on a colour palette for this project referencing the brand guidelines set out on LinkedIn’s website. Since LinkedIn is currently using a custom font called Community font, I used Inter which comes closest to it.
+            </p>
+            <p>
+              I also created various detailed design states for when the user interacts with different elements (e.g. buttons, radio buttons, checkboxes, input form fields, etc).
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">High Fidelity Wireframes</h3>
+            <p>
+              After the grayscale frames, I created my high-fidelity mockups; adding colours (with reference to the Design Style Guide’s colour palette) to everything in the frames and scaling it to be the same as the actual LinkedIn.
+            </p>
+            <p>
+              I created various detailed design states for when the user interacts with different elements (e.g. buttons, radio buttons, checkboxes, input form fields, etc). Prototypes are also created to show the transition between frames. UI animations are implemented to make the overall experience more seamless and realistic.
+            </p>
+          </section>
 
-            <h3 class="case-study__subsection">Telemetry</h3>
+          <section class="case-study__section" id="2nd-user-testing">
+            <h2>2nd User Testing and Heatmaps</h2>
+            <div class="case-study__action-rows">
+              <article class="case-study__action-row">
+                <div class="case-study__action-copy">
+                  <div class="case-study__finding">
+                    <span class="case-study__finding-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="10.5" cy="10.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M15 15l4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                      Finding
+                    </span>
+                    <p>All participants found the “Access Calendar” button inside the messaging chat awkward.</p>
+                  </div>
+                  <div class="case-study__finding">
+                    <span class="case-study__finding-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M8 8h.01M8 12h.01M8 16h.01M13 8h6M13 12h6M13 16h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                      Evidence
+                    </span>
+                    <ul class="case-study__evidence-list">
+                      <li>“Why would I go to the chat to search for my mentor when I’m already on their profile page?”</li>
+                      <li>“I’d be confused whether I need to chat first before I can book.”</li>
+                    </ul>
+                  </div>
+                  <div class="case-study__action-item">
+                    <span class="case-study__action-item-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 3.5 10.8c-.7.5-1.1 1.2-1.2 2.2H9.7c-.1-1-.5-1.7-1.2-2.2A6 6 0 0 1 12 3z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      Next iteration
+                    </span>
+                    <ul>
+                      <li>Move “Access Calendar” back to the profile page, where users expect it.</li>
+                    </ul>
+                  </div>
+                </div>
+                <figure class="case-study__action-slot" aria-label="Image slot for 2nd testing finding 1">
+                  <span>Add image</span>
+                </figure>
+              </article>
+
+              <article class="case-study__action-row">
+                <div class="case-study__action-copy">
+                  <div class="case-study__finding">
+                    <span class="case-study__finding-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="10.5" cy="10.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M15 15l4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                      Finding
+                    </span>
+                    <p>Most participants weren’t sure where to check the status of a connection request sent to a mentor.</p>
+                  </div>
+                  <div class="case-study__finding">
+                    <span class="case-study__finding-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+                      Observed
+                    </span>
+                    <p>Searched the nav bar. Status was nested under “My Network” — most couldn’t find it, or only after multiple attempts.</p>
+                  </div>
+                  <div class="case-study__action-item">
+                    <span class="case-study__action-item-label" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 3.5 10.8c-.7.5-1.1 1.2-1.2 2.2H9.7c-.1-1-.5-1.7-1.2-2.2A6 6 0 0 1 12 3z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      Next iteration
+                    </span>
+                    <ul>
+                      <li>Give LinkedIn Mentorship its own icon/hub — distinct branding, less confusion.</li>
+                    </ul>
+                  </div>
+                </div>
+                <figure class="case-study__action-slot" aria-label="Image slot for 2nd testing finding 2">
+                  <span>Add image</span>
+                </figure>
+              </article>
+            </div>
+          </section>
+
+          <section class="case-study__section" id="final-screens">
+            <h2>Final Screens and Features</h2>
+            <h3 class="case-study__subsection">1. Login and Search</h3>
+            <p>
+              After the 1st user testing, I created an onboarding wireframe series with a different entry point to search and even the mentorship system as a whole could be a standalone ecosystem on the LinkedIn platform. This means that when the user logs in, they can enter a portal and go to a designated mentorship dashboard/ecosystem dedicated for users looking for a mentorship-mentee relationship. This would filter out all other users that are using the main LinkedIn search bar for all other general searches (people (but not a mentor), jobs, groups, etc.)
+            </p>
+            <p>
+              In this ecosystem, users would go into the ecosystem with a very clear idea of what they want to search – mentors. This ecosystem also helps the user to focus on what they set out to search for without their attention being diverted to other unnecessary content in the search results not relevant to what they’re looking for.
+            </p>
+            <div class="case-study__workshop-head case-study__workshop-head--inline">
+              <h3 class="case-study__subsection">2. Badge of Credibility</h3>
+              <p class="case-study__workshop-note">(Badge of Credibility based on interaction and engagement)</p>
+            </div>
+            <ul class="case-study__list">
+              <li>There would be a credibility stats page on the LinkedIn professional’s profile page showing how experienced/influential/credible they are through badges</li>
+              <li>
+                A Badge System would clearly explain what thresholds must be met in order for that mentor to obtain that badge – the following are some activities that would contribute to the levelling up in or obtaining a certain badge
+                <ul>
+                  <li>Chat with someone in your field (e.g. If you’re a UX Designer, frequently LinkedIn messaging a lot of other UX Designers on the LinkedIn platform would increase or keep your meter high)</li>
+                  <li>Attend events/seminars hosted on LinkedIn that’s related to your field/expertise</li>
+                  <li>Interacting frequently on posts in your industry/field</li>
+                </ul>
+              </li>
+            </ul>
+            <h3 class="case-study__subsection case-study__subsection--follow">3. Job/Work Verification System</h3>
+            <p>
+              Job History and Work Experience Verification System (verified by employer/clients on LinkedIn)
+            </p>
+            <p>
+              To show to the user (the job/career seeker) that the LinkedIn professional is legitimate and that their credibility is being backed by the verification of companies that they have worked for/with currently/previously
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">4. Vetting System</h3>
+            <p>
+              Vetting (Verifying Mentor’s Skills and Credentials) System (Mentees choose skills they want to be mentored in by Verified LinkedIn mentors and send connection request)
+            </p>
+            <p>
+              Based on users’ responses in the 2nd user testing, they are more likely to search for a way to view all of their requests than to individually search for a specific mentor via search and view the status (i.e. connection requests) on that mentor’s profile page. (Same for bookings/joining meetings as well).
+            </p>
+            <p>
+              The iteration would include a My Requests tab under the “My Mentors” icon. By selecting that tab, the user is able to see all connection requests they’ve sent and the status of each (either pending or accepted). If the mentor has accepted, a view profile button would appear next to the mentor, prompting the user to visit the mentor’s profile page where they can book a meeting with them to further the connection.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">5. Access to Calendar (Primary Route)</h3>
+            <p>
+              Access to Calendar (mentees can access calendar once they’re connected to the mentor)
+            </p>
+            <p>
+              Users can easily access the professional’s calendar to see when they’re available
+            </p>
+            <p>
+              After the 2nd user testing, I’ve created a new set of wireframes to help the user enter the profile page through a new “My Mentor” icon on the nav bar. Once the user clicks on the icon, it’ll take them to a page where it has a list of mentors that the user has connected with and all the user’s upcoming/past bookings. By clicking on the “View Profile” button next to a mentor under the list, it’ll take the user to the mentor’s profile page where the “Access Calendar” button is.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">5. Access to Calendar (Secondary Route)</h3>
+            <p>
+              The messaging route path for accessing the calendar and joining the meeting won’t be deleted. Rather, it’ll act as a secondary route for accessing these 2 features.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">6. Video Chat System (Primary Route)</h3>
+            <p>
+              Integrate a video chat system within LinkedIn’s profile page so that the conversation can easily be done with just a click of a button on the interface
+            </p>
+            <p>
+              Resources Within the Chat (call/meeting)
+            </p>
+            <ul class="case-study__list">
+              <li>Files/resources that were shared during the call/meeting can be exported for the user’s reference later on</li>
+              <li>The user can join the video meeting by clicking on “Join Meeting” under the Bookings (includes all the user’s upcoming/past bookings) tab on the sidebar under the “My Mentors” page.</li>
+            </ul>
+            <h3 class="case-study__subsection case-study__subsection--follow">6. Video Chat System (Secondary Route)</h3>
+            <p>
+              The messaging route path for accessing the calendar and joining the meeting won’t be deleted. Rather, it’ll act as a secondary route for accessing these 2 features.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">7. Group Mentoring Workshop</h3>
+            <p>
+              LinkedIn professionals/mentors can host group mentoring sessions where career juniors in the field can sign up for a group chat/meeting right within the mentor’s profile page
+            </p>
+            <p>
+              This offers a more interactive discussion environment and experience (time and date set out by the mentor)
+            </p>
+          </section>
+
+          <section class="case-study__section" id="final-thoughts">
+            <h2>Final Thoughts</h2>
+            <p>
+              Redesigning LinkedIn’s profile page interface is challenging as that requires exploring a territory that already has so much established – what other problem(s) still exist for users? Figuring that out was the first step, implementing the solution of a mentorship platform alongside all existing features, and ensuring that they coexist in harmony meant constantly reviewing the feedback from participants.
+            </p>
+            <p>
+              With today’s competitiveness in the job market, a person new to a career field faces many challenges. Through conversations with participants, this redesigned web application is something they see themselves finding useful and actually using.
+            </p>
+            <p>
+              Below, I’ve listed a few metrics to consider in the future for this project.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow">KPIs to Track for Real Users Should/When this Product does Launch</h3>
+            <p class="case-study__kpi-lead">
+              Four of these track a mentee’s progression through the funnel; mentor engagement runs alongside it as a supporting metric.
+            </p>
+            <div class="case-study__kpi-real">
+              <aside class="case-study__kpi-support">
+                <div class="case-study__kpi-support-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                    <circle cx="9" cy="8" r="2.8" stroke="currentColor" stroke-width="1.6"/>
+                    <circle cx="16" cy="9" r="2.4" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M3.5 18.5c.8-2.6 2.8-4 5.5-4s4.7 1.4 5.5 4M13 14.5c1.7-.3 3.2.2 4.5 1.6.7.8 1.2 1.7 1.5 2.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <p class="case-study__kpi-support-label">Supporting metric</p>
+                <h4 class="case-study__kpi-support-title">Engagement Rate of Mentors</h4>
+                <p>
+                  Actively engaged mentors are what makes the whole platform succeed — the funnel to the right only works if there’s someone on the other end of it.
+                </p>
+              </aside>
+              <ol class="case-study__kpi-funnel">
+                <li>
+                  <span class="case-study__kpi-funnel-num" aria-hidden="true">1</span>
+                  <div>
+                    <strong>Sign-up rate for LinkedIn Mentorship</strong>
+                    <p>Gauges whether there’s real interest and demand for the product.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="case-study__kpi-funnel-num" aria-hidden="true">2</span>
+                  <div>
+                    <strong>Conversion: profile view → connect</strong>
+                    <p>Connection is the first step toward a conversation. Tracking it shows whether mentees are actually interested once they view a profile — and if not, why conversions are lower than expected.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="case-study__kpi-funnel-num" aria-hidden="true">3</span>
+                  <div>
+                    <strong>Conversion: connect → book a chat</strong>
+                    <p>The purpose is making conversations happen — this tracks how many actually get created.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="case-study__kpi-funnel-num" aria-hidden="true">4</span>
+                  <div>
+                    <strong>Conversion: connected mentee → group workshop booking</strong>
+                    <p>Group workshops bring the community together — a chance for mentees to meet each other and build continuous interest in the platform.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
           </section>
           </div>
         </div>
