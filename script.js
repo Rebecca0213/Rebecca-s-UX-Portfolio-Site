@@ -1024,6 +1024,9 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
   const prevBtn = root.querySelector("[data-carousel-prev]");
   const nextBtn = root.querySelector("[data-carousel-next]");
   const dotsWrap = root.querySelector("[data-carousel-dots]");
+  const syncTextEls = root.hasAttribute("data-carousel-sync-text")
+    ? [...root.parentElement.querySelectorAll("[data-carousel-text]")]
+    : [];
   let index = Math.max(
     0,
     slides.findIndex((slide) => slide.classList.contains("is-active"))
@@ -1044,6 +1047,11 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
       const active = i === index;
       slide.classList.toggle("is-active", active);
       slide.hidden = !active;
+    });
+    syncTextEls.forEach((textEl, i) => {
+      const active = i === index;
+      textEl.classList.toggle("is-active", active);
+      textEl.hidden = !active;
     });
     dots.forEach((dot, i) => {
       const active = i === index;

@@ -10,7 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Grand+Hotel&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Pacifico&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=nav-longest" />
+    <link rel="stylesheet" href="../styles.css?v=mw-problem-ref2" />
+    <script src="../case-study-lock.js?v=2"></script>
   </head>
   <body class="is-loading page-case-study page-case-study--meaningful">
     <div
@@ -160,46 +161,2209 @@
             <a class="case-study__back" href="../works.html">← Back</a>
             <ul class="case-study__toc">
               <li><a href="#overview">Overview</a></li>
-              <li><a href="#the-problem">The Problem</a></li>
-              <li><a href="#requirements-and-constraints">Requirements and Constraints</a></li>
-              <li><a href="#brainstorm-wireframes">Brainstorm/Wireframes</a></li>
-              <li><a href="#user-testing">User Testing</a></li>
-              <li><a href="#the-design">The Design</a></li>
+              <li><a href="#problem-statement">Problem Statement</a></li>
+              <li><a href="#users-and-audience">Users and Audience</a></li>
+              <li><a href="#roles-and-responsibilities">Roles and Responsibilities</a></li>
+              <li><a href="#scopes-and-constraints">Scopes and Constraints</a></li>
+              <li><a href="#process-part-1">Process - Part 1</a></li>
+              <li><a href="#process-part-2">Process - Part 2</a></li>
+              <li><a href="#process-part-3">Process - Part 3</a></li>
+              <li><a href="#final-thoughts">Final Thoughts</a></li>
             </ul>
           </aside>
 
           <div class="case-study__content">
           <section class="case-study__section" id="overview">
             <h2>Overview</h2>
-            <p>A social startup portal for Meaningful Work that brings community, content, and opportunity discovery into a more cohesive member experience.</p>
+            <p>
+              A volunteer management web app that helps nonprofit and company users manage their opportunities and volunteers — bringing together three very different user groups, each with their own needs, on one platform.
+            </p>
+            <div class="case-study__audience-grid">
+              <article class="case-study__audience-card">
+                <div class="case-study__audience-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                    <path d="M8.5 14.5c1.2-1.5 3-2.5 5-2.5s3.8 1 5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    <path d="M12 11.5c1.4 0 2.5-1.1 2.5-2.5S13.4 6.5 12 6.5 9.5 7.6 9.5 9s1.1 2.5 2.5 2.5z" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M6 10.5c.8-.9 2-1.5 3.2-1.5M18 10.5c-.8-.9-2-1.5-3.2-1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <h3 class="case-study__audience-title">Volunteer</h3>
+                <p class="case-study__audience-text">The person giving their time to a cause.</p>
+              </article>
+              <article class="case-study__audience-card case-study__audience-card--focus">
+                <span class="case-study__audience-badge">Focus of this case study</span>
+                <div class="case-study__audience-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                    <path d="M5 20V8l7-4 7 4v12" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M9.5 20V13h5v7M10 10h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <h3 class="case-study__audience-title">Nonprofit</h3>
+                <p class="case-study__audience-text">The organization managing opportunities and the volunteers who fill them.</p>
+              </article>
+              <article class="case-study__audience-card">
+                <span class="case-study__audience-new">New</span>
+                <div class="case-study__audience-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                    <rect x="4" y="8" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M8 8V6.5A2.5 2.5 0 0 1 10.5 4h3A2.5 2.5 0 0 1 16 6.5V8" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M4 12h16" stroke="currentColor" stroke-width="1.7"/>
+                  </svg>
+                </div>
+                <h3 class="case-study__audience-title">Company</h3>
+                <p class="case-study__audience-text">Builds culture and engages employees/customers by enabling their people to volunteer for nonprofit sectors that matter to them.</p>
+              </article>
+            </div>
+            <div class="case-study__audience-focus">
+              <span class="case-study__audience-focus-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+                  <circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.7"/>
+                  <path d="M12 4V2M12 22v-2M4 12H2M22 12h-2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <p class="case-study__audience-focus-text">
+                This case study showcases a feature built for the <strong>nonprofit</strong> user — but every design decision also considers how it ripples into the <strong>volunteer’s</strong> experience on the other side.
+              </p>
+            </div>
+            <blockquote class="case-study__overview-quote">
+              Designing for multiple user groups at once was challenging, but it exercised a skill I see as essential going forward: finding solutions that work across more than one dimension at a time.
+            </blockquote>
+            <div class="case-study__feature-glance">
+              <h3 class="case-study__subsection case-study__subsection--follow">The Nonprofit Management Feature at a Glance</h3>
+              <p class="case-study__feature-glance-lead">Lets nonprofits seeking volunteers on Meaningful Work do four things:</p>
+              <div class="case-study__feature-glance-grid">
+                <article class="case-study__feature-glance-item">
+                  <div class="case-study__feature-glance-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                      <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                      <path d="M9 8h6M9 12h6M9 16h3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <p><strong>Manage opportunity postings</strong></p>
+                </article>
+                <article class="case-study__feature-glance-item">
+                  <div class="case-study__feature-glance-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                      <circle cx="10" cy="9" r="3" stroke="currentColor" stroke-width="1.7"/>
+                      <path d="M5 19c.8-2.5 2.8-4 5-4s4.2 1.5 5 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                      <path d="M17.5 8.5l1.5 1.5 3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <p><strong>Manage volunteer applications</strong></p>
+                </article>
+                <article class="case-study__feature-glance-item">
+                  <div class="case-study__feature-glance-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                      <path d="M4 17l4-4 3 3 5-6 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M4 20h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <p><strong>Track progress of accepted volunteers</strong></p>
+                </article>
+                <article class="case-study__feature-glance-item">
+                  <div class="case-study__feature-glance-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                      <path d="M6 8.5c0-2.2 2.7-4 6-4s6 1.8 6 4-2.7 4-6 4-6-1.8-6-4z" stroke="currentColor" stroke-width="1.7"/>
+                      <path d="M6 8.5V12c0 2.2 2.7 4 6 4s6-1.8 6-4V8.5" stroke="currentColor" stroke-width="1.7"/>
+                      <path d="M12 14.5l1.2 1.2 2.4-2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <p><strong>Write testimonials for outstanding volunteers</strong></p>
+                </article>
+              </div>
+            </div>
           </section>
 
-          <section class="case-study__section" id="the-problem">
-            <h2>The Problem</h2>
-            <p>The opportunity was to make it easier for people to find relevant opportunities and engage with the community without getting lost in fragmented surfaces.</p>
+          <section class="case-study__section" id="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>
+              The nonprofit management feature didn't have one specific problem — it had a multitude of undiscovered ones. Before I took it over, only a very basic flow existed, untested for over a year. I knew immediately there was a lot of ground to cover, starting with pushing for real user testing.
+            </p>
+            <div class="case-study__flow-questions">
+              <div class="case-study__flow-questions-intro">
+                <span class="case-study__flow-questions-intro-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M9.5 9.2a2.5 2.5 0 0 1 4.3 1.7c0 1.6-2.8 1.8-2.8 3.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    <circle cx="12" cy="17.2" r="1" fill="currentColor"/>
+                  </svg>
+                </span>
+                <p>Starting out, 2 obvious questions stood out about the feature's flow:</p>
+              </div>
+              <div class="case-study__flow-questions-grid">
+              <article class="case-study__flow-question">
+                <h3 class="case-study__flow-question-title">1. Is the progress review loop clear<br />for both sides?</h3>
+                <p>
+                  A "progress" modal let volunteers log hours and completed milestones, then submit them to the nonprofit for review and approval. The open question: how do we make that back-and-forth review process — sending feedback, requesting revisions — clear and effective for both the volunteer and the nonprofit, across real use cases?
+                </p>
+                <figure class="case-study__flow-question-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/katie-smith-progress-modal.png"
+                    alt="Katie Smith's Progress modal on the Opportunity Dashboard with milestone logs and approve actions"
+                    width="1024"
+                    height="921"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+              <article class="case-study__flow-question">
+                <h3 class="case-study__flow-question-title">2. Should one slow response hold up<br />every volunteer?</h3>
+                <p>
+                  Originally, an opportunity couldn't begin until <em>every</em> invited volunteer responded — accepted or declined — even if one or more had already accepted. A single unresponsive applicant delayed the start for everyone else, creating irritation and a poor experience on both sides.
+                </p>
+                <figure class="case-study__flow-question-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/opportunity-dashboard-offers.png"
+                    alt="Opportunity Dashboard showing accepted and declined volunteer offers with Begin Opportunity action"
+                    width="1020"
+                    height="906"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+              </div>
+            </div>
           </section>
 
-          <section class="case-study__section" id="requirements-and-constraints">
-            <h2>Requirements and Constraints</h2>
-            <p>The work needed a clear information architecture and modular UI patterns that could grow with new content types and member needs.</p>
+          <section class="case-study__section" id="users-and-audience">
+            <h2>Users and Audience</h2>
+            <div class="case-study__audience-focus">
+              <span class="case-study__audience-focus-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+                  <path d="M12 10v5M12 8h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <p class="case-study__audience-focus-text">
+                Of the platform’s 3 user groups — volunteers, nonprofits, and companies — this feature targets the nonprofit user. Every decision still weighs the volunteer’s experience too; company needs are considered least, since no features have been designed for that group yet.
+              </p>
+            </div>
+            <p class="case-study__audience-lead"><em>Let’s take a look at the nonprofit user</em></p>
+            <ol class="case-study__audience-steps">
+              <li class="case-study__audience-step">
+                <span class="case-study__audience-step-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M12 8v4M10 10h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <p>Posts a volunteer opportunity on the platform, hoping to attract interested applicants.</p>
+              </li>
+              <li class="case-study__audience-step">
+                <span class="case-study__audience-step-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M4 8l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <p>Receives applications from volunteers interested in the posting.</p>
+              </li>
+              <li class="case-study__audience-step">
+                <span class="case-study__audience-step-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <p>Reviews applications and sends offers or rejections, as they see fit.</p>
+              </li>
+              <li class="case-study__audience-step">
+                <span class="case-study__audience-step-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <path d="M4 17l4-4 3 3 5-6 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 20h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <p>Monitors the progress of volunteers throughout the opportunity.</p>
+              </li>
+              <li class="case-study__audience-step">
+                <span class="case-study__audience-step-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <path d="M6 7.5c0-1.4 2.2-2.5 5-2.5s5 1.1 5 2.5-2.2 2.5-5 2.5-5-1.1-5-2.5z" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M6 7.5V11c0 1.4 2.2 2.5 5 2.5.8 0 1.6-.1 2.3-.3L17 16l-1.8-2.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 8.5l.6 1 1.1.1-.8.7.2 1.1-1.1-.6-1.1.6.2-1.1-.8-.7 1.1-.1z" fill="currentColor"/>
+                  </svg>
+                </span>
+                <p>Writes a testimonial for the volunteer at the end of the opportunity.</p>
+              </li>
+            </ol>
           </section>
 
-          <section class="case-study__section" id="brainstorm-wireframes">
-            <h2>Brainstorm/Wireframes</h2>
-
+          <section class="case-study__section" id="roles-and-responsibilities">
+            <h2>Roles and Responsibilities</h2>
+            <p>
+              When I started this feature, I worked alongside another designer on wireframing, prototyping, and user testing. When they left before the design was finished, I took over the handover to development — reviewing and wireframing missing states, componentizing modals into our design system, checking spacing and layout consistency, annotating specs and user flows, and running dev/design meetings to keep decisions aligned through a successful handover.
+            </p>
           </section>
 
-          <section class="case-study__section" id="user-testing">
-            <h2>User Testing</h2>
-
+          <section class="case-study__section" id="scopes-and-constraints">
+            <h2>Scopes and Constraints</h2>
+            <p>
+              There weren’t any specific constraints for the management feature, other than the fact that it was difficult to find a lot of nonprofit users for user testing. Moving forward, it would be ideal to grow our user base for future user testing.
+            </p>
           </section>
 
-          <section class="case-study__section" id="the-design">
-            <h2>The Design</h2>
+          <section class="case-study__section" id="process-part-1">
+            <h2>Process - Part 1</h2>
+            <h3 class="case-study__subsection">Pre-Design</h3>
+            <div class="case-study__gap-callout">
+              <span class="case-study__gap-callout-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path d="M12 4.5 20.5 18.5H3.5L12 4.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                  <path d="M12 10v4M12 16.5h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <p class="case-study__gap-callout-text">
+                <strong>The gap:</strong> opportunity postings don’t redirect volunteers to similar postings when they skip the one they’re on — a missed chance to fix Meaningful Work’s ongoing retention problem. Found by walking the test app as a nonprofit user across multiple passes.
+              </p>
+            </div>
+            <div class="case-study__predesign-rows">
+              <article class="case-study__predesign-row">
+                <div class="case-study__predesign-card">
+                  <span class="case-study__predesign-card-num" aria-hidden="true">1</span>
+                  <p class="case-study__predesign-card-body">Make the meta tags on a volunteer’s profile page clickable — redirect to opportunities sharing the same tags.</p>
+                </div>
+                <figure class="case-study__predesign-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/predesign-profile-goals.png"
+                    alt="Volunteer profile Goals section showing impact areas of interest and personal development goals tags"
+                    width="768"
+                    height="625"
+                    loading="lazy"
+                  />
+                  <figcaption class="case-study__predesign-card-ref">
+                    Profile — Goals
+                  </figcaption>
+                </figure>
+              </article>
+              <article class="case-study__predesign-row case-study__predesign-row--center-image">
+                <div class="case-study__predesign-card">
+                  <span class="case-study__predesign-card-num" aria-hidden="true">2</span>
+                  <p class="case-study__predesign-card-body">Same behavior on the opportunity page — clicking a skills or impact area tag redirects to similar opportunities.</p>
+                </div>
+                <figure class="case-study__predesign-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/predesign-opportunity-skills-impact.png"
+                    alt="Opportunity details page showing opportunity type, skills, and impact area tags"
+                    width="1024"
+                    height="516"
+                    loading="lazy"
+                  />
+                  <figcaption class="case-study__predesign-card-ref">
+                    Opportunity — Skills / Impact
+                  </figcaption>
+                </figure>
+              </article>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow">Design Begins</h3>
+            <p>
+              It is important to go over the 4 different parts to the management feature and how they work (prior to my involvement) before we dive into the design process.
+            </p>
+            <p>
+              Both the management page and opportunity dashboard have their preliminary design done before I started on the feature:
+            </p>
+            <div class="case-study__design-features">
+              <article class="case-study__design-feature">
+                <div class="case-study__design-feature-copy">
+                  <h4 class="case-study__design-feature-title">1. Management Page</h4>
+                  <p>
+                    The Management page is where nonprofits manage all their opportunity postings on Meaningful Work’s platform. They can view all the posting drafts they created, the “open” opportunities – the ones accepting applications from volunteers, and “ongoing” ones – the ones currently in progress, etc.
+                  </p>
+                </div>
+                <figure class="case-study__design-feature-slot">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/management-page.png"
+                    alt="Meaningful Work Management page showing opportunity postings with draft, open, ongoing, and closed statuses"
+                    width="926"
+                    height="1024"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+              <article class="case-study__design-feature">
+                <div class="case-study__design-feature-copy">
+                  <h4 class="case-study__design-feature-title">2. Opportunity Dashboard</h4>
+                  <p>
+                    The Opportunity Dashboard is where the nonprofit user can manage its applicants that applied to its opportunity posting. On the Applicants tab, they can view each applicant’s application and choose to either schedule an interview with them and send them an offer or rejection message. On the Progress tab, the nonprofit user can track the status of the applicants that the nonprofit has extended an offer to. If all volunteers have accepted their offers and responded (even if its “decline” offer), the nonprofit then could begin the opportunity where they could now manage the volunteers’ progress on the Progress tab.
+                  </p>
+                </div>
+                <figure class="case-study__design-feature-slot">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/opportunity-dashboard.png"
+                    alt="Meaningful Work Opportunity Dashboard showing Applicants tab with applicant statuses and offer actions"
+                    width="1024"
+                    height="915"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+              <article class="case-study__design-feature">
+                <div class="case-study__design-feature-copy">
+                  <h4 class="case-study__design-feature-title">3. Progress Tab</h4>
+                  <p>
+                    The Progress tab allows the nonprofit to view each volunteer’s progress on the opportunity. The idea here is that every volunteer onboard with the opportunity would log their progress when they completed each milestone/goal in the opportunity. Once all logs are completed, they would submit for the nonprofit to review and approve.
+                  </p>
+                </div>
+                <figure class="case-study__design-feature-slot">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/progress-tab.png"
+                    alt="Meaningful Work Opportunity Dashboard Track Progress tab showing volunteers waiting to respond to offers"
+                    width="1024"
+                    height="915"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+              <article class="case-study__design-feature case-study__design-feature--stacked">
+                <div class="case-study__design-feature-copy">
+                  <h4 class="case-study__design-feature-title">4. Impact Story/Completing Opportunity</h4>
+                  <p>
+                    Finally, the Impact Story is a “testimonial” written for the volunteer once they have completed the opportunity (after the nonprofit approves of the progress). The writing of the testimonial is optional, hence, if a testimonial is not written, the nonprofit would be asked if they could provide feedback on what could have been done better. Afterwards, the nonprofit would then complete the opportunity so that the opportunity would now be marked as a “closed” opportunity on the Management page.
+                  </p>
+                  <div class="case-study__design-feature-slots">
+                    <figure class="case-study__design-feature-slot">
+                      <img
+                        src="../assets/case-studies/social-startup-portal/create-impact-story.png"
+                        alt="Meaningful Work Track Progress tab with Progress Approved status and Create Impact Story action for volunteers"
+                        width="876"
+                        height="648"
+                        loading="lazy"
+                      />
+                    </figure>
+                    <figure class="case-study__design-feature-slot">
+                      <img
+                        src="../assets/case-studies/social-startup-portal/view-impact-story.png"
+                        alt="Meaningful Work Track Progress tab showing Opportunity Completed status with View Impact Story action and Close Opportunity button"
+                        width="876"
+                        height="648"
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow">Deep Dive into the Progress Modal</h3>
+            <p>
+              After having walked through the test app myself, I discussed with the management team in terms of what needs to be designed.
+            </p>
+            <p>
+              Since the Management page and Opportunity Dashboard are well established, I took on the Progress tab.
+            </p>
+            <p class="case-study__progress-modal-beginning-lead">This is how the <em>Progress</em> modal looked in the beginning:</p>
+            <div class="case-study__progress-modal-row">
+              <div class="case-study__progress-modal-copy case-study__progress-modal-beginning">
+                <div class="case-study__progress-modal-beginning-item">
+                  <span class="case-study__progress-modal-beginning-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.6"/>
+                      <circle cx="12" cy="12" r="2.75" stroke="currentColor" stroke-width="1.6"/>
+                    </svg>
+                  </span>
+                  <p>The nonprofit user views the hours and milestones a volunteer logged for an opportunity, as a list of progress logs — each showing the milestone and hours dedicated to it.</p>
+                </div>
+                <div class="case-study__progress-modal-beginning-actions">
+                  <div class="case-study__progress-modal-beginning-action">
+                    <span class="case-study__progress-modal-beginning-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                        <path d="M5 8.5h12a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H11l-3.5 3v-3H5a2 2 0 0 1-2-2v-5.5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                        <path d="M8 12h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      </svg>
+                    </span>
+                    <div class="case-study__progress-modal-beginning-action-copy">
+                      <strong>Send back for review</strong>
+                      <p>Leaves general feedback on everything logged so far, so the volunteer can make revisions.</p>
+                    </div>
+                  </div>
+                  <div class="case-study__progress-modal-beginning-action case-study__progress-modal-beginning-action--approve">
+                    <span class="case-study__progress-modal-beginning-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                        <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M8.5 12.2 10.8 14.5 15.5 9.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    <div class="case-study__progress-modal-beginning-action-copy">
+                      <strong>Approve</strong>
+                      <p>Used when everything looks good — completes the opportunity on the volunteer's behalf.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figure class="case-study__design-feature-slot">
+                <img
+                  src="../assets/case-studies/social-startup-portal/katie-smith-progress-modal.png"
+                  alt="Katie Smith's Progress modal showing milestone logs, project attachments, and send back for review or approve actions"
+                  width="1024"
+                  height="921"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+            <div class="case-study__progress-modal-ideation-intro">
+              <span class="case-study__progress-modal-ideation-intro-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                  <circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M4 19c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  <circle cx="16.5" cy="9" r="2.25" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M14.5 19c.3-1.8 1.8-3.25 3.75-3.25" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <p>The <em>progress</em> modal has to work for 2 user groups at once — the volunteer logging progress, and the nonprofit reviewing and approving it — so the back-and-forth needed to stay clear and enjoyable for both. Here's the first ideated solution, wireframed for the team to review.</p>
+            </div>
+            <div class="case-study__progress-modal-screen-cols">
+              <div class="case-study__progress-modal-screen-col">
+                <div class="case-study__progress-modal-ideation-screen">
+                  <h4 class="case-study__progress-modal-ideation-title">Screen 1 — Progress List</h4>
+                  <ul class="case-study__progress-modal-ideation-items">
+                    <li class="case-study__progress-modal-ideation-item">
+                      <span class="case-study__progress-modal-ideation-item-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                          <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                          <path d="M8.5 12.2 10.8 14.5 15.5 9.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                      <p>A checkbox on each log lets the nonprofit comment on individual entries — feedback gets more specific and clear.</p>
+                    </li>
+                    <li class="case-study__progress-modal-ideation-item">
+                      <span class="case-study__progress-modal-ideation-item-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                          <circle cx="12" cy="12" r="7.5" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.5 2.5"/>
+                        </svg>
+                      </span>
+                      <p>A status column shows whether a log is reviewed, revised, or completed.</p>
+                    </li>
+                    <li class="case-study__progress-modal-ideation-item">
+                      <span class="case-study__progress-modal-ideation-item-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                          <path d="M4 18 9.5 8.5 13.5 13.5 20 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M16 6h4v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                      <p>Clicking a log opens its full milestone details.</p>
+                    </li>
+                    <li class="case-study__progress-modal-ideation-item">
+                      <span class="case-study__progress-modal-ideation-item-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                          <circle cx="12" cy="12" r="7.5" stroke="currentColor" stroke-width="1.6"/>
+                          <path d="M8.5 12.2 10.8 14.5 15.5 9.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                      <p>Once every log is marked complete, the nonprofit approves the modal — closing out the opportunity.</p>
+                    </li>
+                  </ul>
+                </div>
+                <span class="case-study__progress-modal-ideation-ref">Katie Smith's Progress</span>
+                <figure class="case-study__design-feature-slot">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/progress-modal-screen-1.png"
+                    alt="Screen 1 Progress List wireframe showing Katie Smith's progress logs with status column and checkboxes for nonprofit review"
+                    width="1024"
+                    height="899"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="case-study__progress-modal-screen-col">
+                <div class="case-study__progress-modal-ideation-screen">
+                  <h4 class="case-study__progress-modal-ideation-title">Screen 2 — Log Detail &amp; Revisions</h4>
+                  <ul class="case-study__progress-modal-ideation-items">
+                    <li class="case-study__progress-modal-ideation-item">
+                      <span class="case-study__progress-modal-ideation-item-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                          <path d="M7 17 17 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                          <path d="M11 7h6v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                      <p>Where the nonprofit lands after clicking into a progress log from screen 1.</p>
+                    </li>
+                    <li class="case-study__progress-modal-ideation-item">
+                      <span class="case-study__progress-modal-ideation-item-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                          <path d="M5 8.5h12a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H11l-3.5 3v-3H5a2 2 0 0 1-2-2v-5.5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                          <path d="M8 12h8M8 9.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                      <p>Shows both the nonprofit's feedback and the volunteer's comments on their revisions, side by side.</p>
+                    </li>
+                    <li class="case-study__progress-modal-ideation-item">
+                      <span class="case-study__progress-modal-ideation-item-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                          <circle cx="12" cy="12" r="7.5" stroke="currentColor" stroke-width="1.6"/>
+                          <path d="M8.5 12.2 10.8 14.5 15.5 9.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                      <p>The nonprofit can send another comment, or mark this specific log "complete."</p>
+                    </li>
+                  </ul>
+                </div>
+                <span class="case-study__progress-modal-ideation-ref">Katie Smith's Revision(s) for Milestone 2</span>
+                <figure class="case-study__design-feature-slot">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/progress-modal-screen-2.png"
+                    alt="Screen 2 Log Detail and Revisions wireframe showing Katie Smith's milestone revisions, comments history, and mark complete action"
+                    width="1024"
+                    height="1015"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+            </div>
+            <div class="case-study__progress-modal-pushback">
+              <div class="case-study__progress-modal-pushback-block">
+                <span class="case-study__progress-modal-pushback-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                    <path d="M5 8.5h12a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H11l-3.5 3v-3H5a2 2 0 0 1-2-2v-5.5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    <path d="M8 12h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <p><strong>Management's pushback:</strong> the design was too complex. Their assumption was that reviewing and commenting on every individual log would overwhelm the nonprofit user — so their proposal was to review everything at once, after all milestones are submitted, leave one comment, and approve if it looks fine.</p>
+              </div>
+              <p class="case-study__progress-modal-pushback-lead">The <em>progress</em> modal going for user testing instead:</p>
+              <div class="case-study__progress-modal-testing-flow" aria-label="Referenced screens: 3-state progress log flow">
+                <span class="case-study__progress-modal-testing-flow-ref">Referenced screens: 3-state progress log flow</span>
+                <span class="case-study__progress-modal-testing-flow-step">Select</span>
+                <span class="case-study__progress-modal-testing-flow-arrow" aria-hidden="true">→</span>
+                <span class="case-study__progress-modal-testing-flow-step">Feedback</span>
+                <span class="case-study__progress-modal-testing-flow-arrow" aria-hidden="true">→</span>
+                <span class="case-study__progress-modal-testing-flow-step">Revision</span>
+              </div>
+              <div
+                class="case-study__carousel case-study__carousel--testing"
+                data-case-study-carousel
+                aria-roledescription="carousel"
+                aria-label="Progress modal user testing flow"
+              >
+                <div class="case-study__carousel-toolbar">
+                  <p class="case-study__carousel-label" data-carousel-label>Step 1</p>
+                  <div class="case-study__carousel-controls">
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-prev
+                      aria-label="Previous step"
+                    >
+                      <span aria-hidden="true">←</span>
+                    </button>
+                    <div class="case-study__carousel-dots" data-carousel-dots></div>
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-next
+                      aria-label="Next step"
+                    >
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="case-study__carousel-viewport">
+                  <ul class="case-study__carousel-track">
+                    <li class="case-study__carousel-slide is-active" data-label="Step 1">
+                      <div class="case-study__progress-modal-testing-row">
+                        <div class="case-study__progress-modal-testing-step">
+                          <span class="case-study__progress-modal-testing-step-num" aria-hidden="true">1</span>
+                          <p>The nonprofit selects the log(s) they want to give feedback on — after all progress has been submitted by the volunteer, rather than reviewing as each milestone comes in.</p>
+                        </div>
+                        <figure class="case-study__design-feature-slot" aria-label="Image slot for testing step 1">
+                          <img
+                            src="../assets/case-studies/social-startup-portal/progress-modal-testing-step-1.png"
+                            alt="Katie Smith's Progress modal for user testing with progress log selection and comment box for send back for review"
+                            width="855"
+                            height="1024"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </div>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Step 2" hidden>
+                      <div class="case-study__progress-modal-testing-row">
+                        <div class="case-study__progress-modal-testing-step">
+                          <span class="case-study__progress-modal-testing-step-num" aria-hidden="true">2</span>
+                          <p>Selected logs get outlined to confirm the selection. The nonprofit enters feedback in the comment box and clicks "Send back for review" to notify the volunteer.</p>
+                        </div>
+                        <figure class="case-study__design-feature-slot" aria-label="Image slot for testing step 2">
+                          <img
+                            src="../assets/case-studies/social-startup-portal/progress-modal-testing-step-2.png"
+                            alt="Katie Smith's Progress modal with selected logs outlined and feedback entered in the comment box"
+                            width="853"
+                            height="1024"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </div>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Step 3" hidden>
+                      <div class="case-study__progress-modal-testing-row">
+                        <div class="case-study__progress-modal-testing-step">
+                          <span class="case-study__progress-modal-testing-step-num" aria-hidden="true">3</span>
+                          <div class="case-study__progress-modal-testing-step-copy">
+                            <p>Once a revision is made, the log reappears with a small blue indicator in the Notes column, flagging that a change was made.</p>
+                            <p class="case-study__progress-modal-testing-step-note"><em>Open question at the time: is a small dot enough to clearly signal a change, on its own?</em></p>
+                          </div>
+                        </div>
+                        <figure class="case-study__design-feature-slot" aria-label="Image slot for testing step 3">
+                          <img
+                            src="../assets/case-studies/social-startup-portal/progress-modal-testing-step-3.png"
+                            alt="Katie Smith's Progress modal showing revised log with blue indicator in Notes column and revision comments history"
+                            width="852"
+                            height="1024"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="case-study__progress-modal-disagreement">
+                <span class="case-study__progress-modal-disagreement-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                    <path d="M6 4.5v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M6 4.5h9.5L18 8v8.5H6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <p><strong>I disagreed with that rationale, and still do.</strong> Letting the nonprofit comment as progress is logged catches errors earlier and keeps both users more engaged — I also pushed for a revision comments history so both sides could reference past feedback later. Since we didn't align, I pushed for user testing to validate the simplified version instead.</p>
+              </div>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow">1st User Testing for the Management Feature since a Year Without any Testings</h3>
+            <p>
+              Since there weren't any user testings conducted on the management feature since a year ago, this would be considered the first user research/testing in a long time. It would be the opportunity to validate a lot of design decisions, not solely for the progress modal that I pushed for, but the overall management feature in general.
+            </p>
+            <p>
+              This is the opportunity to understand our nonprofit users better and make design decisions beyond us designers or the management team.
+            </p>
+          </section>
 
-            <h3 class="case-study__subsection">Desktop</h3>
+          <section class="case-study__section" id="process-part-2">
+            <h2>Process - Part 2</h2>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="designing-chat-modals">Designing Chat Modals</h3>
+            <p>
+              After the <em>Progress</em> modal, management wanted chat modals for rejecting volunteers — letting the nonprofit send a personalized, kind message both when rejecting someone individually and when mass-rejecting everyone not accepted for an opportunity.
+            </p>
+            <p>
+              Sending a personalized message to every rejected applicant might seem excessive — the nonprofit has to reject and message everyone before starting the opportunity with accepted applicants — but the stakeholder's intent was clear: keep volunteers encouraged to apply again, not discouraged. Another reminder that this feature has to balance nonprofit, volunteer, and stakeholder needs all at once.
+            </p>
+            <div class="case-study__design-features">
+              <article class="case-study__design-feature" id="rejection-chat-modal-individual">
+                <div class="case-study__design-feature-copy">
+                  <h4 class="case-study__design-feature-title">Rejection Chat Modal (Individual)</h4>
+                  <p class="case-study__design-feature-note">1st wireframe — designed by a co-designer, with my feedback</p>
+                </div>
+                <div
+                  class="case-study__carousel case-study__carousel--feature"
+                  data-case-study-carousel
+                  aria-roledescription="carousel"
+                  aria-label="Individual rejection chat modal screens"
+                >
+                  <div class="case-study__carousel-toolbar">
+                    <p class="case-study__carousel-label" data-carousel-label>Individual — Screen 1</p>
+                    <div class="case-study__carousel-controls">
+                      <button
+                        type="button"
+                        class="case-study__carousel-btn"
+                        data-carousel-prev
+                        aria-label="Previous screen"
+                      >
+                        <span aria-hidden="true">←</span>
+                      </button>
+                      <div class="case-study__carousel-dots" data-carousel-dots></div>
+                      <button
+                        type="button"
+                        class="case-study__carousel-btn"
+                        data-carousel-next
+                        aria-label="Next screen"
+                      >
+                        <span aria-hidden="true">→</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="case-study__carousel-viewport">
+                    <ul class="case-study__carousel-track">
+                      <li class="case-study__carousel-slide is-active" data-label="Individual — Screen 1">
+                        <p class="case-study__carousel-feature-text">To reject an applicant, the nonprofit user clicks on “not the right fit” on the applicant’s application (application modal designed by another designer)</p>
+                        <figure class="case-study__design-feature-slot" aria-label="Individual rejection chat modal screen 1">
+                          <img
+                            src="../assets/case-studies/social-startup-portal/rejection-chat-modal-screen-1.png"
+                            alt="Katie Smith's Application modal on the Opportunity Dashboard with Not the right fit link to reject an applicant"
+                            width="980"
+                            height="1024"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </li>
+                      <li class="case-study__carousel-slide" data-label="Individual — Screen 2" hidden>
+                        <p class="case-study__carousel-feature-text">A confirmation modal pops up to confirm with the nonprofit user if they do wish to proceed with rejecting the applicant</p>
+                        <figure class="case-study__design-feature-slot" aria-label="Individual rejection chat modal screen 2">
+                          <img
+                            src="../assets/case-studies/social-startup-portal/rejection-chat-modal-screen-2.png"
+                            alt="Confirmation modal asking Is the volunteer not the right fit before rejecting an applicant on the Opportunity Dashboard"
+                            width="1006"
+                            height="876"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </li>
+                      <li class="case-study__carousel-slide" data-label="Individual — Screen 3" hidden>
+                        <p class="case-study__carousel-feature-text">The nonprofit user is then brought to a chat modal where they have to send a kind message to the volunteer (optional – close the modal if nonprofit does not wish to send a message) prior to the rejection being sent (chat modal designed by another designer)</p>
+                        <figure class="case-study__design-feature-slot" aria-label="Individual rejection chat modal screen 3">
+                          <img
+                            src="../assets/case-studies/social-startup-portal/rejection-chat-modal-screen-3.png"
+                            alt="Chat modal for nonprofit to send an optional kind rejection message to a volunteer before the rejection is sent"
+                            width="1006"
+                            height="872"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+              <article class="case-study__design-feature" id="rejection-chat-modal-mass-reject">
+                <div class="case-study__design-feature-copy">
+                  <h4 class="case-study__design-feature-title">Rejection Chat Modal (Mass Reject)</h4>
+                </div>
+                <div
+                  class="case-study__carousel case-study__carousel--feature"
+                  data-case-study-carousel
+                  aria-roledescription="carousel"
+                  aria-label="Mass reject chat modal screens"
+                >
+                  <div class="case-study__carousel-toolbar">
+                    <p class="case-study__carousel-label" data-carousel-label>Mass Reject — Screen 1</p>
+                    <div class="case-study__carousel-controls">
+                      <button
+                        type="button"
+                        class="case-study__carousel-btn"
+                        data-carousel-prev
+                        aria-label="Previous screen"
+                      >
+                        <span aria-hidden="true">←</span>
+                      </button>
+                      <div class="case-study__carousel-dots" data-carousel-dots></div>
+                      <button
+                        type="button"
+                        class="case-study__carousel-btn"
+                        data-carousel-next
+                        aria-label="Next screen"
+                      >
+                        <span aria-hidden="true">→</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="case-study__carousel-viewport">
+                    <ul class="case-study__carousel-track">
+                      <li class="case-study__carousel-slide is-active" data-label="Mass Reject — Screen 1">
+                        <p class="case-study__carousel-feature-text">If the nonprofit user has enough volunteers who accepted their offer, the nonprofit can click on “Begin Opportunity” to start the project with the accepted volunteers. Clicking on the “Begin Opportunity” button would trigger the modal to reject all remaining applicants that were not reviewed, accepted, and whom have not responded to their offer yet to pop up</p>
+                        <figure class="case-study__design-feature-slot" aria-label="Mass reject chat modal screen 1">
+                          <img
+                            src="../assets/case-studies/social-startup-portal/rejection-chat-modal-mass-reject-screen-1.png"
+                            alt="Opportunity Dashboard with Begin Opportunity button to start the project and trigger mass reject for remaining applicants"
+                            width="1000"
+                            height="824"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </li>
+                      <li class="case-study__carousel-slide" data-label="Mass Reject — Screen 2" hidden>
+                        <p class="case-study__carousel-feature-text">Confirmation modal to confirm with nonprofit that they’re rejecting the following number of unreviewed and pending volunteers</p>
+                        <figure class="case-study__design-feature-slot" aria-label="Mass reject chat modal screen 2">
+                          <img
+                            src="../assets/case-studies/social-startup-portal/rejection-chat-modal-mass-reject-screen-2.png"
+                            alt="Confirmation modal showing count of unreviewed and pending volunteers before mass rejecting applicants on Begin Opportunity"
+                            width="998"
+                            height="874"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </li>
+                      <li class="case-study__carousel-slide" data-label="Mass Reject — Screen 3" hidden>
+                        <p class="case-study__carousel-feature-text">Once confirmed, the nonprofit would need to send a kind message to the volunteers rejected (both unreviewed and pending volunteers who have not accepted their offer yet)</p>
+                        <figure class="case-study__design-feature-slot" aria-label="Mass reject chat modal screen 3">
+                          <img
+                            src="../assets/case-studies/social-startup-portal/rejection-chat-modal-mass-reject-screen-3.png"
+                            alt="Mass chat modal for nonprofit to send a kind rejection message to unreviewed and pending volunteers"
+                            width="998"
+                            height="872"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+              <article class="case-study__design-feature" id="schedule-interview-chat">
+                <div class="case-study__design-feature-copy">
+                  <h4 class="case-study__design-feature-title">Schedule Interview Chat (preliminary design)</h4>
+                  <p>Other than the chat modals, there’s also a modal for scheduling a meeting/interview with the applicants. Here, we see a preliminary design for scheduling interview (designed by another designer – gave feedback on design) which I would further design later in the process:</p>
+                </div>
+                <div
+                  class="case-study__carousel case-study__carousel--feature"
+                  data-case-study-carousel
+                  aria-roledescription="carousel"
+                  aria-label="Schedule interview chat modal screens"
+                >
+                  <div class="case-study__carousel-toolbar">
+                    <p class="case-study__carousel-label" data-carousel-label>Schedule Interview — Screen 1</p>
+                    <div class="case-study__carousel-controls">
+                      <button
+                        type="button"
+                        class="case-study__carousel-btn"
+                        data-carousel-prev
+                        aria-label="Previous screen"
+                      >
+                        <span aria-hidden="true">←</span>
+                      </button>
+                      <div class="case-study__carousel-dots" data-carousel-dots></div>
+                      <button
+                        type="button"
+                        class="case-study__carousel-btn"
+                        data-carousel-next
+                        aria-label="Next screen"
+                      >
+                        <span aria-hidden="true">→</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="case-study__carousel-viewport">
+                    <ul class="case-study__carousel-track">
+                      <li class="case-study__carousel-slide is-active" data-label="Schedule Interview — Screen 1">
+                        <p class="case-study__carousel-feature-text">Nonprofit user clicks on “schedule a meeting” to book a time to speak with an applicant that they’re interested in</p>
+                        <figure class="case-study__design-feature-slot" aria-label="Schedule interview chat modal screen 1">
+                          <img
+                            src="../assets/case-studies/social-startup-portal/schedule-interview-chat-screen-1.png"
+                            alt="Katie Smith's Application modal with Schedule a Meeting link to book time with an applicant"
+                            width="924"
+                            height="966"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </li>
+                      <li class="case-study__carousel-slide" data-label="Schedule Interview — Screen 2" hidden>
+                        <p class="case-study__carousel-feature-text">Nonprofit user is brought to a chat modal where they can message the applicant to schedule a time to chat</p>
+                        <figure class="case-study__design-feature-slot" aria-label="Schedule interview chat modal screen 2">
+                          <img
+                            src="../assets/case-studies/social-startup-portal/schedule-interview-chat-screen-2.png"
+                            alt="Chat modal for nonprofit to message an applicant and schedule a meeting time"
+                            width="1024"
+                            height="895"
+                            loading="lazy"
+                          />
+                        </figure>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="preparing-user-testing-doc">Preparing the User Testing Doc (asking general questions and questions about the progress tab)</h3>
+            <p>
+              In preparation for user testing, I helped build a testing doc covering all 4 parts of the management feature. For post-test questions, if participants struggled with the progress tab, I'd dig deeper into why — since that tab is what sparked the need for testing in the first place.
+            </p>
+            <p>
+              In retrospect, our questions should have been more open-ended, letting users explore the flow themselves rather than guiding them (e.g. "how would you delete a draft from this view?"). We aimed to test specific features, but self-exploration would have been more realistic and valuable.
+            </p>
+            <p>Some questions from the user testing doc:</p>
+            <div class="case-study__testing-questions">
+              <article class="case-study__testing-question">
+                <span class="case-study__testing-question-label">Q1</span>
+                <p>How would you delete a draft opportunity from this view?</p>
+              </article>
+              <article class="case-study__testing-question">
+                <span class="case-study__testing-question-label">Q2</span>
+                <p>Walk me through reviewing a volunteer’s logged progress.</p>
+              </article>
+              <article class="case-study__testing-question">
+                <span class="case-study__testing-question-label">Q3</span>
+                <p>How would you message everyone you’re not accepting?</p>
+              </article>
+              <article class="case-study__testing-question">
+                <span class="case-study__testing-question-label">Q4</span>
+                <p>How would you know an opportunity is ready to begin?</p>
+              </article>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="volunteer-rejects-offer">When a Volunteer Rejects OR Doesn't Respond to a Nonprofit's Offer – What Happens?</h3>
+            <p>
+              Another use case that we’ve identified as a team is that volunteers who have been extended an offer by the nonprofit to an opportunity may reject or won’t respond to an offer. This could be due to life plans and commitments that don’t allow the volunteer to volunteer anymore for the opportunity that they applied to.
+            </p>
+            <p>
+              In this case, the original design was to have a 7 day time limit for the volunteer to respond to their offer.
+            </p>
+            <div class="case-study__volunteer-offer">
+              <div class="case-study__volunteer-offer-intro">
+                <div class="case-study__audience-focus">
+                  <span class="case-study__audience-focus-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                      <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+                      <path d="M12 10v5M12 8h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <p class="case-study__audience-focus-text">
+                    Volunteers extended an offer sometimes reject or never respond — often due to life plans or commitments changing. The original design gave volunteers a 7-day window to respond.
+                  </p>
+                </div>
+                <figure class="case-study__volunteer-offer-ref">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/original-7-day-offer-timestamp.png"
+                    alt="Opportunity Dashboard Track Progress tab showing offer sent 7 days ago and Offer Expired status on volunteer cards"
+                    width="1024"
+                    height="912"
+                    loading="lazy"
+                  />
+                  <figcaption class="case-study__volunteer-offer-ref-caption">How the 7 day timestamp looks like previously before the redesign (initial design):</figcaption>
+                </figure>
+              </div>
+              <div class="case-study__volunteer-offer-analysis">
+                <p>
+                  The 7-day window prevents the nonprofit and already-accepted volunteers from starting the opportunity. With multiple volunteers offered at different times, this compounds: if Volunteer A accepts immediately but B (3 days in, 4 left) and C (just offered, 7 left) both use their full window, A ends up waiting 7 extra days anyway — frustrating for everyone.
+                </p>
+                <p>
+                  It also creates a business risk: knowing offers can sit for 7 days, nonprofits would likely extend fewer offers at once to avoid a backlog. That works against their actual interest in onboarding more volunteers — too high an opportunity cost for a flexibility roadblock.
+                </p>
+                <p>
+                  I've brought this concern to the team and presented a new user flow that I created that would address this problem:
+                </p>
+              </div>
+              <h4 class="case-study__volunteer-offer-kicker">The problem, worked through</h4>
+              <div class="case-study__volunteer-offer-scenarios">
+                <div class="case-study__volunteer-offer-row">
+                  <span class="case-study__volunteer-offer-row-icon case-study__volunteer-offer-row-icon--accepted" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                      <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/>
+                      <path d="M8.5 12.2 10.8 14.5 15.5 9.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="case-study__volunteer-offer-row-name">Volunteer A</span>
+                  <span class="case-study__volunteer-offer-row-detail">Accepted immediately</span>
+                  <span class="case-study__volunteer-offer-row-meta">but still waits</span>
+                </div>
+                <div class="case-study__volunteer-offer-row">
+                  <span class="case-study__volunteer-offer-row-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                      <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/>
+                      <path d="M12 8v4l2.5 2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="case-study__volunteer-offer-row-name">Volunteer B</span>
+                  <span class="case-study__volunteer-offer-row-detail">Offered 3 days ago</span>
+                  <span class="case-study__volunteer-offer-row-meta">4 days left to respond</span>
+                </div>
+                <div class="case-study__volunteer-offer-row">
+                  <span class="case-study__volunteer-offer-row-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                      <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/>
+                      <path d="M12 8v4l2.5 2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="case-study__volunteer-offer-row-name">Volunteer C</span>
+                  <span class="case-study__volunteer-offer-row-detail">Offered today</span>
+                  <span class="case-study__volunteer-offer-row-meta">7 days left to respond</span>
+                </div>
+              </div>
+              <div class="case-study__volunteer-offer-callout case-study__volunteer-offer-callout--warning">
+                <span class="case-study__volunteer-offer-callout-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                    <path d="M12 5.5 20.5 18.5H3.5L12 5.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M12 10v4M12 16.5h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <p>If B and C both take the full window, A — who said yes right away — still waits 7 more days to start.</p>
+              </div>
+              <div class="case-study__volunteer-offer-callout">
+                <span class="case-study__volunteer-offer-callout-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                    <rect x="4" y="8" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M8 8V6.5A2.5 2.5 0 0 1 10.5 4h3A2.5 2.5 0 0 1 16 6.5V8M4 12h16" stroke="currentColor" stroke-width="1.7"/>
+                  </svg>
+                </span>
+                <p><strong>Knock-on business risk:</strong> knowing offers can sit for 7 days, nonprofits would likely extend fewer offers at once to avoid a backlog — directly working against their interest in onboarding more volunteers.</p>
+              </div>
+              <h4 class="case-study__volunteer-offer-kicker">The fix I proposed</h4>
+              <div class="case-study__volunteer-offer-fix-row">
+                <div class="case-study__volunteer-offer-fix">
+                  <p>First-come, first-served onboarding — no timestamp at all. Whoever responds first gets onboarded; once capacity is filled, everyone else is automatically rejected.</p>
+                </div>
+                <figure class="case-study__volunteer-offer-fix-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/new-first-come-first-served-user-flow.png"
+                    alt="User flow diagram showing first-come-first-served volunteer onboarding with rolling acceptance and automatic rejection once capacity is filled"
+                    width="1024"
+                    height="462"
+                    loading="lazy"
+                  />
+                  <figcaption class="case-study__volunteer-offer-fix-caption">The idea with this user flow is that applicants would be onboarded on a first come first serve basis. There would be no timestamp. Whoever responds first would be onboarded to start – and once volunteer capacity has been filled – all other volunteers would get rejected.</figcaption>
+                </figure>
+              </div>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="impact-story-user-flow">The Impact Story User Flow and Design</h3>
+            <div class="case-study__impact-story-row">
+              <div class="case-study__impact-story-copy">
+                <p>
+                  Another part that's part of the feature is the Impact Story. An Impact Story is essentially a testimonial written by the nonprofit to the volunteer to appreciate the hard work that they've put in for the volunteer project/event.
+                </p>
+                <p>
+                  This is a simple impact story flow that I designed before the testing:
+                </p>
+                <div class="case-study__impact-story-slide-texts">
+                  <p class="case-study__carousel-feature-text is-active" data-carousel-text>A “Create an Impact Story” modal immediately appears after the last volunteer’s progress has been approved by the nonprofit. The nonprofit could either create an impact story or choose to close without a testimonial for the volunteer (an automated impact story that records the volunteer hours and impact value would be created without the testimonial)</p>
+                  <p class="case-study__carousel-feature-text" data-carousel-text hidden>An Impact Story form appears</p>
+                  <p class="case-study__carousel-feature-text" data-carousel-text hidden>Screen shows Impact Story has been created for all volunteers (impact story can be viewed by clicking on the “View Impact Story” button) – “Close Opportunity” button is now activated</p>
+                </div>
+              </div>
+              <div
+                class="case-study__carousel case-study__carousel--feature case-study__carousel--impact-story"
+                data-case-study-carousel
+                data-carousel-sync-text
+                aria-roledescription="carousel"
+                aria-label="Impact story user flow screens"
+              >
+                <div class="case-study__carousel-toolbar">
+                  <p class="case-study__carousel-label" data-carousel-label>Impact Story — Screen 1</p>
+                  <div class="case-study__carousel-controls">
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-prev
+                      aria-label="Previous screen"
+                    >
+                      <span aria-hidden="true">←</span>
+                    </button>
+                    <div class="case-study__carousel-dots" data-carousel-dots></div>
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-next
+                      aria-label="Next screen"
+                    >
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="case-study__carousel-viewport">
+                  <ul class="case-study__carousel-track">
+                    <li class="case-study__carousel-slide is-active" data-label="Impact Story — Screen 1">
+                      <figure class="case-study__design-feature-slot" aria-label="Impact story screen 1">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/impact-story-screen-1.png"
+                          alt="Create Impact Story modal on the Opportunity Dashboard prompting the nonprofit to write a testimonial or close without one after progress is approved"
+                          width="922"
+                          height="970"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Impact Story — Screen 2" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Impact story screen 2">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/impact-story-screen-2.png"
+                          alt="Impact Story Creation form modal with fields for skills, volunteer hours, testimonial statement, and SDG selection"
+                          width="924"
+                          height="966"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Impact Story — Screen 3" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Impact story screen 3">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/impact-story-screen-3.png"
+                          alt="Opportunity Dashboard Track Progress tab showing Opportunity Completed for all volunteers with View Impact Story actions and an active Close Opportunity button"
+                          width="922"
+                          height="690"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <p>
+              The idea behind the impact story flow was that the user would be prompted to create an impact story once the volunteer’s progress has been approved. Iterations would be made to the impact story flow later on as it would prove to be not clear enough.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="prototyped-management-flow">Prototyped the Management Flow</h3>
+            <div class="case-study__prototype-row">
+              <div class="case-study__prototype-copy">
+                <p>
+                  After the design changes have been made to the progress tab, chat modals, and having determined the flow to when a volunteer rejects/doesn’t respond to an offer – the feature is ready for prototyping.
+                </p>
+                <p class="case-study__embed-link">
+                  <a href="https://www.youtube.com/watch?v=HXRrBcP0UC0" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+                </p>
+              </div>
+              <div class="case-study__prototype-media">
+                <div class="case-study__embed case-study__embed--video">
+                  <iframe
+                    title="Social Startup Portal management flow prototype"
+                    src="https://www.youtube.com/embed/HXRrBcP0UC0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="case-study__volunteer-progress-row">
+              <p>
+                At the same time that I was working on the prototyping of the management feature, I continuously gave feedback on how the progress tab would look like on the volunteer’s side to make sure that the features and designs are consistent.
+              </p>
+              <figure class="case-study__volunteer-progress-figure">
+                <img
+                  src="../assets/case-studies/social-startup-portal/volunteer-progress-tab.png"
+                  alt="My Opportunities My Progress tab showing volunteer progress logging, nonprofit feedback, attachments, and send for review"
+                  width="562"
+                  height="1024"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="multiple-user-testings">Multiple User Testings – 4 Iterations</h3>
+            <h4 class="case-study__subsection case-study__subsection--nested">1st Round – Internal: (7 participants)</h4>
+            <div class="case-study__testing-findings">
+              <div class="case-study__testing-findings-col">
+                <h5 class="case-study__testing-findings-kicker">Opportunity dashboard / chat modals</h5>
+                <div class="case-study__testing-findings-list">
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">Mass rejection chat modal</h6>
+                    <p>Unclear recipient; wants auto-generated template; needs clearer “rejecting” indicator.</p>
+                  </article>
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">Individual rejection chat modal</h6>
+                    <p>Skipped the message field — prefers it automatic.</p>
+                  </article>
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">View volunteer profile</h6>
+                    <p>Expected a name click to go straight to the profile.</p>
+                  </article>
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">Applicant review flow</h6>
+                    <p>Rejected-applicant interaction felt jarring; most just want to move fast.</p>
+                  </article>
+                </div>
+              </div>
+              <div class="case-study__testing-findings-col">
+                <h5 class="case-study__testing-findings-kicker">Progress tab / impact story / closing</h5>
+                <div class="case-study__testing-findings-list">
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">Impact story creation</h6>
+                    <p>Needs instructions/tooltips, both sides of the experience.</p>
+                  </article>
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">Closing an opportunity</h6>
+                    <p>Should auto-close once the last impact story is completed.</p>
+                  </article>
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">Progress tab</h6>
+                    <p>State changes unclear; wants per-milestone submit-and-approve.</p>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <h4 class="case-study__subsection case-study__subsection--nested">2nd Round – External: (3 participants)</h4>
+            <div class="case-study__testing-findings">
+              <div class="case-study__testing-findings-col">
+                <h5 class="case-study__testing-findings-kicker">Opportunity dashboard / chat modals</h5>
+                <div class="case-study__testing-findings-list">
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">
+                      Applicant review flow
+                      <span class="case-study__testing-finding-tag">recurring</span>
+                    </h6>
+                    <p>Chatting with rejected volunteers before accepted ones felt out of order.</p>
+                  </article>
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">
+                      Chat modal recipient clarity
+                      <span class="case-study__testing-finding-tag">recurring</span>
+                    </h6>
+                    <p>Assumed messages were going to accepted volunteers.</p>
+                  </article>
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">Opportunity dashboard — progress cards</h6>
+                    <p>Only shows accepted volunteers — confusing with declined applicants mixed in.</p>
+                  </article>
+                </div>
+              </div>
+              <div class="case-study__testing-findings-col">
+                <h5 class="case-study__testing-findings-kicker">Progress tab / impact story / closing</h5>
+                <div class="case-study__testing-findings-list">
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">Impact story</h6>
+                    <p>Positive — shows the volunteer’s success; compared to LinkedIn skill endorsements.</p>
+                  </article>
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">
+                      Progress tab
+                      <span class="case-study__testing-finding-tag">recurring</span>
+                    </h6>
+                    <p>Unclear when the modal counts as “completed” — too many states.</p>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="user-profile-nonprofit-qa">User Profile and Nonprofit Creating Opportunity QA Meeting</h3>
+            <p>
+              During the design of the feature, there were opportunities for both the design and developer team to come together to do a QA of both the volunteer’s user profile and understanding how a nonprofit user would go about creating an opportunity on the platform.
+            </p>
+            <p>
+              It was a great opportunity to see if the current experience for both the volunteer and nonprofit makes sense when we use the application ourselves (potential feedback to be incorporated into the new version of the design), and to detect any bugs within the process.
+            </p>
+          </section>
 
-            <h3 class="case-study__subsection case-study__subsection--follow">Mobile</h3>
+          <section class="case-study__section" id="process-part-3">
+            <h2>Process - Part 3</h2>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="presented-user-findings">Presented User Findings (User Feedback from User Testing 1 and 2) to Management Team</h3>
+            <p>
+              Based on the feedback from the first 2 user testings above, iterations needed to be made on the chat modals to make sending a message more efficient and personalized. As for the impact story, one participant mentioned that there were no clear instructions on how to create an impact story (“how do I create an impact story, where does the impact story get sent to, where can I find the impact story afterwards”). Since only one participant reported the concern during the first user testing, I wanted to see if there were more responses in the next 2 user testings before I make any iterations.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="progress-stepper">The Progress Stepper</h3>
+            <p>
+              Based on the 2nd user testing’s feedback (external user) for confusion around not sure when the opportunity ends, hence, there is a need to make clear of the stages of going through the progress for the nonprofit user.
+            </p>
+            <p>
+              The intention of the progress stepper is to indicate at which stage of the progress the nonprofit user is on, the action they have to take next, with a hover-over tooltip to guide them along the way.
+            </p>
+            <p>
+              I also asked the CTO if this is implementable technically speaking.
+            </p>
+            <p class="case-study__progress-stepper-lead">
+              (Below is the flow of the progress stepper – initial design):
+            </p>
+            <div class="case-study__progress-stepper-row">
+              <div class="case-study__progress-stepper-slide-texts">
+                <p class="case-study__carousel-feature-text is-active" data-carousel-text>The 1st progress stepper shows “Offer Accepted” – this is the first and default state in the progress stepper. Once a nonprofit begins an opportunity, the progress stepper card appears for the volunteer in their progress card under the “Volunteer Progress” tab. At this stage, the stepper shows that the volunteer has accepted the offer but has not taken any further action yet.</p>
+                <p class="case-study__carousel-feature-text" data-carousel-text hidden>In the second stepper, it shows that the 2nd activity is in progress since its highlighted (but not completed since its not green yet). The second stepper shows the progress that the volunteer has logged. If the volunteer has started logging, the stepper becomes highlighted; once the progress gets approved by the nonprofit, it turns green.</p>
+                <p class="case-study__carousel-feature-text" data-carousel-text hidden>If the nonprofit did not approve the progress but instead sent the progress back to the volunteer to review (to make changes/revisions as necessary), then the volunteer would come back with revisions to show the nonprofit as shown on this stepper.</p>
+                <p class="case-study__carousel-feature-text" data-carousel-text hidden>Once the progress gets approved, the last step of the stepper is to create an impact story (testimonial) for the volunteer to highlight the hard work that they’ve put into the opportunity for the nonprofit.</p>
+              </div>
+              <div
+                class="case-study__carousel case-study__carousel--feature case-study__carousel--progress-stepper"
+                data-case-study-carousel
+                data-carousel-sync-text
+                aria-roledescription="carousel"
+                aria-label="Progress stepper initial design screens"
+              >
+                <div class="case-study__carousel-toolbar">
+                  <p class="case-study__carousel-label" data-carousel-label>Progress Stepper — Screen 1</p>
+                  <div class="case-study__carousel-controls">
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-prev
+                      aria-label="Previous screen"
+                    >
+                      <span aria-hidden="true">←</span>
+                    </button>
+                    <div class="case-study__carousel-dots" data-carousel-dots></div>
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-next
+                      aria-label="Next screen"
+                    >
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="case-study__carousel-viewport">
+                  <ul class="case-study__carousel-track">
+                    <li class="case-study__carousel-slide is-active" data-label="Progress Stepper — Screen 1">
+                      <figure class="case-study__design-feature-slot" aria-label="Progress stepper screen 1">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/progress-stepper-screen-1.png"
+                          alt="Volunteer progress card showing Offer Accepted stepper state with Progress Logged status and View Progress action"
+                          width="548"
+                          height="412"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Progress Stepper — Screen 2" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Progress stepper screen 2">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/progress-stepper-screen-2.png"
+                          alt="Volunteer progress card showing Check and Approve Progress stepper state with Progress Submitted status and Review Submission action"
+                          width="542"
+                          height="404"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Progress Stepper — Screen 3" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Progress stepper screen 3">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/progress-stepper-screen-3.png"
+                          alt="Volunteer progress card showing Progress Revised stepper state with Review Submission action after nonprofit sent progress back for changes"
+                          width="542"
+                          height="406"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Progress Stepper — Screen 4" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Progress stepper screen 4">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/progress-stepper-screen-4.png"
+                          alt="Volunteer progress card showing Create Impact Story stepper state with Progress Approved status and Create Impact Story action"
+                          width="540"
+                          height="406"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="more-internal-findings">2 More Internal Users' Findings</h3>
+            <div class="case-study__testing-findings">
+              <div class="case-study__testing-findings-col">
+                <h5 class="case-study__testing-findings-kicker">Opportunity dashboard / chat modals</h5>
+                <div class="case-study__testing-findings-list">
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">Progress stepper clarity</h6>
+                    <p>Unclear what a greyed-out state means — needs a clearer color change.</p>
+                  </article>
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">Rejection messaging preference</h6>
+                    <p>Should be up to the nonprofit whether to message rejected volunteers; one participant only wants to see who they’re working with.</p>
+                  </article>
+                </div>
+              </div>
+              <div class="case-study__testing-findings-col">
+                <h5 class="case-study__testing-findings-kicker">Progress tab / impact story / closing</h5>
+                <div class="case-study__testing-findings-list">
+                  <article class="case-study__testing-finding">
+                    <h6 class="case-study__testing-finding-title">
+                      Impact story — awareness &amp; preview
+                      <span class="case-study__testing-finding-tag">recurring</span>
+                    </h6>
+                    <p>Neither participant was sure they’d created the story — sharing happened suddenly, with no confirmation or preview beforehand.</p>
+                    <ul class="case-study__testing-finding-list">
+                      <li>Confirm creation, show where to find it, before sharing.</li>
+                      <li>Preview for first-time nonprofit users.</li>
+                    </ul>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="progress-stepper-iterations">Iterations on the Progress Stepper</h3>
+            <p>
+              I asked the participant whether or not a change in the progress stepper colour would make it more clear to know what it means – and the participant said yes.
+            </p>
+            <p class="case-study__progress-stepper-lead">
+              Here is the iteration to the progress stepper below (before and after):
+            </p>
+            <div class="case-study__progress-stepper-row">
+              <div class="case-study__progress-stepper-slide-texts">
+                <p class="case-study__carousel-feature-text is-active" data-carousel-text>Before: Stepper’s in progress colour was highlighted grey instead of yellow or orange due to another designer’s feedback that yellow is not part of our brand guidelines. Hence, the orange/yellow colour I chose for the 1st design of the stepper was changed to grey.</p>
+                <p class="case-study__carousel-feature-text" data-carousel-text hidden>After: After multiple participants in the user testing expressed confusion around the grey stepper. I changed the colour of the stepper back to its original orange/yellow colour.</p>
+              </div>
+              <div
+                class="case-study__carousel case-study__carousel--feature case-study__carousel--progress-stepper"
+                data-case-study-carousel
+                data-carousel-sync-text
+                aria-roledescription="carousel"
+                aria-label="Progress stepper before and after iteration"
+              >
+                <div class="case-study__carousel-toolbar">
+                  <p class="case-study__carousel-label" data-carousel-label>Progress Stepper — Before</p>
+                  <div class="case-study__carousel-controls">
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-prev
+                      aria-label="Previous screen"
+                    >
+                      <span aria-hidden="true">←</span>
+                    </button>
+                    <div class="case-study__carousel-dots" data-carousel-dots></div>
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-next
+                      aria-label="Next screen"
+                    >
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="case-study__carousel-viewport">
+                  <ul class="case-study__carousel-track">
+                    <li class="case-study__carousel-slide is-active" data-label="Progress Stepper — Before">
+                      <figure class="case-study__design-feature-slot" aria-label="Progress stepper before iteration">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/progress-stepper-before.png"
+                          alt="Progress stepper before iteration showing in-progress step highlighted in grey with Offer Accepted tooltip and Progress Logged status"
+                          width="548"
+                          height="412"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Progress Stepper — After" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Progress stepper after iteration">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/progress-stepper-after.png"
+                          alt="Progress stepper after iteration showing in-progress step highlighted in orange with Offer Accepted completed and Progress Logged status"
+                          width="574"
+                          height="436"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="impact-story-iterations">Iterations on the Impact Story User Flow and Design</h3>
+            <h4 class="case-study__subsection case-study__subsection--nested">After the 2nd Internal User Testing – The Impact Story Preview:</h4>
+            <p>
+              During the 2nd internal user testing, there were 2 participants who suggested that they are still confused with how to create an impact story/testimonial for a volunteer, and that it would be nice to have a preview – hence, a preview is added to the modal so that the user can see in real time how an impact story is being created.
+            </p>
+            <p>
+              I incorporated the impact story and closing (because closing is also not intuitive as well), and after brainstorming as a team – we decided to close the opportunity automatically once an impact story has been created for every volunteer.
+            </p>
+            <p>
+              It is important to note that creating an impact story is optional – if a nonprofit decides not to write a testimonial they can leave the testimonial blank and a default impact story would be created (just the impact hours volunteered and the impact value).
+            </p>
+            <p>
+              Below shows an impact story flow with testimonial:
+            </p>
+            <div class="case-study__impact-story-row">
+              <div class="case-study__impact-story-slide-texts">
+                <p class="case-study__carousel-feature-text is-active" data-carousel-text>1. Written testimonial in the input text field box appears on the preview of the volunteer’s impact card on the left. This makes it clear to the nonprofit user what an impact story is, how to create one, and who the testimonial is being sent to.</p>
+                <p class="case-study__carousel-feature-text" data-carousel-text hidden>2. Volunteer’s impact card has the nonprofit’s written testimonial on it – the nonprofit can choose to share the impact story with their community on social media to give credit to the volunteer’s work and/ draw in more excitement for their future opportunities.</p>
+                <p class="case-study__carousel-feature-text" data-carousel-text hidden>3. Once the impact story is shared or the sharing modal is closed, the opportunity completes automatically – with a sandwich notification dropping from the top confirming. It was confusing previously where the nonprofit has to manually complete the opportunity themselves as they didn’t know that is an action they have to take and where to find the button.</p>
+              </div>
+              <div
+                class="case-study__carousel case-study__carousel--feature case-study__carousel--impact-story"
+                data-case-study-carousel
+                data-carousel-sync-text
+                aria-roledescription="carousel"
+                aria-label="Impact story preview flow screens"
+              >
+                <div class="case-study__carousel-toolbar">
+                  <p class="case-study__carousel-label" data-carousel-label>Impact Story Preview — Screen 1</p>
+                  <div class="case-study__carousel-controls">
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-prev
+                      aria-label="Previous screen"
+                    >
+                      <span aria-hidden="true">←</span>
+                    </button>
+                    <div class="case-study__carousel-dots" data-carousel-dots></div>
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-next
+                      aria-label="Next screen"
+                    >
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="case-study__carousel-viewport">
+                  <ul class="case-study__carousel-track">
+                    <li class="case-study__carousel-slide is-active" data-label="Impact Story Preview — Screen 1">
+                      <figure class="case-study__design-feature-slot" aria-label="Impact story preview screen 1">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/impact-story-preview-screen-1.png"
+                          alt="Create Impact Story modal with live preview showing Katie Smith's impact card updating as the nonprofit writes a testimonial in the input field"
+                          width="972"
+                          height="1024"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Impact Story Preview — Screen 2" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Impact story preview screen 2">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/impact-story-preview-screen-2.png"
+                          alt="Success modal showing Katie Smith's impact card with testimonial and options to share on Facebook, Twitter, LinkedIn, and Instagram"
+                          width="971"
+                          height="1024"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Impact Story Preview — Screen 3" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Impact story preview screen 3">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/impact-story-preview-screen-3.png"
+                          alt="Opportunity Dashboard showing Opportunity Completed toast notification and all volunteers marked completed with View Impact Story actions"
+                          width="1024"
+                          height="672"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="case-study__impact-story-without">
+              <p class="case-study__impact-story-flow-lead">Impact story without testimonial:</p>
+              <div class="case-study__impact-story-row">
+              <div class="case-study__impact-story-slide-texts">
+                <p class="case-study__carousel-feature-text is-active" data-carousel-text>1. If the nonprofit chooses not to provide a written testimonial for the volunteer’s impact story, then an impact card with only the volunteer hours and volunteer’s impact value gets populated and shown on the impact card.</p>
+                <p class="case-study__carousel-feature-text" data-carousel-text hidden>2. The nonprofit can choose to share the impact story with their community on social media to give credit to the volunteer’s work and/ draw in more excitement for their future opportunities.</p>
+                <p class="case-study__carousel-feature-text" data-carousel-text hidden>3. Once the impact story is shared or the sharing modal is closed, the opportunity completes automatically – with a sandwich notification dropping from the top confirming.</p>
+              </div>
+              <div
+                class="case-study__carousel case-study__carousel--feature case-study__carousel--impact-story"
+                data-case-study-carousel
+                data-carousel-sync-text
+                aria-roledescription="carousel"
+                aria-label="Impact story without testimonial flow screens"
+              >
+                <div class="case-study__carousel-toolbar">
+                  <p class="case-study__carousel-label" data-carousel-label>Impact Story (No Testimonial) — Screen 1</p>
+                  <div class="case-study__carousel-controls">
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-prev
+                      aria-label="Previous screen"
+                    >
+                      <span aria-hidden="true">←</span>
+                    </button>
+                    <div class="case-study__carousel-dots" data-carousel-dots></div>
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-next
+                      aria-label="Next screen"
+                    >
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="case-study__carousel-viewport">
+                  <ul class="case-study__carousel-track">
+                    <li class="case-study__carousel-slide is-active" data-label="Impact Story (No Testimonial) — Screen 1">
+                      <figure class="case-study__design-feature-slot" aria-label="Impact story without testimonial screen 1">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/impact-story-no-testimonial-screen-1.png"
+                          alt="Create Impact Story modal with empty testimonial field and impact card preview showing only Katie Smith's hours and impact value"
+                          width="972"
+                          height="1024"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Impact Story (No Testimonial) — Screen 2" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Impact story without testimonial screen 2">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/impact-story-no-testimonial-screen-2.png"
+                          alt="Success modal showing Katie Smith's impact card without testimonial and options to share on social media"
+                          width="970"
+                          height="1024"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Impact Story (No Testimonial) — Screen 3" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Impact story without testimonial screen 3">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/impact-story-no-testimonial-screen-3.png"
+                          alt="Opportunity Dashboard showing Opportunity Completed toast notification after closing the impact story sharing modal without a testimonial"
+                          width="1024"
+                          height="672"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            </div>
+            <h4 class="case-study__subsection case-study__subsection--nested">4th Round – Internal: (2 participants)</h4>
+            <div class="case-study__testing-outcomes">
+              <div class="case-study__testing-outcomes-grid">
+                <div class="case-study__testing-outcomes-col">
+                  <div class="case-study__testing-outcomes-heading case-study__testing-outcomes-heading--confirmed">
+                    <span class="case-study__testing-outcomes-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M8 12.2l2.4 2.4L16 9.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    <h5 class="case-study__testing-outcomes-kicker">Confirmed working</h5>
+                  </div>
+                  <div class="case-study__testing-outcome-cards">
+                    <article class="case-study__testing-outcome-card">
+                      <h6 class="case-study__testing-outcome-card-title">Progress stepper</h6>
+                      <p>Orange reads as “in progress,” green as complete.</p>
+                    </article>
+                    <article class="case-study__testing-outcome-card">
+                      <h6 class="case-study__testing-outcome-card-title">Impact story preview</h6>
+                      <p>Both participants understood what it is, who it’s for, and where it appears.</p>
+                    </article>
+                  </div>
+                </div>
+                <div class="case-study__testing-outcomes-col">
+                  <div class="case-study__testing-outcomes-heading case-study__testing-outcomes-heading--issue">
+                    <span class="case-study__testing-outcomes-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                        <path d="M12 4.5 20.5 19H3.5L12 4.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                        <path d="M12 10v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                        <circle cx="12" cy="16.5" r="0.9" fill="currentColor"/>
+                      </svg>
+                    </span>
+                    <h5 class="case-study__testing-outcomes-kicker">New issue</h5>
+                  </div>
+                  <article class="case-study__testing-outcome-issue">
+                    <h6 class="case-study__testing-outcome-issue-title">Progress visible pre-submission</h6>
+                    <p>Felt odd to see progress before it’s submitted — one participant wanted to comment immediately, and questioned the point of “submitting” at all.</p>
+                  </article>
+                </div>
+              </div>
+              <p class="case-study__testing-outcomes-summary">Changing the stepper to orange, and adding the impact story preview, both resolved the confusion they were meant to fix.</p>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="progress-tab-iteration">Iteration on Progress Tab</h3>
+            <p>
+              According to similar feedback in the 1st and 2nd user testing session – the idea of unsure when progress ends and the experience being tedious since there is a lot of back and forth (to check, give feedback on progress, and volunteer resubmits for review before approving), the 4th and last user testing session ensured the need to actually make the progress tracking flow more clear.
+            </p>
+            <p>
+              The removal of the state revision submitted suggests that the volunteer can submit their progress whenever (not submitted in the end) and the nonprofit can give feedback whenever. This aligns with my original idea (in the very beginning before all the user testings – that the nonprofit would prefer to be able to give feedback on each progress as the volunteer logs rather than give a generic comment in the end).
+            </p>
+            <p class="case-study__progress-stepper-lead">
+              Below is the comparison in the change in the progress flow:
+            </p>
+            <div class="case-study__embed-row">
+              <div class="case-study__embed-cell">
+                <div class="case-study__embed case-study__embed--video">
+                  <iframe
+                    title="Social Startup Portal progress flow comparison"
+                    src="https://www.youtube.com/embed/NZlg-l9BFRk"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <p class="case-study__embed-link">
+                  <a href="https://www.youtube.com/watch?v=NZlg-l9BFRk" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+                </p>
+              </div>
+              <div class="case-study__embed-cell">
+                <div class="case-study__embed case-study__embed--video">
+                  <iframe
+                    title="Social Startup Portal progress flow comparison alternate view"
+                    src="https://www.youtube.com/embed/Prn88XzL8_c"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <p class="case-study__embed-link">
+                  <a href="https://www.youtube.com/watch?v=Prn88XzL8_c" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+                </p>
+              </div>
+            </div>
+            <p>
+              Although the purpose of the user testing is to not necessarily prove that the designer is right, it is however to note that had the designer not pushed for the change and to validate the idea through user testing, then a confusing experience might be shipped out.
+            </p>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="missing-features">Missing Features Being Added</h3>
+            <h4 class="case-study__subsection case-study__subsection--nested">Attachments Flow (missing previously) – Componentized into Design System</h4>
+            <div class="case-study__attachments-row">
+              <div class="case-study__attachments-copy">
+                <p>
+                  Within the progress tab, there’s also an attachments pill that opens up upon click to show the attached documents and links submitted by the volunteer to include alongside the progress they logged for the nonprofit.
+                </p>
+                <p>
+                  Previously, the management feature is missing an attachments flow, now it’s included in the feature – below is the attachments flow:
+                </p>
+                <div class="case-study__attachments-slide-texts">
+                  <p class="case-study__carousel-feature-text is-active" data-carousel-text>When the nonprofit clicks on the attachments pill, the images/files attached drop down and are shown.</p>
+                  <p class="case-study__carousel-feature-text" data-carousel-text hidden>A “download” icon appears upon the user hovering an image/file.</p>
+                  <p class="case-study__carousel-feature-text" data-carousel-text hidden>A tooltip that says “download” appears once the nonprofit hovers over the icon, letting them know that’s a possible next action to take.</p>
+                  <p class="case-study__carousel-feature-text" data-carousel-text hidden>Upon clicking on the “links” pill, the links attached/submitted appears to the nonprofit user.</p>
+                </div>
+              </div>
+              <div
+                class="case-study__carousel case-study__carousel--feature case-study__carousel--attachments"
+                data-case-study-carousel
+                data-carousel-sync-text
+                aria-roledescription="carousel"
+                aria-label="Attachments flow screens"
+              >
+                <div class="case-study__carousel-toolbar">
+                  <p class="case-study__carousel-label" data-carousel-label>Attachments Flow — Screen 1</p>
+                  <div class="case-study__carousel-controls">
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-prev
+                      aria-label="Previous screen"
+                    >
+                      <span aria-hidden="true">←</span>
+                    </button>
+                    <div class="case-study__carousel-dots" data-carousel-dots></div>
+                    <button
+                      type="button"
+                      class="case-study__carousel-btn"
+                      data-carousel-next
+                      aria-label="Next screen"
+                    >
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="case-study__carousel-viewport">
+                  <ul class="case-study__carousel-track">
+                    <li class="case-study__carousel-slide is-active" data-label="Attachments Flow — Screen 1">
+                      <figure class="case-study__design-feature-slot" aria-label="Attachments flow screen 1">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/attachments-flow-screen-1.png"
+                          alt="Katie Smith's Progress modal with Opportunity Attachments pills expanded to show three attached image thumbnails and two links"
+                          width="829"
+                          height="1024"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Attachments Flow — Screen 2" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Attachments flow screen 2">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/attachments-flow-screen-2.png"
+                          alt="Opportunity Attachments thumbnail hover state showing File name.pdf, 2 MB, and a download icon"
+                          width="830"
+                          height="1024"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Attachments Flow — Screen 3" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Attachments flow screen 3">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/attachments-flow-screen-3.png"
+                          alt="Opportunity Attachments thumbnail with download icon hover tooltip reading Download"
+                          width="832"
+                          height="1024"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                    <li class="case-study__carousel-slide" data-label="Attachments Flow — Screen 4" hidden>
+                      <figure class="case-study__design-feature-slot" aria-label="Attachments flow screen 4">
+                        <img
+                          src="../assets/case-studies/social-startup-portal/attachments-flow-screen-4.png"
+                          alt="Opportunity Attachments with Links pill expanded showing Figma File and Google Drive links submitted by the volunteer"
+                          width="834"
+                          height="1024"
+                          loading="lazy"
+                        />
+                      </figure>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <h4 class="case-study__subsection case-study__subsection--nested case-study__subsection--follow">Created Missing Instances of Notifications into the management Feature (put into the Design System)</h4>
+            <div class="case-study__notifications-intro">
+              <h5 class="case-study__notifications-title">Notifications</h5>
+              <p class="case-study__notifications-lede">Five moments that trigger a notification to the nonprofit.</p>
+            </div>
+            <div class="case-study__notification-instances">
+              <div class="case-study__notification-instance-row">
+                <article class="case-study__notification-summary">
+                  <div class="case-study__notification-summary-aside" aria-hidden="true">
+                    <span class="case-study__notification-accent-bar"></span>
+                    <span class="case-study__notification-accent-icon">
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                        <path d="M8 4h8l4 4v12a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                        <path d="M12 11v4M10 13h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="case-study__notification-summary-body">
+                    <h5 class="case-study__notification-summary-kicker">New application</h5>
+                    <p>Notifies the nonprofit when a volunteer applies — prompts them to view the application.</p>
+                  </div>
+                </article>
+                <figure class="case-study__notification-instance-figure notification-card">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/notification-volunteer-applied.png"
+                    alt="Notifications list showing Katie has applied to the Customer Relationship Management CRM Advising Call opportunity with a View Application link"
+                    width="728"
+                    height="356"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="case-study__notification-instance-row">
+                <article class="case-study__notification-summary">
+                  <div class="case-study__notification-summary-aside" aria-hidden="true">
+                    <span class="case-study__notification-accent-bar"></span>
+                    <span class="case-study__notification-accent-icon">
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                        <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M8.5 12.5 11 15l4.5-5.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="case-study__notification-summary-body">
+                    <h5 class="case-study__notification-summary-kicker">Offer accepted</h5>
+                    <p>Notifies the nonprofit that the volunteer accepted — prompts them to begin the opportunity.</p>
+                  </div>
+                </article>
+                <figure class="case-study__notification-instance-figure notification-card">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/notification-volunteer-accepted.png"
+                    alt="Notifications list showing Katie has accepted the offer with a Begin Opportunity link"
+                    width="734"
+                    height="280"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="case-study__notification-instance-row">
+                <article class="case-study__notification-summary">
+                  <div class="case-study__notification-summary-aside" aria-hidden="true">
+                    <span class="case-study__notification-accent-bar"></span>
+                    <span class="case-study__notification-accent-icon">
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                        <circle cx="10" cy="9" r="3" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M5 19c0-3 2.2-5 5-5s5 2 5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                        <path d="M18 8v4M16 10h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="case-study__notification-summary-body">
+                    <h5 class="case-study__notification-summary-kicker">New follower</h5>
+                    <p>Notifies the nonprofit that a volunteer started following them — the volunteer gets notified of future postings.</p>
+                  </div>
+                </article>
+                <figure class="case-study__notification-instance-figure notification-card">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/notification-volunteer-following.png"
+                    alt="Notifications list showing Katie Park has started following the nonprofit and will be notified of new opportunities"
+                    width="730"
+                    height="322"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="case-study__notification-instance-row">
+                <article class="case-study__notification-summary">
+                  <div class="case-study__notification-summary-aside" aria-hidden="true">
+                    <span class="case-study__notification-accent-bar"></span>
+                    <span class="case-study__notification-accent-icon">
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                        <path d="M5 18h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                        <path d="M7 16l3-4 3 2 4-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="case-study__notification-summary-body">
+                    <h5 class="case-study__notification-summary-kicker">Progress logged</h5>
+                    <p>Notifies the nonprofit that the volunteer logged progress — prompts them to view it.</p>
+                  </div>
+                </article>
+                <figure class="case-study__notification-instance-figure notification-card">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/notification-volunteer-progress-logged.png"
+                    alt="Notifications list showing Katie tracked progress for the CRM Advising Call opportunity with a View Progress link"
+                    width="732"
+                    height="360"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="case-study__notification-instance-row">
+                <article class="case-study__notification-summary">
+                  <div class="case-study__notification-summary-aside" aria-hidden="true">
+                    <span class="case-study__notification-accent-bar"></span>
+                    <span class="case-study__notification-accent-icon">
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                        <path d="M12 5c2.2 0 4 1.8 4 4v3.5l1.5 2.5H6.5L8 12.5V9c0-2.2 1.8-4 4-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                        <path d="M10 18.5a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="case-study__notification-summary-body">
+                    <h5 class="case-study__notification-summary-kicker">Impact story reminder</h5>
+                    <p>Reminds the nonprofit to create an impact story after approving progress, to complete the opportunity.</p>
+                  </div>
+                </article>
+                <figure class="case-study__notification-instance-figure notification-card">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/notification-impact-story-reminder.png"
+                    alt="Notifications list showing a reminder to create an impact story for the Customer Relationship Management CRM Advising Call opportunity"
+                    width="728"
+                    height="322"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+            </div>
+            <h4 class="case-study__subsection case-study__subsection--nested case-study__subsection--follow">Modals, Cards, and Missing States – Componentized into Design System</h4>
+            <p>
+              Once all the core designs are done, I started componentizing the modals and cards within the design flow – below are the modals and cards that I componentized into the design system for ease of moving the flow into the handover file for the development team later on.
+            </p>
+            <div class="case-study__component-states">
+              <div class="case-study__component-state-row">
+                <article class="case-study__component-state-summary case-study__component-state-summary--accepted">
+                  <div class="case-study__component-state-summary-aside" aria-hidden="true">
+                    <span class="case-study__component-state-accent-bar"></span>
+                    <span class="case-study__component-state-accent-icon">
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                        <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M8.5 12.5 11 15l4.5-5.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="case-study__component-state-summary-body">
+                    <h5 class="case-study__component-state-summary-kicker">Accepted</h5>
+                    <p>The volunteer accepted the nonprofit's offer.</p>
+                  </div>
+                </article>
+                <figure class="case-study__component-state-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/component-volunteer-accepted-offer.png"
+                    alt="Volunteer application card showing George Yang accepted the offer with View Profile and message actions"
+                    width="524"
+                    height="396"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="case-study__component-state-row">
+                <article class="case-study__component-state-summary case-study__component-state-summary--waiting">
+                  <div class="case-study__component-state-summary-aside" aria-hidden="true">
+                    <span class="case-study__component-state-accent-bar"></span>
+                    <span class="case-study__component-state-accent-icon">
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                        <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="case-study__component-state-summary-body">
+                    <h5 class="case-study__component-state-summary-kicker">Waiting</h5>
+                    <p>Offer extended, and the nonprofit is waiting on the volunteer to accept or decline.</p>
+                  </div>
+                </article>
+                <figure class="case-study__component-state-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/component-volunteer-waiting-response.png"
+                    alt="Volunteer application card showing Waiting for George Yang's response with View Profile and message actions"
+                    width="528"
+                    height="398"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="case-study__component-state-row">
+                <article class="case-study__component-state-summary case-study__component-state-summary--declined">
+                  <div class="case-study__component-state-summary-aside" aria-hidden="true">
+                    <span class="case-study__component-state-accent-bar"></span>
+                    <span class="case-study__component-state-accent-icon">
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                        <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="case-study__component-state-summary-body">
+                    <h5 class="case-study__component-state-summary-kicker">Declined</h5>
+                    <p>The volunteer declined the offer.</p>
+                  </div>
+                </article>
+                <figure class="case-study__component-state-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/component-volunteer-declined-offer.png"
+                    alt="Volunteer application card showing George Yang declined the offer with View Profile and message actions"
+                    width="530"
+                    height="402"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="case-study__component-state-row">
+                <p class="case-study__component-state-copy">
+                  I componentized the dashboard’s header so that the state of the opportunity, button, and image/text can be interchanged conveniently to show the different instances.
+                </p>
+                <figure class="case-study__component-state-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/component-dashboard-header.png"
+                    alt="Componentized Opportunity Dashboard header showing interchangeable opportunity status, Begin Opportunity button, and Volunteer Progress and Applicants tabs at large breakpoint"
+                    width="1024"
+                    height="559"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+            </div>
+            <div class="case-study__missing-states-section">
+            <p>
+              Some missing states were also added:
+            </p>
+            <div class="case-study__missing-states">
+              <div class="case-study__component-state-row">
+                <article class="case-study__notification-summary case-study__notification-summary--text-only">
+                  <div class="case-study__notification-summary-body">
+                    <h5 class="case-study__notification-summary-kicker">Applicants table — declined state</h5>
+                    <p>Componentized the missing “declined” state in the applicants table to show when a volunteer declines an offer. Also added a notification letting the nonprofit know.</p>
+                  </div>
+                </article>
+                <figure class="case-study__component-state-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/missing-state-volunteer-declined.png"
+                    alt="Opportunity Dashboard Applicants tab showing Cindy MacDonald with Declined status and a notification that she declined the offer"
+                    width="1024"
+                    height="960"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="case-study__component-state-row">
+                <article class="case-study__notification-summary case-study__notification-summary--text-only">
+                  <div class="case-study__notification-summary-body">
+                    <h5 class="case-study__notification-summary-kicker">Management page — closed vs. completed</h5>
+                    <p class="case-study__opportunity-states-lead">Previously, opportunities only had a “closed” state. Componentized a new “completed” state so the two are clearly distinguished:</p>
+                    <div class="case-study__opportunity-states">
+                      <article class="case-study__opportunity-state">
+                        <h6 class="case-study__opportunity-state-title">Closed</h6>
+                        <p>No applications received, or the nonprofit closed the posting manually without beginning it.</p>
+                      </article>
+                      <article class="case-study__opportunity-state case-study__opportunity-state--completed">
+                        <h6 class="case-study__opportunity-state-title">Completed</h6>
+                        <p>The opportunity began, progress was approved, and impact stories were created for every volunteer — it then auto-completes.</p>
+                      </article>
+                    </div>
+                  </div>
+                </article>
+                <figure class="case-study__component-state-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/missing-state-opportunity-completed.png"
+                    alt="Management page table showing Completed and Closed opportunity states with distinct status badges and actions"
+                    width="873"
+                    height="1024"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="case-study__component-state-row">
+                <article class="case-study__notification-summary case-study__notification-summary--text-only">
+                  <div class="case-study__notification-summary-body">
+                    <h5 class="case-study__notification-summary-kicker">Management page — beginning an opportunity</h5>
+                    <p>The nonprofit can now begin an opportunity directly from the management page, alongside the opportunity dashboard — starting whenever they judge that enough volunteers have accepted, even with no new applicants pending.</p>
+                  </div>
+                </article>
+                <figure class="case-study__component-state-figure">
+                  <img
+                    src="../assets/case-studies/social-startup-portal/missing-state-begin-opportunity.png"
+                    alt="Management page table showing CRM Advising Call with 3 Applicants Onboarded and a Begin Opportunity action"
+                    width="866"
+                    height="1024"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+            </div>
+            </div>
+            <div class="case-study__pagination-section">
+            <p>
+              Since data tables are prevalent throughout the design flow, it is essential to ensure that paginations are added for every screen that has a table – with the number of pages matching the table header for the correct number of pages that makes sense.
+            </p>
+            <div class="case-study__figure-row">
+              <figure class="case-study__figure-row-item">
+                <img
+                  src="../assets/case-studies/social-startup-portal/pagination-applicants-table.png"
+                  alt="Applicants table showing Accepted and Offer sent statuses with pagination controls below"
+                  width="1024"
+                  height="282"
+                  loading="lazy"
+                />
+                <figcaption class="case-study__figure-row-caption">Added pagination for all screens with a data table</figcaption>
+              </figure>
+              <figure class="case-study__figure-row-item">
+                <img
+                  src="../assets/case-studies/social-startup-portal/pagination-applicants-header.png"
+                  alt="Opportunity Dashboard Applicants tab header showing 1-5 of 5 Applicants count aligned with table pagination"
+                  width="1024"
+                  height="359"
+                  loading="lazy"
+                />
+                <figcaption class="case-study__figure-row-caption">Fixed the table header to reflect the number of rows and pages correctly; also added a search bar within the table header</figcaption>
+              </figure>
+            </div>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="volunteer-profile-hyperlink">Hyperlink on Volunteer's Name to View Profile</h3>
+            <p>
+              Another design fix that I had done was making the volunteer’s name to be a clickable hyperlink so that the nonprofit user could view the volunteer’s profile easily. Previously, the nonprofit user would have to click on the hyperlink text “View Profile” to view the volunteer’s profile. According to the feedback from the 1st user testing session, that wasn’t intuitive and seemed redundant when the name could be a direct entry point to the profile itself.
+            </p>
+            <div class="case-study__figure-row">
+              <figure class="case-study__figure-row-item">
+                <img
+                  src="../assets/case-studies/social-startup-portal/volunteer-profile-link-before.png"
+                  alt="Applicants table before fix showing Joseph Gropologus name with separate View Profile link below"
+                  width="1024"
+                  height="152"
+                  loading="lazy"
+                />
+                <figcaption class="case-study__figure-row-caption">Before: “View Profile” clickable hyperlink text underneath the volunteer’s name</figcaption>
+              </figure>
+              <figure class="case-study__figure-row-item">
+                <img
+                  src="../assets/case-studies/social-startup-portal/volunteer-profile-link-after.png"
+                  alt="Applicants table after fix showing Benjamin Davis and Katie Park names as clickable profile hyperlinks"
+                  width="1024"
+                  height="160"
+                  loading="lazy"
+                />
+                <figcaption class="case-study__figure-row-caption">After: Removed the text underneath the volunteer’s name; made the volunteer’s name as the clickable hyperlink text instead should the nonprofit wants to view the volunteer’s profile</figcaption>
+              </figure>
+            </div>
+            <h3 class="case-study__subsection case-study__subsection--follow" id="vetting-management-screens">Vetting all the Screens in the Management Feature</h3>
+            <div class="case-study__vetting-row">
+              <div class="case-study__vetting-copy">
+                <p>
+                  After making sure that everything design wise is included in the flow, I started the process of checking all the screens in the feature:
+                </p>
+                <p>
+                  I checked the spacing to make sure that all the frames are consistent in their spacing and labeled everything accordingly (all the layers) to make sure they’re clear for other designers in the future and for developers who will be working on the designs pretty soon.
+                </p>
+              </div>
+              <figure class="case-study__vetting-figure">
+                <img
+                  src="../assets/case-studies/social-startup-portal/vetting-applicants-tab-layers.png"
+                  alt="Figma layers panel and Applicants tab screen for Applicant accepted the Opp showing labeled frames, data table structure, and spacing guides"
+                  width="1024"
+                  height="510"
+                  loading="lazy"
+                />
+                <figcaption class="case-study__figure-row-caption">Example of screen properly labelled and laid/spaced out consistently with the rest of the feature flow</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="case-study__section" id="final-thoughts">
+            <h2>Final Thoughts</h2>
+            <p>
+              This feature is now complete and in handover with a developer.
+            </p>
+            <p>
+              I would say the challenge for this project is to take into consideration the different user groups involved – the nonprofit and volunteer users, and the stakeholders (management team). It's especially challenging to design new features on top of an existing design (especially a design that has not been tested for in a year's time). Designing for this feature had me carry a lot of doubts about designing on top of a design that might be highly flawed since it's not been validated through user testing.
+            </p>
+            <p>
+              How I understand design to be is to follow the design process of conducting UX research and speaking with our users first. If a designer jumps head first into design without having the opportunity to understand the scope of the problem, the actual problem(s) they're solving for, who their users are, and what they're building for that user group – then it requires a high cost later on in both time and effort to backtrack and improve on the design then.
+            </p>
+            <p>
+              Therefore, in my next design, I pushed the management team to allow me to speak with the company users first and actually take the time to brainstorm and ideate before jumping straight into design.
+            </p>
+            <p>
+              You can now find this new project named "Web-App: Team Volunteering Feature for Company Users" under the UX Portfolio Tab (currently in progress).
+            </p>
           </section>
           </div>
         </div>
