@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "three": "./macaron-town/vendor/three/build/three.module.js",
+    "three/examples/jsm/": "./macaron-town/vendor/three/examples/jsm/",
+    "three/addons/": "./macaron-town/vendor/three/examples/jsm/",
+    "gsap": "./macaron-town/vendor/gsap/index.js"
+  }
+}

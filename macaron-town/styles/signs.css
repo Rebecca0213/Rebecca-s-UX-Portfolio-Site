@@ -1,0 +1,103 @@
+/* Venue signs (src/app/Signs.js): a venue's name in the air above it while it glows under the pointer. */
+
+.venue-signs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none; /* never between the pointer and the canvas, or the hover would drop */
+  z-index: 1;
+  /* The halo: warm gold by the letters (the gold the building glows), rose further out. */
+  --sign-ink: 112, 50, 92;
+  --sign-gold: 255, 188, 88;
+  --sign-amber: 255, 152, 84;
+  --sign-rose: 255, 116, 166;
+}
+
+.venue-sign {
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.venue-sign__plate {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font: 700 var(--size, 19px) / 1 'Bodoni 72', Didot, 'Bodoni MT', Georgia, serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+
+/* A dusky haze behind the lettering, so the halo reads as light against the pale sky and cream walls. */
+.venue-sign__plate::before {
+  content: '';
+  position: absolute;
+  inset: -0.35em -0.7em;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(var(--sign-ink), 0.42), rgba(var(--sign-ink), 0.2) 60%, rgba(var(--sign-ink), 0));
+}
+
+.venue-sign__name,
+.venue-sign__glow {
+  display: block;
+  /* The extra left padding is the letter spacing the last letter trails, so the name centres on its thread. */
+  padding: 0.3em 0.5em 0.3em 0.66em;
+}
+
+.venue-sign__name {
+  position: relative;
+  color: #fffdf6;
+  text-shadow:
+    0 0 1px rgba(var(--sign-ink), 0.9),
+    0 0 0.05em #fff;
+}
+
+/* The halo, its own layer so it can breathe with the building's glow without repainting the letters. */
+.venue-sign__glow {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  text-shadow:
+    0 0 0.06em rgba(255, 255, 255, 1),
+    0 0 0.16em rgba(255, 222, 150, 1),
+    0 0 0.35em rgba(var(--sign-gold), 1),
+    0 0 0.7em rgba(var(--sign-amber), 1),
+    0 0 1.3em rgba(var(--sign-rose), 0.85),
+    0 0 2.6em rgba(var(--sign-rose), 0.55);
+  will-change: opacity;
+}
+
+/* The thread of light from the roof up to the name, and the diamond where it meets the roof. */
+.venue-sign__thread {
+  position: absolute;
+  left: -1px;
+  bottom: 0;
+  width: 2px;
+  height: 100px; /* THREAD in Signs.js: scaled to the gap */
+  transform-origin: 50% 100%;
+  background: linear-gradient(rgba(255, 250, 236, 0.95), rgba(255, 226, 170, 0.9));
+  box-shadow:
+    0 0 4px rgba(var(--sign-gold), 1),
+    0 0 10px rgba(var(--sign-rose), 0.75);
+  will-change: transform;
+}
+
+.venue-sign__pin {
+  position: absolute;
+  left: -3.5px;
+  top: -3.5px;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: #fff8e8;
+  box-shadow:
+    0 0 4px rgba(var(--sign-gold), 1),
+    0 0 10px rgba(var(--sign-rose), 0.9);
+}

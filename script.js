@@ -359,9 +359,11 @@ function initHeroTitleWave() {
   });
 }
 
-initHeroTitleWave();
+if (!document.body.classList.contains("page-home")) {
+  initHeroTitleWave();
+}
 
-if (cursor) {
+if (cursor && !document.body.classList.contains("page-home")) {
   let hasPointer = false;
   let rafId = 0;
   let nextX = 0;
@@ -620,8 +622,31 @@ if (cordPath) {
   cordPath.setAttribute("d", parts.join(" "));
 }
 
-// Page skeleton loader
+// Page skeleton loader. The homepage hero is the island, so nothing covers it.
 (() => {
+  if (document.body.classList.contains("page-home")) {
+    document.getElementById("page-loader")?.remove();
+    document.body.classList.remove("is-loading", "welcome-open");
+    document.body.style.top = "";
+    document.body.classList.add("is-ready");
+    document.getElementById("welcome-panel")?.classList.remove("is-open");
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+    window.addEventListener(
+      "pageshow",
+      () => {
+        document.body.classList.remove("welcome-open");
+        document.body.style.top = "";
+        document.getElementById("welcome-panel")?.classList.remove("is-open");
+        window.scrollTo(0, 0);
+        requestAnimationFrame(() => window.__island?.resize());
+      },
+      { passive: true },
+    );
+    window.addEventListener("load", () => window.scrollTo(0, 0), { once: true, passive: true });
+    return;
+  }
+
   const loader = document.getElementById("page-loader");
   if (!loader) {
     document.body.classList.remove("is-loading");
@@ -629,6 +654,7 @@ if (cordPath) {
   }
 
   let dismissed = false;
+  const entrance = loader.querySelector(".page-loader__entrance");
 
   const dismiss = () => {
     if (dismissed) return;
@@ -646,7 +672,13 @@ if (cordPath) {
     window.setTimeout(cleanup, 500);
   };
 
-  const minDelay = new Promise((resolve) => window.setTimeout(resolve, 450));
+  if (entrance) {
+    entrance.remove();
+    dismiss();
+    return;
+  }
+
+  const minDelay = new Promise((resolve) => window.setTimeout(resolve, 2200));
   const fontsReady = document.fonts?.ready ?? Promise.resolve();
 
   const reveal = () => {
@@ -1081,4 +1113,353 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
 
   goTo(index);
 });
+
+/* Home nav: transparent over the island hero, solid once the page scrolls past it */
+(() => {
+  const hero = document.querySelector(".hero--island");
+  const nav = document.querySelector(".nav");
+  if (!hero || !nav) return;
+
+  const syncNav = () => {
+    nav.classList.toggle("is-solid", hero.getBoundingClientRect().bottom <= nav.offsetHeight);
+  };
+
+  let navScrollRaf = 0;
+  const onNavScroll = () => {
+    if (navScrollRaf) return;
+    navScrollRaf = requestAnimationFrame(() => {
+      navScrollRaf = 0;
+      syncNav();
+    });
+  };
+  syncNav();
+  window.addEventListener("scroll", onNavScroll, { passive: true });
+  window.addEventListener("resize", syncNav, { passive: true });
+})();
+
+/* Hero award: peel off as the next section scrolls past it */
+(() => {
+  if (!document.body.classList.contains("page-home")) return;
+
+  const wrap = document.querySelector(".hero__award-wrap");
+  if (!wrap) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const cover = document.querySelector("main > .works");
+
+  const syncAwardPeel = () => {
+    if (reduceMotion.matches) {
+      wrap.style.setProperty("--peel", "0");
+      return;
+    }
+
+    const rect = wrap.getBoundingClientRect();
+    const coverTop = cover ? cover.getBoundingClientRect().top : window.innerHeight;
+    const start = rect.bottom;
+    const end = rect.top;
+    const span = Math.max(1, start - end);
+    const peel = Math.min(1, Math.max(0, (start - coverTop) / span));
+    wrap.style.setProperty("--peel", peel.toFixed(4));
+  };
+
+  let awardScrollRaf = 0;
+  const onAwardScroll = () => {
+    if (awardScrollRaf) return;
+    awardScrollRaf = requestAnimationFrame(() => {
+      awardScrollRaf = 0;
+      syncAwardPeel();
+    });
+  };
+  syncAwardPeel();
+  window.addEventListener("scroll", onAwardScroll, { passive: true });
+  window.addEventListener("resize", syncAwardPeel, { passive: true });
+  reduceMotion.addEventListener("change", syncAwardPeel);
+})();
+
+/* Looping product demos: play when visible, pause for reduced motion */
+(() => {
+  const videos = document.querySelectorAll(".works__shot--video video, .case-study__product-demo video");
+  if (!videos.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const playVideo = (video) => {
+    if (reduceMotion.matches) {
+      video.pause();
+      return;
+    }
+    const play = video.play();
+    if (play && typeof play.catch === "function") play.catch(() => {});
+  };
+
+  const sync = () => {
+    videos.forEach((video) => {
+      if (reduceMotion.matches) video.pause();
+      else if (!video.paused) return;
+    });
+  };
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) playVideo(video);
+          else video.pause();
+        });
+      },
+      { threshold: 0.2 }
+    );
+    videos.forEach((video) => observer.observe(video));
+  } else {
+    videos.forEach(playVideo);
+  }
+
+  reduceMotion.addEventListener("change", sync);
+})();
+
+/* Venue clicks open one page: Welcome Centre is About, Café is Contact, Gallery is Works. */
+(() => {
+  const panel = document.getElementById("welcome-panel");
+  if (!panel || !document.body.classList.contains("page-home")) return;
+
+  const pages = panel.querySelector(".welcome-panel__pages");
+  const scroll = panel.querySelector(".welcome-panel__scroll");
+  const closeBtn = panel.querySelector(".welcome-panel__close");
+  const hero = document.querySelector(".hero.hero--island");
+  const venuePage = {
+    "grand-salon": "about",
+    "la-douceur": "works",
+    "blue-bookshop": "contact",
+  };
+  const labels = { about: "About", contact: "Contact", works: "Works" };
+  const hrefs = { about: "about.html", contact: "contact.html", works: "works.html" };
+  const built = new Map();
+  let shown = null;
+  let pageScrollAtOpen = 0;
+
+  const ABOUT_PANEL_CHARS = 100;
+
+  const patchAboutPanel = (root) => {
+    const cap = root.querySelector(".about-page__award-caption");
+    if (cap) {
+      cap.textContent = cap.textContent.replace(/,?\s*York University\s*/gi, "").trim();
+    }
+    root.querySelectorAll(".about-page__award-figure img").forEach((img) => {
+      if (img.alt) img.alt = img.alt.replace(/,?\s*York University\s*/gi, "");
+    });
+    const body = root.querySelector(".about-page__body");
+    const paragraphs = body ? [...body.querySelectorAll("p")] : [];
+    paragraphs.forEach((p, i) => {
+      if (i > 0) {
+        p.remove();
+        return;
+      }
+      const text = p.textContent.trim().replace(/\s+/g, " ");
+      if (text.length > ABOUT_PANEL_CHARS) {
+        p.textContent = `${text.slice(0, ABOUT_PANEL_CHARS).trimEnd()}...`;
+      }
+    });
+    const actions = root.querySelector(".about-page__actions");
+    const primary = actions?.querySelector(".about-page__link--primary");
+    const secondary = actions?.querySelector(
+      ".about-page__link:not(.about-page__link--primary)",
+    );
+    if (primary) {
+      primary.textContent = "Read more";
+      primary.href = "about.html";
+      primary.removeAttribute("target");
+      primary.removeAttribute("rel");
+    }
+    if (secondary) {
+      secondary.textContent = "LinkedIn";
+      secondary.href = "https://www.linkedin.com/in/rebeccaempowers/";
+      secondary.target = "_blank";
+      secondary.rel = "noopener noreferrer";
+    }
+    if (actions && primary && secondary) {
+      actions.replaceChildren(primary, secondary);
+    }
+    return root;
+  };
+
+  const snapScroll = (top) => {
+    window.scrollTo({ top, left: 0, behavior: "instant" });
+  };
+
+  const syncBelowHero = () => {
+    const open = document.body.classList.contains("welcome-open");
+    if (!open || !hero) {
+      document.body.classList.remove("welcome-below-hero");
+      return;
+    }
+    const heroClearing =
+      hero.getBoundingClientRect().bottom < window.innerHeight - 8;
+    document.body.classList.toggle("welcome-below-hero", window.scrollY > 8 || heroClearing);
+  };
+
+  const CLOSE_MS = 760;
+
+  const setOpen = (open) => {
+    if (open) {
+      pageScrollAtOpen = window.scrollY;
+      panel.classList.add("is-open");
+      panel.setAttribute("aria-hidden", "false");
+      document.body.classList.add("welcome-open");
+      syncBelowHero();
+      closeBtn.focus();
+      window.dispatchEvent(new CustomEvent("welcome-panel-change", { detail: { open: true } }));
+      requestAnimationFrame(() => window.__island?.resize());
+      return;
+    }
+
+    scroll.scrollTop = 0;
+    snapScroll(0);
+    // Keep .is-open so the panel stays pinned to the hero's right edge while the island widens.
+    document.body.classList.add("welcome-closing");
+
+    let finished = false;
+    const finishClose = () => {
+      if (finished) return;
+      finished = true;
+      panel.style.transition = "none";
+      if (hero) hero.style.transition = "none";
+      panel.classList.remove("is-open");
+      panel.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("welcome-open", "welcome-closing", "welcome-below-hero");
+      snapScroll(0);
+      requestAnimationFrame(() => {
+        panel.style.transition = "";
+        if (hero) hero.style.transition = "";
+        window.dispatchEvent(new CustomEvent("welcome-panel-change", { detail: { open: false } }));
+        window.__island?.resize();
+      });
+    };
+
+    const onHeroTransitionEnd = (event) => {
+      if (event.target !== hero || event.propertyName !== "width") return;
+      finishClose();
+    };
+    hero?.addEventListener("transitionend", onHeroTransitionEnd, { once: true });
+    window.setTimeout(finishClose, CLOSE_MS);
+  };
+
+  const fetchSection = async (url, selector) => {
+    const html = await fetch(url).then((response) => {
+      if (!response.ok) throw new Error(response.statusText);
+      return response.text();
+    });
+    const node = new DOMParser().parseFromString(html, "text/html").querySelector(selector);
+    if (!node) throw new Error("missing page");
+    return node;
+  };
+
+  const uniquifyIds = (root) => {
+    const owned = [...root.querySelectorAll("[id]")];
+    const map = new Map(owned.map((el) => [el.id, `panel-${el.id}`]));
+    owned.forEach((el) => {
+      el.id = map.get(el.id);
+    });
+    root.querySelectorAll("*").forEach((el) => {
+      [...el.attributes].forEach((attr) => {
+        if (!attr.value.includes("#")) return;
+        const next = attr.value.replace(/#([\w-]+)/g, (match, id) => (map.has(id) ? `#${map.get(id)}` : match));
+        if (next !== attr.value) attr.value = next;
+      });
+    });
+  };
+
+  const buildWorks = () => {
+    const featured = document.querySelector("main > .works");
+    if (!featured) throw new Error("missing works");
+    const wrap = document.createElement("div");
+    wrap.className = "welcome-panel__works";
+    const copy = featured.cloneNode(true);
+    uniquifyIds(copy);
+    wrap.append(copy);
+    return wrap;
+  };
+
+  const ensure = async (key) => {
+    if (built.has(key)) return built.get(key);
+    let node;
+    if (key === "about") {
+      node = patchAboutPanel(await fetchSection("about.html?v=about-cta1", ".about-page"));
+    }
+    else if (key === "contact") {
+      node = await fetchSection("contact.html", ".contact-page");
+      const calendar = node.querySelector("#booking-calendar");
+      const iframe = node.querySelector("#booking-iframe");
+      if (calendar && iframe && !iframe.src.replace(/about:blank$/, "")) calendar.classList.add("is-fallback");
+    } else node = buildWorks();
+    built.set(key, node);
+    return node;
+  };
+
+  const showError = (key) => {
+    const note = document.createElement("p");
+    note.className = "welcome-panel__error";
+    const link = document.createElement("a");
+    link.href = hrefs[key];
+    link.textContent = labels[key];
+    note.append(`${labels[key]} couldn’t be opened. `, link);
+    pages.replaceChildren(note);
+  };
+
+  const show = async (key) => {
+    setOpen(true);
+    panel.setAttribute("aria-label", labels[key]);
+    if (shown === key && built.has(key) && pages.contains(built.get(key))) {
+      scroll.scrollTop = 0;
+      return;
+    }
+    shown = key;
+    try {
+      const node = await ensure(key);
+      if (shown !== key) return;
+      pages.replaceChildren(node);
+      scroll.scrollTop = 0;
+    } catch (error) {
+      built.delete(key);
+      if (shown !== key) return;
+      showError(key);
+    }
+  };
+
+  window.addEventListener("island-venue", (event) => {
+    const key = venuePage[event.detail?.id];
+    if (key) show(key);
+  });
+  closeBtn.addEventListener(
+    "click",
+    (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setOpen(false);
+    },
+    true,
+  );
+  panel.addEventListener("click", (event) => {
+    if (event.target === closeBtn || closeBtn.contains(event.target)) return;
+    event.stopPropagation();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && panel.classList.contains("is-open")) setOpen(false);
+  });
+
+  // Wheel on the panel scrolls panel content only; the island forwards wheel on the left to the page.
+  panel.addEventListener(
+    "wheel",
+    (event) => {
+      if (!panel.classList.contains("is-open")) return;
+      event.preventDefault();
+      event.stopPropagation();
+      scroll.scrollTop += event.deltaY;
+    },
+    { passive: false, capture: true },
+  );
+
+  window.addEventListener("scroll", syncBelowHero, { passive: true });
+  window.addEventListener("resize", syncBelowHero, { passive: true });
+})();
 
