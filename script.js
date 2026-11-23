@@ -1178,7 +1178,9 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
 
 /* Looping product demos: play when visible, pause for reduced motion */
 (() => {
-  const videos = document.querySelectorAll(".works__shot--video video, .case-study__product-demo video");
+  const videos = document.querySelectorAll(
+    ".works__shot--video video, .folder__cover-video, .case-study__hero-video video, .case-study__product-demo video",
+  );
   if (!videos.length) return;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -1198,6 +1200,30 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
       else if (!video.paused) return;
     });
   };
+
+  const heroVideo = document.querySelector(".case-study__hero-video video");
+  if (heroVideo) {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+    const kickHero = () => playVideo(heroVideo);
+    if (heroVideo.readyState >= 2) kickHero();
+    else heroVideo.addEventListener("loadeddata", kickHero, { once: true });
+    document.body.addEventListener(
+      "transitionend",
+      (event) => {
+        if (event.target?.id === "page-loader" || event.target?.classList?.contains("page-loader")) {
+          kickHero();
+        }
+      },
+      { passive: true },
+    );
+    const readyObserver = new MutationObserver(() => {
+      if (!document.body.classList.contains("is-ready")) return;
+      readyObserver.disconnect();
+      kickHero();
+    });
+    readyObserver.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  }
 
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(

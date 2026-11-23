@@ -2444,6 +2444,38 @@ aside.sticky-note .sticky-note__resize {
   );
 }
 
+.folder--works .folder__cover-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: inherit;
+}
+
+.folder--works-has-cover .folder__front {
+  background: rgba(165, 218, 245, 0.06);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.folder--works-has-cover .folder__front-face {
+  background: #000;
+  overflow: hidden;
+}
+
+.folder--works-has-cover .folder__front-shine {
+  z-index: 2;
+  background: transparent;
+  box-shadow: none;
+}
+
+.folder--works-has-cover .folder__label {
+  z-index: 3;
+}
+
 .folder--works .folder__label {
   width: auto;
   min-width: calc(148px * var(--folder-scale));
@@ -2481,6 +2513,10 @@ aside.sticky-note .sticky-note__resize {
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.32),
     inset 0 -8px 24px rgba(12, 112, 168, 0.08);
+}
+
+.folder--works .folder__ridge {
+  display: none;
 }
 
 .folder--works .folder__ridge::before {
@@ -3466,12 +3502,22 @@ aside.sticky-note .sticky-note__resize {
   padding: 0 8px;
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: clamp(16px, 2vw, 22px);
+  font-size: clamp(10px, 2vw, 16px);
   line-height: 1.25;
   letter-spacing: -0.02em;
   text-align: center;
   text-wrap: balance;
   color: var(--text);
+}
+
+.works__name-primary {
+  font-weight: 500;
+  color: #000;
+}
+
+.works__name-meta {
+  font-weight: 500;
+  color: rgb(101, 111, 119);
 }
 
 .works__card-link:hover .works__shot--1,
@@ -3758,6 +3804,55 @@ aside.sticky-note .sticky-note__resize {
 .page-case-study .nav {
   box-shadow: none !important;
   border-bottom: none;
+}
+
+.case-study__hero-video {
+  position: relative;
+  z-index: 4;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 16 / 9;
+  max-height: min(72vh, 820px);
+  background: #0f1014;
+  overflow: hidden;
+}
+
+.case-study__hero-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+  vertical-align: top;
+}
+
+.case-arch--has-hero-video {
+  display: flex;
+  flex-direction: column;
+  background: #0f1014;
+}
+
+.case-arch--has-hero-video .case-arch__panel {
+  position: relative;
+  z-index: 3;
+  min-height: min(52vh, 560px);
+}
+
+.case-study__hero-video--section {
+  width: 100%;
+  max-width: 100%;
+  margin: 28px 0 12px;
+  aspect-ratio: 16 / 9;
+  max-height: min(56vh, 640px);
+  border-radius: 12px;
+  background: #111;
+}
+
+.case-study__hero-video--section video {
+  object-fit: cover;
+  object-position: center center;
 }
 
 /* ── Case study arch header ── */
