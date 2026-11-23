@@ -1858,7 +1858,7 @@ body.page-home .hero__cursor {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 160px;
+  gap: 96px;
   align-items: flex-start;
   align-self: stretch;
   overflow: visible;
@@ -2698,7 +2698,7 @@ aside.sticky-note .sticky-note__resize {
   .works__list {
     display: flex;
     flex-direction: column;
-    gap: 56px;
+    gap: 40px;
     align-items: center;
   }
 
@@ -3014,7 +3014,7 @@ aside.sticky-note .sticky-note__resize {
   }
 
   .works__list {
-    gap: 72px;
+    gap: 44px;
   }
 
   .works__card {
@@ -3027,7 +3027,7 @@ aside.sticky-note .sticky-note__resize {
 .works__list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 64px 24px;
+  gap: 40px 24px;
   width: 100%;
 }
 
@@ -3505,7 +3505,7 @@ aside.sticky-note .sticky-note__resize {
   font-size: clamp(10px, 2vw, 16px);
   line-height: 1.25;
   letter-spacing: -0.02em;
-  text-align: center;
+  text-align: left;
   text-wrap: balance;
   color: var(--text);
 }
@@ -3560,7 +3560,7 @@ aside.sticky-note .sticky-note__resize {
   .works__list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 72px 32px;
+    gap: 44px 32px;
     width: 100%;
     max-width: none;
     margin-inline: 0;

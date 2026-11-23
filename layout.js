@@ -45,7 +45,7 @@
       ? `<div class="folder__label"><span class="folder__label-text">${label}</span></div>`
       : "";
     const coverMarkup = coverVideo
-      ? `<video class="folder__cover-video" src="${asset(coverVideo)}" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>`
+      ? `<video class="folder__cover-video" src="${asset(coverVideo)}" autoplay muted defaultMuted loop playsinline webkit-playsinline preload="auto" aria-hidden="true"></video>`
       : "";
     return `
                   <div class="folder folder--works${coverVideo ? " folder--works-has-cover" : ""}">
@@ -73,12 +73,14 @@
                   </div>`;
   };
 
-  const worksName = (project, client = "", shipped = "") => {
+  const worksName = (project, client = "", shipped = "", concept = false, shipLabel = "Shipped") => {
     const primary = client ? `${project} x ${client}` : project;
-    const shippedMarkup = shipped
-      ? `<span class="works__name-meta"> / Shipped ${shipped}</span>`
-      : "";
-    return `<h3 class="works__name"><span class="works__name-primary">${primary}</span>${shippedMarkup}</h3>`;
+    const metaMarkup = shipped
+      ? `<span class="works__name-meta"> / ${shipLabel} ${shipped}</span>`
+      : concept
+        ? `<span class="works__name-meta"> / Innovative Concept</span>`
+        : "";
+    return `<h3 class="works__name"><span class="works__name-primary">${primary}</span>${metaMarkup}</h3>`;
   };
 
   const shot = (src, extraClass) => `
@@ -173,6 +175,8 @@
     extras = [],
     inProgress = false,
     locked = false,
+    concept = false,
+    shipLabel = "Shipped",
     coverVideo = "",
   }) => {
     const isLocked = inProgress || locked;
@@ -200,7 +204,7 @@
                       coverVideo,
                     )}
                   </div>
-                  ${worksName(project, client, shipped)}`;
+                  ${worksName(project, client, shipped, concept, shipLabel)}`;
   const link = isLocked
       ? `<div class="works__card-link works__card-link--inert" aria-disabled="true">${cardInner}</div>`
       : `<a class="works__card-link" href="${asset(href)}">${cardInner}</a>`;
@@ -526,7 +530,10 @@
                 project: "Parallel Life",
                 client: "Beem",
                 href: "case-studies/parallel-life.html",
-                inProgress: true,
+                locked: true,
+                shipped: "Summer 2027",
+                shipLabel: "Shipping",
+                coverVideo: "assets/case-studies/beem/ParallelLife.mp4?v=1",
               })}
               ${
                 hideConceptFolders()
