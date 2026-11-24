@@ -1176,12 +1176,10 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
   reduceMotion.addEventListener("change", syncAwardPeel);
 })();
 
-/* Looping product demos: play when visible, pause for reduced motion */
+/* Looping product demos: autoplay muted loops; covers always run; others play in view */
 (() => {
-  const videos = document.querySelectorAll(
-    ".works__shot--video video, .folder__cover-video, .case-study__hero-video video, .case-study__product-demo video",
-  );
-  if (!videos.length) return;
+  const DEMO_VIDEO_SELECTOR =
+    ".works__shot--video video, .folder__cover-video, .case-study__hero-video video, .case-study__product-demo video";
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -1193,78 +1191,135 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     video.muted = true;
     video.defaultMuted = true;
     video.loop = true;
+    video.autoplay = true;
     video.playsInline = true;
     video.setAttribute("muted", "");
     video.setAttribute("loop", "");
+    video.setAttribute("autoplay", "");
     video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
     const play = video.play();
     if (play && typeof play.catch === "function") play.catch(() => {});
   };
 
+  const wireVideo = (video) => {
+    if (video.dataset.demoVideoWired === "1") return;
+    video.dataset.demoVideoWired = "1";
+    const retry = () => playVideo(video);
+    video.addEventListener("loadeddata", retry);
+    video.addEventListener("canplay", retry, { once: true });
+    video.addEventListener("ended", () => {
+      if (reduceMotion.matches) return;
+      video.currentTime = 0;
+      playVideo(video);
+    });
+  };
+
+  const queryDemoVideos = () => document.querySelectorAll(DEMO_VIDEO_SELECTOR);
+
   const kickCoverVideos = () => {
-    document.querySelectorAll(".folder__cover-video").forEach(playVideo);
-  };
-
-  const sync = () => {
-    videos.forEach((video) => {
-      if (reduceMotion.matches) video.pause();
-      else if (!video.paused) return;
+    document.querySelectorAll(".folder__cover-video").forEach((video) => {
+      wireVideo(video);
+      playVideo(video);
     });
   };
 
-  const heroVideo = document.querySelector(".case-study__hero-video video");
-  if (heroVideo) {
-    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-    window.scrollTo(0, 0);
-    const kickHero = () => playVideo(heroVideo);
-    if (heroVideo.readyState >= 2) kickHero();
-    else heroVideo.addEventListener("loadeddata", kickHero, { once: true });
-    document.body.addEventListener(
-      "transitionend",
-      (event) => {
-        if (event.target?.id === "page-loader" || event.target?.classList?.contains("page-loader")) {
-          kickHero();
-        }
-      },
-      { passive: true },
-    );
-    const readyObserver = new MutationObserver(() => {
-      if (!document.body.classList.contains("is-ready")) return;
-      readyObserver.disconnect();
-      kickHero();
+  const kickAllDemoVideos = () => {
+    queryDemoVideos().forEach((video) => {
+      wireVideo(video);
+      playVideo(video);
     });
-    readyObserver.observe(document.body, { attributes: true, attributeFilter: ["class"] });
-  }
+  };
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target;
-          if (entry.isIntersecting) playVideo(video);
-          else video.pause();
-        });
-      },
-      { threshold: 0.2 }
-    );
-    videos.forEach((video) => observer.observe(video));
-  } else {
-    videos.forEach(playVideo);
-  }
+  const isInViewport = (video) => {
+    const rect = video.getBoundingClientRect();
+    const h = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+    return h > 0 && h / Math.max(rect.height, 1) >= 0.15;
+  };
 
-  kickCoverVideos();
+  const syncReduceMotion = () => {
+    queryDemoVideos().forEach((video) => {
+      if (reduceMotion.matches) {
+        video.pause();
+        return;
+      }
+      if (video.classList.contains("folder__cover-video") || isInViewport(video)) {
+        playVideo(video);
+      }
+    });
+  };
+
+  const bootstrap = () => {
+    const videos = queryDemoVideos();
+    if (!videos.length) return;
+
+    videos.forEach(wireVideo);
+    kickCoverVideos();
+
+    const heroVideo = document.querySelector(".case-study__hero-video video");
+    if (heroVideo) {
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      if (!location.hash) window.scrollTo(0, 0);
+      const kickHero = () => playVideo(heroVideo);
+      if (heroVideo.readyState >= 2) kickHero();
+      else heroVideo.addEventListener("loadeddata", kickHero, { once: true });
+      document.body.addEventListener(
+        "transitionend",
+        (event) => {
+          if (event.target?.id === "page-loader" || event.target?.classList?.contains("page-loader")) {
+            kickHero();
+          }
+        },
+        { passive: true },
+      );
+    }
+
+    const scrollVideos = [...videos].filter((v) => !v.classList.contains("folder__cover-video"));
+
+    if ("IntersectionObserver" in window && scrollVideos.length) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target;
+            if (entry.isIntersecting) playVideo(video);
+            else video.pause();
+          });
+        },
+        { threshold: [0, 0.15, 0.35] },
+      );
+      scrollVideos.forEach((video) => observer.observe(video));
+    } else if (scrollVideos.length) {
+      scrollVideos.forEach(playVideo);
+    }
+  };
+
+  bootstrap();
+
   if (document.body.classList.contains("is-ready")) {
     kickCoverVideos();
   } else {
     const readyObserver = new MutationObserver(() => {
       if (!document.body.classList.contains("is-ready")) return;
       readyObserver.disconnect();
-      kickCoverVideos();
+      kickAllDemoVideos();
     });
     readyObserver.observe(document.body, { attributes: true, attributeFilter: ["class"] });
   }
 
-  reduceMotion.addEventListener("change", sync);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState !== "visible") return;
+    kickCoverVideos();
+    queryDemoVideos().forEach((video) => {
+      if (video.classList.contains("folder__cover-video")) return;
+      if (isInViewport(video)) playVideo(video);
+    });
+  });
+
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) kickAllDemoVideos();
+  });
+
+  reduceMotion.addEventListener("change", syncReduceMotion);
 })();
 
 /* Venue clicks open one page: Welcome Centre is About, Café is Contact, Gallery is Works. */
