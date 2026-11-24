@@ -529,7 +529,7 @@
                 client: "Capintel",
                 shipped: "Feb 2022",
                 href: "case-studies/digital-financial-proposal.html",
-                coverVideo: "assets/case-studies/beem/proposal-demo.mp4?v=1",
+                coverVideo: "assets/case-studies/capintel/proposal-demo.mp4?v=4",
               })}
               ${peekFolder({
                 id: 2,
