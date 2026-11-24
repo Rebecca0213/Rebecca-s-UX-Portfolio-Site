@@ -1187,6 +1187,10 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
   const isLoopingCover = (video) =>
     video.classList.contains("works__cover-video") || video.classList.contains("folder__cover-video");
 
+  const isSectionHero = (video) => Boolean(video.closest(".case-study__hero-video--section"));
+
+  const isAlwaysLoop = (video) => isLoopingCover(video) || isSectionHero(video);
+
   const playVideo = (video) => {
     if (reduceMotion.matches) {
       video.pause();
@@ -1247,7 +1251,7 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
         video.pause();
         return;
       }
-      if (isLoopingCover(video) || isInViewport(video)) {
+      if (isAlwaysLoop(video) || isInViewport(video)) {
         playVideo(video);
       }
     });
@@ -1260,25 +1264,68 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     videos.forEach(wireVideo);
     kickCoverVideos();
 
-    const heroVideo = document.querySelector(".case-study__hero-video video");
-    if (heroVideo) {
+    const kickSectionHeros = () => {
+      document.querySelectorAll(".case-study__hero-video--section video").forEach((video) => {
+        wireVideo(video);
+        playVideo(video);
+      });
+    };
+
+    const heroVideos = document.querySelectorAll(".case-study__hero-video video");
+    if (heroVideos.length) {
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-      if (!location.hash) window.scrollTo(0, 0);
-      const kickHero = () => playVideo(heroVideo);
-      if (heroVideo.readyState >= 2) kickHero();
-      else heroVideo.addEventListener("loadeddata", kickHero, { once: true });
+      const jumpToOverview = location.hash === "#overview";
+      if (jumpToOverview) {
+        const overview = document.getElementById("overview");
+        if (overview) {
+          requestAnimationFrame(() => {
+            overview.scrollIntoView({ block: "start" });
+            kickSectionHeros();
+          });
+        }
+      } else if (!location.hash) {
+        window.scrollTo(0, 0);
+      }
+      const kickHeros = () => kickSectionHeros();
+      heroVideos.forEach((heroVideo) => {
+        if (heroVideo.readyState >= 2) playVideo(heroVideo);
+        else heroVideo.addEventListener("loadeddata", () => playVideo(heroVideo), { once: true });
+      });
       document.body.addEventListener(
         "transitionend",
         (event) => {
           if (event.target?.id === "page-loader" || event.target?.classList?.contains("page-loader")) {
-            kickHero();
+            kickHeros();
           }
+        },
+        { passive: true },
+      );
+      window.addEventListener(
+        "hashchange",
+        () => {
+          if (location.hash === "#overview") kickSectionHeros();
         },
         { passive: true },
       );
     }
 
-    const scrollVideos = [...videos].filter((v) => !isLoopingCover(v));
+    const sectionHeroVideos = [...videos].filter(isSectionHero);
+    const scrollVideos = [...videos].filter((v) => !isAlwaysLoop(v));
+
+    if ("IntersectionObserver" in window && sectionHeroVideos.length) {
+      const heroMargin = coarsePointer.matches ? "0px 0px 35% 0px" : "0px 0px 20% 0px";
+      const heroObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target;
+            if (entry.isIntersecting) playVideo(video);
+            else if (entry.intersectionRatio <= 0) video.pause();
+          });
+        },
+        { threshold: [0, 0.05, 0.12, 0.25], rootMargin: heroMargin },
+      );
+      sectionHeroVideos.forEach((video) => heroObserver.observe(video));
+    }
 
     if ("IntersectionObserver" in window && scrollVideos.length) {
       const rootMargin = coarsePointer.matches ? "0px 0px 15% 0px" : "0px";
@@ -1296,6 +1343,8 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     } else if (scrollVideos.length) {
       scrollVideos.forEach(playVideo);
     }
+
+    kickSectionHeros();
   };
 
   bootstrap();
@@ -1316,6 +1365,10 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     kickCoverVideos();
     queryDemoVideos().forEach((video) => {
       if (isLoopingCover(video)) return;
+      if (isSectionHero(video) && isInViewport(video)) {
+        playVideo(video);
+        return;
+      }
       if (isInViewport(video)) playVideo(video);
     });
   });
@@ -1354,11 +1407,19 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     const watchCovers = () => {
       if (document.hidden) return;
       kickCoverVideos();
+      document.querySelectorAll(".case-study__hero-video--section video").forEach((video) => {
+        if (isInViewport(video)) playVideo(video);
+      });
       coverWatch = window.setTimeout(watchCovers, 1800);
     };
     watchCovers();
     document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "visible") kickCoverVideos();
+      if (document.visibilityState === "visible") {
+        kickCoverVideos();
+        document.querySelectorAll(".case-study__hero-video--section video").forEach((video) => {
+          if (isInViewport(video)) playVideo(video);
+        });
+      }
     });
   }
 
