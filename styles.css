@@ -2465,26 +2465,6 @@ aside.sticky-note .sticky-note__resize {
   aspect-ratio: 300 / 314;
 }
 
-.works__card-stage > .works__cover-video {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  top: calc(100% * 104 / 314);
-  height: calc(100% * 209.362 / 314);
-  z-index: 5;
-  display: block;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  object-fit: cover;
-  object-position: center top;
-  pointer-events: none;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  border-radius: clamp(14px, 6.8cqi, 22.979px);
-  overflow: hidden;
-}
-
 .works__card-stage .works__card {
   position: absolute;
   inset: 0;
@@ -2492,10 +2472,18 @@ aside.sticky-note .sticky-note__resize {
   height: 100%;
 }
 
-.works__card-link--folder {
+.works__item--has-cover-video .folder--works-has-cover .folder__front-face {
+  background: #000;
+}
+
+.works__card-link--folder-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
   display: block;
-  color: inherit;
+  border-radius: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 .works__card-link--title {

@@ -45,12 +45,13 @@
       ? `<video class="works__cover-video folder__cover-video" src="${asset(coverVideo)}" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-hidden="true"></video>`
       : "";
 
-  const worksFolder = (id, title, label = "", hasCoverVideo = false) => {
+  const worksFolder = (id, title, label = "", coverVideo = "") => {
     const labelMarkup = label
       ? `<div class="folder__label"><span class="folder__label-text">${label}</span></div>`
       : "";
+    const coverMarkup = coverVideo ? worksCoverVideo(coverVideo) : "";
     return `
-                  <div class="folder folder--works${hasCoverVideo ? " folder--works-has-cover" : ""}">
+                  <div class="folder folder--works${coverVideo ? " folder--works-has-cover" : ""}">
                     <svg class="folder__back" viewBox="0 0 300 275.362" preserveAspectRatio="none" aria-hidden="true">
                       <defs>
                         <linearGradient id="works-back-grad-${id}" x1="0" y1="0" x2="0" y2="1">
@@ -67,7 +68,7 @@
                       <path d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z" fill="url(#works-back-hi-${id})" />
                     </svg>
                     <div class="folder__front">
-                      <div class="folder__front-face" aria-hidden="true"></div>
+                      <div class="folder__front-face" aria-hidden="true">${coverMarkup}</div>
                       <div class="folder__front-shine">${labelMarkup}</div>
                     </div>
                     <div class="folder__ridge folder__ridge--upper" aria-hidden="true"></div>
@@ -202,26 +203,21 @@
                       id,
                       project,
                       inProgress ? "case study in progress" : "",
-                      Boolean(coverVideo),
+                      coverVideo,
                     )}`;
     const titleMarkup = worksName(project, client, shipped, concept, shipLabel);
     if (coverVideo) {
-      const folderLink = isLocked
-        ? `<div class="works__card-link works__card-link--folder works__card-link--inert" aria-disabled="true">
-                    <p class="visually-hidden">${project}</p>
-                    <div class="works__card">${cardBody}</div>
-                  </div>`
-        : `<a class="works__card-link works__card-link--folder" href="${asset(href)}" aria-label="${project}${client ? ` x ${client}` : ""}">
-                    <div class="works__card">${cardBody}</div>
-                  </a>`;
+      const folderHit = isLocked
+        ? ""
+        : `<a class="works__card-link works__card-link--folder-hit" href="${asset(href)}" aria-label="${project}${client ? ` x ${client}` : ""}"></a>`;
       const titleLink = isLocked
         ? `<div class="works__card-link works__card-link--title works__card-link--inert" aria-disabled="true">${titleMarkup}</div>`
         : `<a class="works__card-link works__card-link--title" href="${asset(href)}">${titleMarkup}</a>`;
       return `
               <article class="works__item works__item--peek${isLocked ? " works__item--locked" : ""} works__item--has-cover-video">
                 <div class="works__card-stage">
-                  ${worksCoverVideo(coverVideo)}
-                  ${folderLink}
+                  <div class="works__card">${cardBody}</div>
+                  ${folderHit}
                 </div>
                 ${titleLink}
               </article>`;
@@ -536,7 +532,7 @@
                 client: "Capintel",
                 shipped: "Feb 2022",
                 href: "case-studies/digital-financial-proposal.html",
-                coverVideo: "assets/case-studies/capintel/proposal-demo.mp4?v=1",
+                coverVideo: "assets/case-studies/capintel/proposal-demo.mp4?v=2",
               })}
               ${peekFolder({
                 id: 2,
