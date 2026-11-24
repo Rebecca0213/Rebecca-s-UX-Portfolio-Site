@@ -1330,6 +1330,38 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
   document.addEventListener("touchstart", unlockOnTouch, { passive: true, once: true });
   document.addEventListener("click", unlockOnTouch, { passive: true, once: true });
 
+  document.querySelectorAll(".works__item--has-cover-video .works__card-stage[role='link']").forEach((stage) => {
+    const item = stage.closest(".works__item--has-cover-video");
+    const href = item?.dataset?.worksHref;
+    if (!href) return;
+    const go = () => {
+      window.location.assign(href);
+    };
+    stage.addEventListener("click", (event) => {
+      if (event.target.closest(".works__card-link--title")) return;
+      go();
+    });
+    stage.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        go();
+      }
+    });
+  });
+
+  if (coarsePointer.matches) {
+    let coverWatch = 0;
+    const watchCovers = () => {
+      if (document.hidden) return;
+      kickCoverVideos();
+      coverWatch = window.setTimeout(watchCovers, 1800);
+    };
+    watchCovers();
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") kickCoverVideos();
+    });
+  }
+
   reduceMotion.addEventListener("change", syncReduceMotion);
 })();
 

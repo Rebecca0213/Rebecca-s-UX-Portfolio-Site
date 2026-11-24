@@ -40,16 +40,25 @@
                   <span class="sticky-note__resize" aria-hidden="true"></span>
                 </aside>`;
 
-  const worksCoverVideo = (coverVideo) =>
+  const worksCoverVideo = (coverVideo, poster = "") =>
     coverVideo
-      ? `<video class="works__cover-video folder__cover-video" src="${asset(coverVideo)}" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-hidden="true"></video>`
+      ? `<video class="works__cover-video folder__cover-video" src="${asset(coverVideo)}"${
+          poster ? ` poster="${asset(poster)}"` : ""
+        } autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-hidden="true"></video>`
       : "";
 
   const worksFolder = (id, title, label = "", coverVideo = "") => {
     const labelMarkup = label
       ? `<div class="folder__label"><span class="folder__label-text">${label}</span></div>`
       : "";
-    const coverMarkup = coverVideo ? worksCoverVideo(coverVideo) : "";
+    const coverMarkup = coverVideo
+      ? worksCoverVideo(
+          coverVideo,
+          coverVideo.includes("capintel/proposal-demo")
+            ? "assets/case-studies/capintel/works-pop/overview.png?v=3"
+            : "",
+        )
+      : "";
     return `
                   <div class="folder folder--works${coverVideo ? " folder--works-has-cover" : ""}">
                     <svg class="folder__back" viewBox="0 0 300 275.362" preserveAspectRatio="none" aria-hidden="true">
@@ -207,17 +216,14 @@
                     )}`;
     const titleMarkup = worksName(project, client, shipped, concept, shipLabel);
     if (coverVideo) {
-      const folderHit = isLocked
-        ? ""
-        : `<a class="works__card-link works__card-link--folder-hit" href="${asset(href)}" aria-label="${project}${client ? ` x ${client}` : ""}"></a>`;
+      const capintelClass = id === 1 ? " works__item--capintel" : "";
       const titleLink = isLocked
         ? `<div class="works__card-link works__card-link--title works__card-link--inert" aria-disabled="true">${titleMarkup}</div>`
         : `<a class="works__card-link works__card-link--title" href="${asset(href)}">${titleMarkup}</a>`;
       return `
-              <article class="works__item works__item--peek${isLocked ? " works__item--locked" : ""} works__item--has-cover-video">
-                <div class="works__card-stage">
+              <article class="works__item works__item--peek${capintelClass}${isLocked ? " works__item--locked" : ""} works__item--has-cover-video" data-works-href="${isLocked ? "" : asset(href)}">
+                <div class="works__card-stage" role="${isLocked ? "presentation" : "link"}" ${isLocked ? "" : `tabindex="0" aria-label="${project}${client ? ` x ${client}` : ""}"`}>
                   <div class="works__card">${cardBody}</div>
-                  ${folderHit}
                 </div>
                 ${titleLink}
               </article>`;
@@ -532,7 +538,7 @@
                 client: "Capintel",
                 shipped: "Feb 2022",
                 href: "case-studies/digital-financial-proposal.html",
-                coverVideo: "assets/case-studies/capintel/proposal-demo.mp4?v=2",
+                coverVideo: "assets/case-studies/capintel/proposal-demo.mp4?v=3",
               })}
               ${peekFolder({
                 id: 2,

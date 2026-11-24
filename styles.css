@@ -2476,14 +2476,23 @@ aside.sticky-note .sticky-note__resize {
   background: #000;
 }
 
-.works__card-link--folder-hit {
-  position: absolute;
-  inset: 0;
-  z-index: 6;
-  display: block;
-  border-radius: inherit;
-  text-decoration: none;
-  color: inherit;
+.works__item--has-cover-video .works__card-stage {
+  cursor: pointer;
+}
+
+.works__item--has-cover-video .works__card-stage:focus-visible {
+  outline: 2px solid rgb(56, 146, 208);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.works__item--has-cover-video .folder--works-has-cover .folder__cover-video {
+  z-index: 2;
+}
+
+.works__item--has-cover-video .folder--works-has-cover .folder__front-shine {
+  z-index: 3;
+  pointer-events: none;
 }
 
 .works__card-link--title {
