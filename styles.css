@@ -2487,12 +2487,14 @@ aside.sticky-note .sticky-note__resize {
 }
 
 .works__item--has-cover-video .folder--works-has-cover .folder__cover-video {
-  z-index: 2;
+  z-index: 4;
 }
 
 .works__item--has-cover-video .folder--works-has-cover .folder__front-shine {
-  z-index: 3;
+  z-index: 1;
   pointer-events: none;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .works__card-link--title {

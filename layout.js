@@ -40,25 +40,16 @@
                   <span class="sticky-note__resize" aria-hidden="true"></span>
                 </aside>`;
 
-  const worksCoverVideo = (coverVideo, poster = "") =>
+  const worksCoverVideo = (coverVideo) =>
     coverVideo
-      ? `<video class="works__cover-video folder__cover-video" src="${asset(coverVideo)}"${
-          poster ? ` poster="${asset(poster)}"` : ""
-        } autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-hidden="true"></video>`
+      ? `<video class="works__cover-video folder__cover-video" src="${asset(coverVideo)}" autoplay muted defaultMuted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-hidden="true"></video>`
       : "";
 
   const worksFolder = (id, title, label = "", coverVideo = "") => {
     const labelMarkup = label
       ? `<div class="folder__label"><span class="folder__label-text">${label}</span></div>`
       : "";
-    const coverMarkup = coverVideo
-      ? worksCoverVideo(
-          coverVideo,
-          coverVideo.includes("capintel/proposal-demo")
-            ? "assets/case-studies/capintel/works-pop/overview.png?v=3"
-            : "",
-        )
-      : "";
+    const coverMarkup = coverVideo ? worksCoverVideo(coverVideo) : "";
     return `
                   <div class="folder folder--works${coverVideo ? " folder--works-has-cover" : ""}">
                     <svg class="folder__back" viewBox="0 0 300 275.362" preserveAspectRatio="none" aria-hidden="true">
@@ -222,7 +213,7 @@
         : `<a class="works__card-link works__card-link--title" href="${asset(href)}">${titleMarkup}</a>`;
       return `
               <article class="works__item works__item--peek${capintelClass}${isLocked ? " works__item--locked" : ""} works__item--has-cover-video" data-works-href="${isLocked ? "" : asset(href)}">
-                <div class="works__card-stage" role="${isLocked ? "presentation" : "link"}" ${isLocked ? "" : `tabindex="0" aria-label="${project}${client ? ` x ${client}` : ""}"`}>
+                <div class="works__card-stage">
                   <div class="works__card">${cardBody}</div>
                 </div>
                 ${titleLink}
@@ -538,7 +529,7 @@
                 client: "Capintel",
                 shipped: "Feb 2022",
                 href: "case-studies/digital-financial-proposal.html",
-                coverVideo: "assets/case-studies/capintel/proposal-demo.mp4?v=3",
+                coverVideo: "assets/case-studies/capintel/proposal-demo.mp4?v=4",
               })}
               ${peekFolder({
                 id: 2,
@@ -546,7 +537,7 @@
                 client: "Beem",
                 shipped: "April–August 2026",
                 href: "case-studies/member-rewards-program.html",
-                coverVideo: "assets/case-studies/beem/member-rewards-cover.mp4?v=1",
+                coverVideo: "assets/case-studies/beem/member-rewards-cover.mp4?v=2",
               })}
               ${peekFolder({
                 id: 3,

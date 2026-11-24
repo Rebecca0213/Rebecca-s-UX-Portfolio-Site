@@ -1214,8 +1214,20 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     if (video.dataset.demoVideoWired === "1") return;
     video.dataset.demoVideoWired = "1";
     const retry = () => playVideo(video);
+    const onPlaying = () => {
+      video.removeAttribute("poster");
+      video.classList.add("is-playing");
+    };
     video.addEventListener("loadeddata", retry);
-    video.addEventListener("canplay", retry, { once: true });
+    video.addEventListener("loadedmetadata", retry);
+    video.addEventListener("canplay", retry);
+    video.addEventListener("canplaythrough", retry);
+    video.addEventListener("playing", onPlaying);
+    video.addEventListener("timeupdate", () => {
+      if (video.currentTime > 0.05) onPlaying();
+    });
+    video.addEventListener("stalled", retry);
+    video.addEventListener("waiting", retry);
     video.addEventListener("ended", () => {
       if (reduceMotion.matches) return;
       video.currentTime = 0;
@@ -1377,13 +1389,21 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     if (event.persisted) kickAllDemoVideos();
   });
 
-  const unlockOnTouch = () => {
-    kickAllDemoVideos();
-  };
-  document.addEventListener("touchstart", unlockOnTouch, { passive: true, once: true });
-  document.addEventListener("click", unlockOnTouch, { passive: true, once: true });
+  const unlockOnTouch = () => kickCoverVideos();
+  let touchUnlockTick = 0;
+  document.addEventListener(
+    "touchstart",
+    () => {
+      unlockOnTouch();
+      if (touchUnlockTick < 4) {
+        touchUnlockTick += 1;
+        window.setTimeout(unlockOnTouch, 80 * touchUnlockTick);
+      }
+    },
+    { passive: true },
+  );
 
-  document.querySelectorAll(".works__item--has-cover-video .works__card-stage[role='link']").forEach((stage) => {
+  document.querySelectorAll(".works__item--has-cover-video .works__card-stage").forEach((stage) => {
     const item = stage.closest(".works__item--has-cover-video");
     const href = item?.dataset?.worksHref;
     if (!href) return;
@@ -1406,11 +1426,14 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     let coverWatch = 0;
     const watchCovers = () => {
       if (document.hidden) return;
-      kickCoverVideos();
+      document.querySelectorAll(".works__cover-video, .folder__cover-video").forEach((video) => {
+        wireVideo(video);
+        if (!reduceMotion.matches && (video.paused || video.currentTime === 0)) playVideo(video);
+      });
       document.querySelectorAll(".case-study__hero-video--section video").forEach((video) => {
         if (isInViewport(video)) playVideo(video);
       });
-      coverWatch = window.setTimeout(watchCovers, 1800);
+      coverWatch = window.setTimeout(watchCovers, 900);
     };
     watchCovers();
     document.addEventListener("visibilitychange", () => {
