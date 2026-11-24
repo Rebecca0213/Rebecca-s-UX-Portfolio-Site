@@ -1192,7 +1192,7 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
   const isAlwaysLoop = (video) => isLoopingCover(video) || isSectionHero(video);
 
   const playVideo = (video) => {
-    if (reduceMotion.matches) {
+    if (reduceMotion.matches && !isLoopingCover(video)) {
       video.pause();
       return;
     }
@@ -1229,7 +1229,7 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     video.addEventListener("stalled", retry);
     video.addEventListener("waiting", retry);
     video.addEventListener("ended", () => {
-      if (reduceMotion.matches) return;
+      if (reduceMotion.matches && !isLoopingCover(video)) return;
       video.currentTime = 0;
       playVideo(video);
     });
@@ -1259,7 +1259,7 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
 
   const syncReduceMotion = () => {
     queryDemoVideos().forEach((video) => {
-      if (reduceMotion.matches) {
+      if (reduceMotion.matches && !isLoopingCover(video)) {
         video.pause();
         return;
       }
@@ -1408,7 +1408,7 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     const href = item?.dataset?.worksHref;
     const cover = stage.querySelector(".works__cover-video, .folder__cover-video");
     const playCover = () => {
-      if (!cover || reduceMotion.matches) return;
+      if (!cover) return;
       wireVideo(cover);
       playVideo(cover);
     };
@@ -1465,7 +1465,7 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
       if (document.hidden) return;
       document.querySelectorAll(".works__cover-video, .folder__cover-video").forEach((video) => {
         wireVideo(video);
-        if (!reduceMotion.matches && (video.paused || video.currentTime === 0)) playVideo(video);
+        if (video.paused || video.currentTime === 0) playVideo(video);
       });
       document.querySelectorAll(".case-study__hero-video--section video").forEach((video) => {
         if (isInViewport(video)) playVideo(video);
