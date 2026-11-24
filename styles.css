@@ -13555,7 +13555,7 @@ body.is-ready .case-arch.is-scrolling .case-arch__panel {
 
   .works__card,
   .works__card-stage {
-    height: clamp(220px, 58vw, 300px);
+    height: clamp(300px, 74vw, 400px);
     aspect-ratio: unset;
   }
 
@@ -14182,7 +14182,7 @@ body.is-ready .case-arch.is-scrolling .case-arch__panel {
 
   .works__card,
   .works__card-stage {
-    height: clamp(200px, 62vw, 280px);
+    height: clamp(280px, 82vw, 380px);
     aspect-ratio: unset;
   }
 

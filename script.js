@@ -1406,23 +1406,60 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
   document.querySelectorAll(".works__item--has-cover-video .works__card-stage").forEach((stage) => {
     const item = stage.closest(".works__item--has-cover-video");
     const href = item?.dataset?.worksHref;
+    const cover = stage.querySelector(".works__cover-video, .folder__cover-video");
+    const playCover = () => {
+      if (!cover || reduceMotion.matches) return;
+      wireVideo(cover);
+      playVideo(cover);
+    };
+    if (cover && coarsePointer.matches) {
+      stage.addEventListener("touchstart", playCover, { passive: true });
+    }
     if (!href) return;
     const go = () => {
       window.location.assign(href);
     };
     stage.addEventListener("click", (event) => {
       if (event.target.closest(".works__card-link--title")) return;
+      playCover();
       go();
     });
     stage.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
+        playCover();
         go();
       }
     });
   });
 
   if (coarsePointer.matches) {
+    if ("IntersectionObserver" in window) {
+      const coverObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target;
+            if (!entry.isIntersecting || entry.intersectionRatio < 0.12) return;
+            wireVideo(video);
+            playVideo(video);
+          });
+        },
+        { threshold: [0, 0.12, 0.25, 0.45], rootMargin: "0px 0px 8% 0px" },
+      );
+      document.querySelectorAll(".works__cover-video, .folder__cover-video").forEach((video) => {
+        coverObserver.observe(video);
+      });
+    }
+
+    let scrollKick = 0;
+    window.addEventListener(
+      "scroll",
+      () => {
+        window.clearTimeout(scrollKick);
+        scrollKick = window.setTimeout(kickCoverVideos, 100);
+      },
+      { passive: true },
+    );
     let coverWatch = 0;
     const watchCovers = () => {
       if (document.hidden) return;
