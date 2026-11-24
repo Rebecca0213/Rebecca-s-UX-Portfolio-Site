@@ -508,6 +508,7 @@
                 id: 1,
                 project: "Digital Financial Proposal",
                 client: "Capintel",
+                shipped: "Feb 2022",
                 href: "case-studies/digital-financial-proposal.html",
               })}
               ${peekFolder({
@@ -533,7 +534,6 @@
                 locked: true,
                 shipped: "Summer 2027",
                 shipLabel: "Shipping",
-                coverVideo: "assets/case-studies/beem/ParallelLife.mp4?v=1",
               })}
               ${
                 hideConceptFolders()
