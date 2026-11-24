@@ -2453,6 +2453,55 @@ aside.sticky-note .sticky-note__resize {
   object-fit: cover;
   object-position: center top;
   border-radius: inherit;
+  pointer-events: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Cover videos live in .works__card-stage outside the folder link (iOS inline autoplay). */
+.works__card-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 300 / 314;
+}
+
+.works__card-stage > .works__cover-video {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: calc(100% * 104 / 314);
+  height: calc(100% * 209.362 / 314);
+  z-index: 5;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  border-radius: clamp(14px, 6.8cqi, 22.979px);
+  overflow: hidden;
+}
+
+.works__card-stage .works__card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.works__card-link--folder {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.works__card-link--title {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 .folder--works-has-cover .folder__front {
@@ -3853,6 +3902,9 @@ aside.sticky-note .sticky-note__resize {
 .case-study__hero-video--section video {
   object-fit: cover;
   object-position: center center;
+  pointer-events: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 /* ── Case study arch header ── */
@@ -13502,7 +13554,8 @@ body.is-ready .case-arch.is-scrolling .case-arch__panel {
     max-width: none;
   }
 
-  .works__card {
+  .works__card,
+  .works__card-stage {
     height: clamp(220px, 58vw, 300px);
     aspect-ratio: unset;
   }
@@ -14128,7 +14181,8 @@ body.is-ready .case-arch.is-scrolling .case-arch__panel {
     max-width: none;
   }
 
-  .works__card {
+  .works__card,
+  .works__card-stage {
     height: clamp(200px, 62vw, 280px);
     aspect-ratio: unset;
   }

@@ -1179,9 +1179,13 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
 /* Looping product demos: autoplay muted loops; covers always run; others play in view */
 (() => {
   const DEMO_VIDEO_SELECTOR =
-    ".works__shot--video video, .folder__cover-video, .case-study__hero-video video, .case-study__product-demo video";
+    ".works__shot--video video, .works__cover-video, .folder__cover-video, .case-study__hero-video video, .case-study__product-demo video";
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const coarsePointer = window.matchMedia("(hover: none) and (pointer: coarse)");
+
+  const isLoopingCover = (video) =>
+    video.classList.contains("works__cover-video") || video.classList.contains("folder__cover-video");
 
   const playVideo = (video) => {
     if (reduceMotion.matches) {
@@ -1218,7 +1222,7 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
   const queryDemoVideos = () => document.querySelectorAll(DEMO_VIDEO_SELECTOR);
 
   const kickCoverVideos = () => {
-    document.querySelectorAll(".folder__cover-video").forEach((video) => {
+    document.querySelectorAll(".works__cover-video, .folder__cover-video").forEach((video) => {
       wireVideo(video);
       playVideo(video);
     });
@@ -1243,7 +1247,7 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
         video.pause();
         return;
       }
-      if (video.classList.contains("folder__cover-video") || isInViewport(video)) {
+      if (isLoopingCover(video) || isInViewport(video)) {
         playVideo(video);
       }
     });
@@ -1274,9 +1278,10 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
       );
     }
 
-    const scrollVideos = [...videos].filter((v) => !v.classList.contains("folder__cover-video"));
+    const scrollVideos = [...videos].filter((v) => !isLoopingCover(v));
 
     if ("IntersectionObserver" in window && scrollVideos.length) {
+      const rootMargin = coarsePointer.matches ? "0px 0px 15% 0px" : "0px";
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -1285,7 +1290,7 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
             else video.pause();
           });
         },
-        { threshold: [0, 0.15, 0.35] },
+        { threshold: coarsePointer.matches ? [0, 0.08, 0.2] : [0, 0.15, 0.35], rootMargin },
       );
       scrollVideos.forEach((video) => observer.observe(video));
     } else if (scrollVideos.length) {
@@ -1310,7 +1315,7 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     if (document.visibilityState !== "visible") return;
     kickCoverVideos();
     queryDemoVideos().forEach((video) => {
-      if (video.classList.contains("folder__cover-video")) return;
+      if (isLoopingCover(video)) return;
       if (isInViewport(video)) playVideo(video);
     });
   });
@@ -1318,6 +1323,12 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
   window.addEventListener("pageshow", (event) => {
     if (event.persisted) kickAllDemoVideos();
   });
+
+  const unlockOnTouch = () => {
+    kickAllDemoVideos();
+  };
+  document.addEventListener("touchstart", unlockOnTouch, { passive: true, once: true });
+  document.addEventListener("click", unlockOnTouch, { passive: true, once: true });
 
   reduceMotion.addEventListener("change", syncReduceMotion);
 })();
