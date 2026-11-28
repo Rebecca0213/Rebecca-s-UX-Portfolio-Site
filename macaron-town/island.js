@@ -23,14 +23,61 @@ function syncBlendTransition(world, shared) {
   root.style.setProperty("--section-bg", sectionBg);
 }
 
+const isPhone = () => matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 820;
+
+// iOS Safari kills the tab once the page's GPU memory passes its budget, and the full post chain at
+// 2x on a phone (4x MSAA half-float targets, AO, bloom, SMAA, a 4096 shadow map) goes past it.
+function fitPhoneBudget(world) {
+  const sceneMsaa = world.pipeline.scenePass;
+  sceneMsaa.samples = 2;
+  sceneMsaa.release();
+  const shadow = world.lighting.sun.shadow;
+  shadow.mapSize.set(2048, 2048);
+  if (shadow.map) {
+    shadow.map.depthTexture?.dispose();
+    shadow.map.dispose();
+    shadow.map = null;
+  }
+  world.renderer.shadowMap.needsUpdate = true;
+}
+
+// Off-screen the canvas is invisible, so its frames only spend memory and battery that the rest of
+// the page (the folder cover videos) needs.
+function pauseWhenHidden(world) {
+  if (typeof IntersectionObserver === "undefined") return;
+  const loop = (t) => world.tick(t);
+  let running = true;
+  new IntersectionObserver(
+    ([entry]) => {
+      const visible = entry.isIntersecting;
+      if (visible === running) return;
+      running = visible;
+      world.renderer.setAnimationLoop(visible ? loop : null);
+    },
+    { rootMargin: "120px 0px" },
+  ).observe(stage);
+}
+
+function showPosterOnContextLoss(world) {
+  world.renderer.domElement.addEventListener("webglcontextlost", (event) => {
+    event.preventDefault();
+    world.renderer.setAnimationLoop(null);
+    island.classList.remove("is-live", "is-building");
+    island.classList.add("is-poster");
+  });
+}
+
 function wireHomepage(world) {
   const canvas = world.renderer.domElement;
   // The town's resolution governor steps the canvas down when frames are slow. On the homepage that
-  // reads as a pixelated island. Draw at the screen's own pixel ratio.
+  // reads as a pixelated island. Draw at a fixed pixel ratio instead.
   world.governor = null;
-  const phone = matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 820;
-  const dpr = Math.min(window.devicePixelRatio || 1, phone ? 2 : 3);
+  const phone = isPhone();
+  if (phone) fitPhoneBudget(world);
+  const dpr = Math.min(window.devicePixelRatio || 1, phone ? 1.5 : 3);
   world.setPixelRatio(dpr);
+  pauseWhenHidden(world);
+  showPosterOnContextLoss(world);
   world.controls.enableZoom = false;
   canvas.addEventListener(
     "wheel",
@@ -55,7 +102,9 @@ function wireHomepage(world) {
 const hasWebGL = () => {
   try {
     const canvas = document.createElement("canvas");
-    return Boolean(canvas.getContext("webgl2") ?? canvas.getContext("webgl"));
+    const gl = canvas.getContext("webgl2") ?? canvas.getContext("webgl");
+    gl?.getExtension("WEBGL_lose_context")?.loseContext();
+    return Boolean(gl);
   } catch {
     return false;
   }

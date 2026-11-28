@@ -625,25 +625,51 @@ if (cordPath) {
 // Page skeleton loader. The homepage hero is the island, so nothing covers it.
 (() => {
   if (document.body.classList.contains("page-home")) {
+    const openWorks = () => location.hash === "#works";
+
+    const scrollToFeaturedWorks = () => {
+      if (!openWorks()) return;
+      const works = document.getElementById("works");
+      if (!works) return;
+      works.scrollIntoView({ block: "start" });
+    };
+
     document.getElementById("page-loader")?.remove();
     document.body.classList.remove("is-loading", "welcome-open");
     document.body.style.top = "";
     document.body.classList.add("is-ready");
     document.getElementById("welcome-panel")?.classList.remove("is-open");
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-    window.scrollTo(0, 0);
+    if (!openWorks()) {
+      window.scrollTo(0, 0);
+    }
     window.addEventListener(
       "pageshow",
       () => {
         document.body.classList.remove("welcome-open");
         document.body.style.top = "";
         document.getElementById("welcome-panel")?.classList.remove("is-open");
-        window.scrollTo(0, 0);
+        if (openWorks()) {
+          requestAnimationFrame(() => scrollToFeaturedWorks());
+        } else {
+          window.scrollTo(0, 0);
+        }
         requestAnimationFrame(() => window.__island?.resize());
       },
       { passive: true },
     );
-    window.addEventListener("load", () => window.scrollTo(0, 0), { once: true, passive: true });
+  window.addEventListener("load", () => {
+      if (openWorks()) scrollToFeaturedWorks();
+      else window.scrollTo(0, 0);
+    }, { once: true, passive: true });
+    window.addEventListener("hashchange", scrollToFeaturedWorks);
+    document.querySelectorAll('.nav__links a[href="#works"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        history.pushState(null, "", "#works");
+        scrollToFeaturedWorks();
+      });
+    });
     return;
   }
 
@@ -694,110 +720,67 @@ if (cordPath) {
   window.setTimeout(dismiss, 3500);
 })();
 
-// Case study section nav — active on click; clears when that section is scrolled past
+// Case study sidebar — scroll-spy + dot marker on active TOC link
 const caseStudyNav = document.querySelector(".case-study__nav");
 const caseStudyToc = document.querySelector(".case-study__toc");
 
 if (caseStudyNav && caseStudyToc) {
   const tocLinks = [...caseStudyToc.querySelectorAll('a[href^="#"]')];
-  const navTargets = [
-    caseStudyNav.querySelector(".case-study__back"),
-    ...tocLinks,
-  ].filter(Boolean);
 
   let activeId = null;
   let ticking = false;
-  let hoverTarget = null;
-  let indicatorReady = false;
-
-  const indicator = document.createElement("div");
-  indicator.className = "case-study__nav-indicator";
-  indicator.setAttribute("aria-hidden", "true");
-  caseStudyNav.insertBefore(indicator, caseStudyNav.firstChild);
-
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  const moveIndicatorTo = (el) => {
-    if (!el) {
-      indicator.classList.remove("is-visible");
-      return;
-    }
-
-    const navRect = caseStudyNav.getBoundingClientRect();
-    const rect = el.getBoundingClientRect();
-    const x = rect.left - navRect.left + caseStudyNav.scrollLeft;
-    const y = rect.top - navRect.top + caseStudyNav.scrollTop;
-
-    if (!indicatorReady || reduceMotion) {
-      const prev = indicator.style.transition;
-      indicator.style.transition = "none";
-      indicator.style.width = `${rect.width}px`;
-      indicator.style.height = `${rect.height}px`;
-      indicator.style.transform = `translate(${x}px, ${y}px)`;
-      // Force layout so enabling transition doesn't animate from 0
-      void indicator.offsetWidth;
-      indicator.style.transition = prev;
-      indicatorReady = true;
-    } else {
-      indicator.style.width = `${rect.width}px`;
-      indicator.style.height = `${rect.height}px`;
-      indicator.style.transform = `translate(${x}px, ${y}px)`;
-    }
-
-    indicator.classList.add("is-visible");
-  };
-
-  const syncIndicator = () => {
-    if (hoverTarget) {
-      moveIndicatorTo(hoverTarget);
-      return;
-    }
-    const activeLink = tocLinks.find((link) => link.classList.contains("is-active"));
-    moveIndicatorTo(activeLink || null);
-  };
-
-  const clearActive = () => {
-    activeId = null;
-    tocLinks.forEach((link) => link.classList.remove("is-active"));
-    if (!hoverTarget) syncIndicator();
-  };
 
   const setActive = (id) => {
     activeId = id;
     tocLinks.forEach((link) => {
-      link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+      const on = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-active", on);
+      if (on) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
     });
-    if (!hoverTarget) syncIndicator();
   };
+
+  const sectionEntries = tocLinks
+    .map((link) => {
+      const id = link.getAttribute("href")?.slice(1);
+      if (!id) return null;
+      const el = document.getElementById(id);
+      return el ? { id, el } : null;
+    })
+    .filter(Boolean);
 
   const navOffset = () => {
     const raw = getComputedStyle(document.documentElement).getPropertyValue("--nav-height");
     const navHeight = Number.parseFloat(raw) || 83;
-    return navHeight + 32;
+    const isMobileNav = window.matchMedia("(max-width: 767px)").matches;
+    return navHeight + (isMobileNav ? 56 : 32);
   };
 
-  const checkActiveStillInView = () => {
+  const updateActiveFromScroll = () => {
     ticking = false;
-    if (!activeId) return;
+    if (!sectionEntries.length) return;
 
-    const section = document.getElementById(activeId);
-    if (!section) {
-      clearActive();
-      return;
+    const line = navOffset() + 32;
+    let currentId = sectionEntries[0].id;
+
+    for (const { id, el } of sectionEntries) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= line) currentId = id;
     }
 
-    const rect = section.getBoundingClientRect();
-    const topLimit = navOffset();
-    // Deselect once the section has scrolled fully above the sticky offset
-    if (rect.bottom <= topLimit) {
-      clearActive();
+    const nearBottom =
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+    if (nearBottom) {
+      currentId = sectionEntries[sectionEntries.length - 1].id;
     }
+
+    if (currentId !== activeId) setActive(currentId);
   };
 
   const onScroll = () => {
-    if (!activeId || ticking) return;
+    if (ticking) return;
     ticking = true;
-    window.requestAnimationFrame(checkActiveStillInView);
+    window.requestAnimationFrame(updateActiveFromScroll);
   };
 
   tocLinks.forEach((link) => {
@@ -807,35 +790,15 @@ if (caseStudyNav && caseStudyToc) {
     });
   });
 
-  navTargets.forEach((el) => {
-    el.addEventListener("pointerenter", () => {
-      hoverTarget = el;
-      moveIndicatorTo(el);
-    });
-  });
-
-  caseStudyNav.addEventListener("pointerleave", () => {
-    hoverTarget = null;
-    syncIndicator();
-  });
-
-  caseStudyNav.addEventListener(
-    "scroll",
-    () => {
-      syncIndicator();
-    },
-    { passive: true }
-  );
-
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener(
-    "resize",
-    () => {
-      onScroll();
-      syncIndicator();
-    },
-    { passive: true }
-  );
+  window.addEventListener("resize", onScroll, { passive: true });
+
+  const hashId = location.hash?.slice(1);
+  if (hashId && sectionEntries.some((s) => s.id === hashId)) {
+    setActive(hashId);
+  } else {
+    updateActiveFromScroll();
+  }
 }
 
 // Case study iteration pill switcher
@@ -1141,11 +1104,14 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
 (() => {
   if (!document.body.classList.contains("page-home")) return;
 
-  const wrap = document.querySelector(".hero__award-wrap");
+  const wrap = document.querySelector(".works__award .hero__award-wrap");
   if (!wrap) return;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const cover = document.querySelector("main > .works");
+  const cover =
+    document.querySelector(".works__roles") ||
+    document.querySelector(".works__list") ||
+    document.querySelector("#works");
 
   const syncAwardPeel = () => {
     if (reduceMotion.matches) {
@@ -1501,7 +1467,7 @@ document.querySelectorAll("[data-case-study-carousel]").forEach((root) => {
     "blue-bookshop": "contact",
   };
   const labels = { about: "About", contact: "Contact", works: "Works" };
-  const hrefs = { about: "about.html", contact: "contact.html", works: "works.html" };
+  const hrefs = { about: "about.html", contact: "contact.html", works: "#works" };
   const built = new Map();
   let shown = null;
   let pageScrollAtOpen = 0;

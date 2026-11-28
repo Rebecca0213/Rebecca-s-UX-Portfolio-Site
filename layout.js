@@ -2,21 +2,29 @@
   const BASE = /\/case-studies(\/|$)/.test(window.location.pathname) ? "../" : "";
   const asset = (path) => {
     if (!path) return "";
-    const [pathname, search = ""] = path.split("?");
+    const hashIndex = path.indexOf("#");
+    const hash = hashIndex >= 0 ? path.slice(hashIndex) : "";
+    const pathNoHash = hashIndex >= 0 ? path.slice(0, hashIndex) : path;
+    const [pathname, search = ""] = pathNoHash.split("?");
     const encoded = pathname
       .split("/")
       .map((part) => (part ? encodeURIComponent(part) : ""))
       .join("/");
-    return `${BASE}${search ? `${encoded}?${search}` : encoded}`;
+    const built = `${BASE}${search ? `${encoded}?${search}` : encoded}`;
+    return hash ? `${built}${hash}` : built;
   };
   const bodyClass = () => document.body.className;
-  const isHome = () => /\bpage-home\b/.test(bodyClass());
-  const hideConceptFolders = () => isHome() || /\bpage-works\b/.test(bodyClass());
+  const isHome = () => {
+    if (/\bpage-home\b/.test(bodyClass())) return true;
+    const path = window.location.pathname.replace(/\/$/, "");
+    return path === "" || path.endsWith("/index.html") || path.endsWith("/index");
+  };
+  const hideConceptFolders = () => isHome();
   const isCompactLoader = () => /\bpage-404\b/.test(bodyClass());
 
   const activeNav = () => {
     const cls = bodyClass();
-    if (/\bpage-works\b/.test(cls) || /\bpage-case-study\b/.test(cls)) return "works";
+    if (/\bpage-case-study\b/.test(cls)) return "works";
     if (/\bpage-blog\b/.test(cls)) return "blog";
     if (/\bpage-about\b/.test(cls)) return "about";
     if (/\bpage-contact\b/.test(cls)) return "contact";
@@ -26,6 +34,13 @@
   const navLink = (file, key, label) => {
     const current = activeNav() === key ? ' aria-current="page"' : "";
     return `<a href="${asset(file)}"${current}>${label}</a>`;
+  };
+
+  const worksHref = () => (isHome() ? "#works" : `${asset("index.html")}#works`);
+
+  const navWorksLink = () => {
+    const current = activeNav() === "works" ? ' aria-current="page"' : "";
+    return `<a href="${worksHref()}"${current}>Works</a>`;
   };
 
   const stickyNote = () => `
@@ -78,10 +93,12 @@
 
   const worksName = (project, client = "", shipped = "", concept = false, shipLabel = "Shipped") => {
     const primary = client ? `${project} x ${client}` : project;
+    const conceptLabel =
+      typeof concept === "string" ? concept : concept ? "Innovative Concept" : "";
     const metaMarkup = shipped
       ? `<span class="works__name-meta"> / ${shipLabel} ${shipped}</span>`
-      : concept
-        ? `<span class="works__name-meta"> / Innovative Concept</span>`
+      : conceptLabel
+        ? `<span class="works__name-meta"> / ${conceptLabel}</span>`
         : "";
     return `<h3 class="works__name"><span class="works__name-primary">${primary}</span>${metaMarkup}</h3>`;
   };
@@ -166,6 +183,14 @@
                       </div>`;
   };
 
+  const sideAwardMarkup = (sideAsset) => {
+    if (!sideAsset) return "";
+    const src = typeof sideAsset === "string" ? sideAsset : sideAsset.src;
+    const alt =
+      typeof sideAsset === "string" ? "" : sideAsset.alt || "Project recognition";
+    return `<img class="works__side-award" src="${asset(src)}" alt="${alt}" loading="lazy" width="204" height="308" />`;
+  };
+
   const peekFolder = ({
     id,
     project,
@@ -176,13 +201,14 @@
     previewVideo,
     previewKind,
     extras = [],
+    sideAsset = "",
     inProgress = false,
     locked = false,
     concept = false,
     shipLabel = "Shipped",
     coverVideo = "",
   }) => {
-    const isLocked = inProgress || locked;
+    const isLocked = locked;
     const extraShots = extras
       .map((src, i) => shot(src, `works__shot--${i + 1}`))
       .join("");
@@ -206,17 +232,20 @@
                       coverVideo,
                     )}`;
     const titleMarkup = worksName(project, client, shipped, concept, shipLabel);
+    const sideAward = sideAwardMarkup(sideAsset);
+    const sideAwardClass = sideAsset ? " works__item--has-side-award" : "";
     if (coverVideo) {
       const capintelClass = id === 1 ? " works__item--capintel" : "";
       const titleLink = isLocked
         ? `<div class="works__card-link works__card-link--title works__card-link--inert" aria-disabled="true">${titleMarkup}</div>`
         : `<a class="works__card-link works__card-link--title" href="${asset(href)}">${titleMarkup}</a>`;
       return `
-              <article class="works__item works__item--peek${capintelClass}${isLocked ? " works__item--locked" : ""} works__item--has-cover-video" data-works-href="${isLocked ? "" : asset(href)}">
+              <article class="works__item works__item--peek${capintelClass}${isLocked ? " works__item--locked" : ""}${sideAwardClass} works__item--has-cover-video" data-works-href="${isLocked ? "" : asset(href)}">
                 <div class="works__card-stage">
                   <div class="works__card">${cardBody}</div>
                 </div>
                 ${titleLink}
+                ${sideAward}
               </article>`;
     }
     const cardInner = `
@@ -228,8 +257,9 @@
       ? `<div class="works__card-link works__card-link--inert" aria-disabled="true">${cardInner}</div>`
       : `<a class="works__card-link" href="${asset(href)}">${cardInner}</a>`;
     return `
-              <article class="works__item works__item--peek${isLocked ? " works__item--locked" : ""}">
+              <article class="works__item works__item--peek${isLocked ? " works__item--locked" : ""}${sideAwardClass}">
                 ${link}
+                ${sideAward}
               </article>`;
   };
 
@@ -335,6 +365,173 @@
           </div>`;
   };
 
+
+  const uxAwardMarkup = () => `
+          <span class="hero__award-wrap" tabindex="0">
+            <span class="hero__award-peel">
+              <span class="hero__award-sticker">
+                <img
+                  class="hero__award"
+                  src="${asset("assets/about/ux-design-awards-nominated-2022.png?v=original")}"
+                  alt="UX Design Awards nominated 2022"
+                  width="204"
+                  height="308"
+                />
+                <span class="hero__award-glitter" aria-hidden="true">
+                  <span class="hero__award-sparkle hero__award-sparkle--1"></span>
+                  <span class="hero__award-sparkle hero__award-sparkle--2"></span>
+                  <span class="hero__award-sparkle hero__award-sparkle--3"></span>
+                  <span class="hero__award-sparkle hero__award-sparkle--4"></span>
+                  <span class="hero__award-sparkle hero__award-sparkle--5"></span>
+                  <span class="hero__award-sparkle hero__award-sparkle--6"></span>
+                  <span class="hero__award-sparkle hero__award-sparkle--7"></span>
+                  <span class="hero__award-sparkle hero__award-sparkle--8"></span>
+                </span>
+              </span>
+            </span>
+          </span>`;
+
+  const homeIntroSection = () => `
+      <div class="site-footer__intro intro" id="intro" aria-label="Skills and recognition">
+        <p class="intro__hint">Hover</p>
+        <div class="intro__row">
+        <figure class="intro__portrait" tabindex="0">
+          <img
+            src="${asset("assets/hero/intro-portrait.png?v=2")}"
+            alt="Rebecca Szeto"
+            width="962"
+            height="1116"
+          />
+        </figure>
+
+        <div class="intro__skills">
+          <div class="folder-wrapper folder-wrapper--intro" tabindex="0" aria-label="Skills">
+            <div class="folder-wrapper__stage">
+              <div class="skill-icons" aria-hidden="true">
+                <div class="skill-icon skill-icon--figma">
+                  <svg width="24" height="34" viewBox="-4 -5 43.5 67" aria-hidden="true">
+                    <path fill="#0ACF83" d="M13 57c5.24 0 9.5-4.26 9.5-9.5V38H13a9.5 9.5 0 0 0 0 19z" />
+                    <path fill="#A259FF" d="M3.5 28.5A9.5 9.5 0 0 1 13 19h9.5v19H13a9.5 9.5 0 0 1-9.5-9.5z" />
+                    <path fill="#F24E1E" d="M3.5 9.5A9.5 9.5 0 0 1 13 0h9.5v19H13A9.5 9.5 0 0 1 3.5 9.5z" />
+                    <path fill="#FF7262" d="M22.5 0H32a9.5 9.5 0 0 1 0 19h-9.5V0z" />
+                    <path fill="#1ABCFE" d="M32 28.5a9.5 9.5 0 1 1-9.5-9.5 9.5 9.5 0 0 1 9.5 9.5z" />
+                  </svg>
+                </div>
+                <div class="skill-icon skill-icon--react">
+                  <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true">
+                    <circle cx="16" cy="16" r="2.6" fill="#61DAFB" />
+                    <g fill="none" stroke="#61DAFB" stroke-width="1.4">
+                      <ellipse cx="16" cy="16" rx="13" ry="5" />
+                      <ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(60 16 16)" />
+                      <ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(120 16 16)" />
+                    </g>
+                  </svg>
+                </div>
+                <div class="skill-icon skill-icon--framer">
+                  <svg width="34" height="34" viewBox="0 0 19.985 20" fill="none" aria-hidden="true">
+                    <path
+                      fill="#f6ece2"
+                      d="M3.921 13.296 7.852 11.09 7.918 10.898 7.852 10.792 7.66 10.792 7.002 10.751 4.756 10.691 2.808 10.61 0.921 10.509 0.445 10.407 0 9.82 0.045 9.527 0.445 9.259 1.017 9.309 2.282 9.395 4.179 9.527 5.555 9.608 7.594 9.82 7.918 9.82 7.964 9.689 7.852 9.608 7.766 9.527 5.803 8.196 3.678 6.79 2.565 5.98 1.963 5.57 1.66 5.186 1.528 4.346 2.075 3.744 2.808 3.795 2.995 3.845 3.739 4.417 5.328 5.646 7.402 7.174 7.706 7.427 7.827 7.341 7.842 7.281 7.706 7.053 6.577 5.014 5.373 2.939 4.837 2.079 4.695 1.563c-.054-.212-.091-.389-.091-.607L5.232.111 5.576 0 6.405.111 6.754.415 7.27 1.594 8.105 3.451 9.4 5.975 9.78 6.724 9.982 7.417 10.058 7.63 10.19 7.63 10.19 7.508 10.296 6.087 10.493 4.341 10.686 2.095 10.751 1.462 11.065.703 11.687.293 12.173.526 12.573 1.098 12.517 1.467 12.279 3.01 11.814 5.429 11.51 7.048 11.687 7.048 11.89 6.845 12.709 5.758 14.085 4.037 14.693 3.354 15.401 2.601 15.856 2.241 16.716 2.241 17.349 3.182 17.066 4.154 16.18 5.277 15.447 6.228 14.394 7.645 13.736 8.778 13.797 8.869 13.954 8.854 16.332 8.348 17.617 8.115 19.15 7.852 19.843 8.176 19.919 8.505 19.646 9.178 18.007 9.583 16.084 9.967 13.22 10.645 13.185 10.67 13.225 10.721 14.516 10.842 15.067 10.873 16.418 10.873 18.932 11.06 19.59 11.495 19.985 12.026 19.919 12.431 18.907 12.947 17.541 12.623 14.354 11.864 13.261 11.591 13.109 11.591 13.109 11.682 14.02 12.573 15.689 14.08 17.779 16.023 17.885 16.504 17.617 16.883 17.334 16.843 15.497 15.462 14.789 14.839 13.185 13.488 13.079 13.488 13.079 13.63 13.448 14.172 15.401 17.106 15.502 18.007 15.36 18.3 14.855 18.477 14.298 18.376 13.155 16.772 11.976 14.966 11.025 13.347 10.908 13.413 10.346 19.459 10.083 19.767 9.476 20 8.97 19.615 8.702 18.993 8.97 17.764 9.294 16.16 9.557 14.885 9.795 13.301 9.937 12.775 9.927 12.74 9.81 12.755 8.616 14.394 6.8 16.848 5.363 18.386 5.019 18.523 4.422 18.214 4.478 17.662 4.812 17.172 6.8 14.642 7.999 13.074 8.773 12.168 8.768 12.036 8.722 12.036 3.44 15.467 2.499 15.588 2.095 15.209 2.145 14.586 2.338 14.384 3.926 13.291 3.921 13.296z"
+                    />
+                  </svg>
+                </div>
+                <div class="skill-icon skill-icon--js">
+                  <div class="skill-icon__js-mark">
+                    <span class="skill-icon__js-text">JS</span>
+                  </div>
+                </div>
+                <div class="skill-icon skill-icon--css">
+                  <svg width="28" height="28" viewBox="0 0 512 512" aria-hidden="true">
+                    <path fill="#264DE4" d="M71 460 30 0h451l-41 460-185 52z" />
+                    <path fill="#2965F1" d="M256 472l149-41 35-394H256z" />
+                    <path fill="#EBEBEB" d="M256 208h-75l-5-58h80V94H114l14 171h128zm0 147-63-17-4-45h-56l7 89 116 32z" />
+                    <path fill="#333333" d="M256 208v57h70l-7 74-63 17v59l116-32 16-175zm0-114v56h137l5-56z" />
+                  </svg>
+                  <span class="skill-icon__glare skill-icon__glare--linear" aria-hidden="true"></span>
+                  <span class="skill-icon__glare skill-icon__glare--radial" aria-hidden="true"></span>
+                </div>
+                <div class="skill-icon skill-icon--html">
+                  <svg width="28" height="28" viewBox="0 0 512 512" aria-hidden="true">
+                    <path fill="#E44D26" d="M71 460 30 0h451l-41 460-185 52z" />
+                    <path fill="#F16529" d="M256 472l149-41 35-394H256z" />
+                    <path fill="#EBEBEB" d="M256 208h-75l-5-58h80V94H114l14 171h128zm0 147-63-17-4-45h-56l7 89 116 32z" />
+                    <path fill="#333333" d="M256 208v57h70l-7 74-63 17v59l116-32 16-175zm0-114v56h137l5-56z" />
+                  </svg>
+                </div>
+                <div class="skill-icon skill-icon--cursor">
+                  <svg width="33" height="33" viewBox="0 0 100 100" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="curTop" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#606060" />
+                        <stop offset="1" stop-color="#3a3a3a" />
+                      </linearGradient>
+                      <linearGradient id="curLU" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#b0b0b0" />
+                        <stop offset="1" stop-color="#7c7c7c" />
+                      </linearGradient>
+                      <linearGradient id="curLL" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#d2d2d2" />
+                        <stop offset="1" stop-color="#9a9a9a" />
+                      </linearGradient>
+                      <linearGradient id="curRU" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#343434" />
+                        <stop offset="1" stop-color="#1d1d1d" />
+                      </linearGradient>
+                      <linearGradient id="curRW" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#f2f2f2" />
+                        <stop offset="1" stop-color="#c6c6c6" />
+                      </linearGradient>
+                    </defs>
+                    <polygon points="50,10 11,31 89,31" fill="url(#curTop)" />
+                    <polygon points="11,31 89,31 50,53" fill="#f7f7f7" />
+                    <polygon points="11,31 50,53 11,71" fill="url(#curLU)" />
+                    <polygon points="50,53 50,92 11,71" fill="url(#curLL)" />
+                    <polygon points="89,31 50,53 89,71" fill="url(#curRU)" />
+                    <polygon points="50,53 89,71 50,92" fill="url(#curRW)" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="folder" aria-hidden="true">
+                <svg class="folder__back" viewBox="0 0 300 275.362" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="skills-back-grad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="rgb(74, 164, 222)" />
+                      <stop offset="50%" stop-color="rgb(56, 146, 208)" />
+                      <stop offset="100%" stop-color="rgb(42, 130, 192)" />
+                    </linearGradient>
+                    <linearGradient id="skills-back-hi" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.28)" />
+                      <stop offset="18%" stop-color="rgba(255, 255, 255, 0)" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z"
+                    fill="url(#skills-back-grad)"
+                  />
+                  <path
+                    d="M 22.979,24 L 95,24 C 113,24 117,44 137,44 L 277.021,44 Q 300,44 300,66.979 L 300,233.021 Q 300,256 277.021,256 L 22.979,256 Q 0,256 0,233.021 L 0,46.979 Q 0,24 22.979,24 Z"
+                    fill="url(#skills-back-hi)"
+                  />
+                </svg>
+                <div class="folder__front">
+                  <div class="folder__front-face"></div>
+                  <div class="folder__front-shine">
+                    <div class="folder__label">
+                      <span class="folder__label-text">skills</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="folder__ridge folder__ridge--upper" aria-hidden="true"></div>
+                <div class="folder__ridge folder__ridge--lower" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      
+      </div>`;
+
   const html = {
     loader() {
       if (isHome()) {
@@ -392,7 +589,7 @@
         Rebecca S<span class="accent-z accent-z--interactive" tabindex="0">z</span>eto
       </a>
       <nav class="nav__links" aria-label="Primary">
-        ${navLink("works.html", "works", "Works")}
+        ${navWorksLink()}
         ${navLink("blog.html", "blog", "Blog")}
         ${navLink("about.html", "about", "About Me")}
         ${navLink("contact.html", "contact", "Contact")}
@@ -402,7 +599,8 @@
 
     footer() {
       return `
-      <footer class="site-footer" id="contact">
+      <footer class="site-footer site-footer--with-intro" id="contact">
+        ${homeIntroSection()}
         <div class="site-footer__stage" aria-hidden="false">
           <div class="site-footer__blob">
             <div class="site-footer__pill site-footer__pill--research">Research</div>
@@ -417,14 +615,6 @@
               width="166"
               height="292"
             />
-            <img
-              class="site-footer__figure site-footer__figure--right"
-              src="${asset("assets/footer/figure-right.svg")}"
-              alt=""
-              width="215"
-              height="292"
-            />
-
             <img
               class="site-footer__sparkle"
               src="${asset("assets/footer/sparkle.svg")}"
@@ -481,12 +671,23 @@
     },
 
     featuredWorks() {
+      const worksTitle = isHome()
+        ? "Rebecca Szeto is a systems-thinking product designer."
+        : "Featured Works";
       return `
       <section class="works" id="works">
         <div class="works__layout">
           <div class="works__main">
-            <div class="works__header">
-              <h2 class="works__title">Featured Works</h2>
+            <div class="works__header${isHome() ? " works__header--intro" : ""}">
+              ${
+                isHome()
+                  ? `
+              <div class="works__intro-lead">
+                <h2 class="works__title works__title--intro">${worksTitle}</h2>
+                <div class="works__award" aria-label="UX Design Awards nomination">${uxAwardMarkup()}</div>
+              </div>`
+                  : `<h2 class="works__title">${worksTitle}</h2>`
+              }
               <div class="works__hint" aria-hidden="true">
                 <div class="works__arrow">
                   <div class="works__arrow-inner">
@@ -521,6 +722,21 @@
                 <span class="works__hint-text">hover and click</span>
               </div>
             </div>
+            ${
+              isHome()
+                ? `
+            <div class="works__roles" aria-label="Current and prior roles">
+              <div class="works__roles-col">
+                <p class="works__roles-label">Currently</p>
+                <p class="works__roles-detail">Designing @ Beem</p>
+              </div>
+              <div class="works__roles-col">
+                <p class="works__roles-label">Previously</p>
+                <p class="works__roles-detail">Designed @ Questrade.<br />Designed and led research @ Capintel and more.</p>
+              </div>
+            </div>`
+                : ""
+            }
 
             <div class="works__list">
               ${peekFolder({
@@ -537,7 +753,7 @@
                 client: "Beem",
                 shipped: "April–August 2026",
                 href: "case-studies/member-rewards-program.html",
-                coverVideo: "assets/case-studies/beem/member-rewards-cover.mp4?v=2",
+                coverVideo: "assets/case-studies/beem/member-rewards-cover.mp4?v=3",
               })}
               ${peekFolder({
                 id: 3,
@@ -545,15 +761,41 @@
                 client: "Beem",
                 href: "case-studies/digital-banking-app.html",
                 inProgress: true,
+                shipped: "July to Dec 2026 (Ongoing)",
+                shipLabel: "Shipped",
               })}
               ${peekFolder({
                 id: 4,
-                project: "Parallel Life",
+                project: "Parallel Life (AI Native Feature)",
                 client: "Beem",
                 href: "case-studies/parallel-life.html",
-                locked: true,
                 shipped: "Summer 2027",
                 shipLabel: "Shipping",
+              })}
+              ${peekFolder({
+                id: 9,
+                project: "Managed Investing Marketing Page",
+                client: "Questrade",
+                href: "case-studies/marketing-pages.html",
+                shipped: "Oct 2024",
+              })}
+              ${peekFolder({
+                id: 10,
+                project: "LinkedIn Mentorship: A Redesign",
+                client: "A personal project",
+                href: "case-studies/linkedin-redesign.html",
+                concept: "Concept",
+                sideAsset: {
+                  src: "assets/about/ux-design-awards-nominated-2022.png?v=original",
+                  alt: "UX Design Awards nominated 2022",
+                },
+              })}
+              ${peekFolder({
+                id: 11,
+                project: "Social Startup Portal: Volunteers at Scale",
+                client: "Meaningful Work",
+                href: "case-studies/social-startup-portal.html",
+                shipped: "April 2022",
               })}
               ${
                 hideConceptFolders()
@@ -580,86 +822,6 @@
               })}`
               }
             </div>
-          </div>
-        </div>
-      </section>`;
-    },
-
-    otherWorks() {
-      return `
-      <section class="other-works" id="other-works">
-        <div class="other-works__inner">
-          <h2 class="other-works__title">Other works</h2>
-          <div class="other-works__list">
-            <article class="other-works__card">
-              <div class="other-works__meta">
-                <h3 class="other-works__card-title">Managed Investing Marketing Page</h3>
-                <p class="other-works__client">Questrade</p>
-              </div>
-              <div class="other-works__image">
-                <div class="other-works__image-slot other-works__image-slot--cover">
-                  <img
-                    src="${asset("assets/case-studies/questrade/marketing-pages-cover.png?v=hero-invest")}"
-                    alt="Questrade — Managed Investing Marketing Page case study"
-                    width="422"
-                    height="336"
-                  />
-                </div>
-              </div>
-              <p class="other-works__blurb">Increased conversion by 40% and decreased bounce rate by ~50%.</p>
-              <div class="other-works__footer">
-                <a class="other-works__open" href="${asset("case-studies/marketing-pages.html")}">Open</a>
-              </div>
-            </article>
-
-            <article class="other-works__card other-works__card--awarded">
-              <div class="other-works__meta">
-                <h3 class="other-works__card-title">LinkedIn Mentorship: A Redesign</h3>
-                <p class="other-works__client">A personal project</p>
-              </div>
-              <div class="other-works__image">
-                <div class="other-works__image-slot other-works__image-slot--cover other-works__image-slot--cover-center">
-                  <img
-                    src="${asset("assets/case-studies/linkedin/linkedin-mentorship-cover.png?v=2")}"
-                    alt="LinkedIn Mentorship — personal redesign project cover"
-                    width="518"
-                    height="652"
-                  />
-                </div>
-                <img
-                  class="other-works__award"
-                  src="${asset("assets/about/ux-design-awards-nominated-2022.png?v=original")}"
-                  alt="UX Design Awards nominated 2022"
-                  width="204"
-                  height="308"
-                />
-              </div>
-              <p class="other-works__blurb">LinkedIn Mentorship lets job seekers book 1-on-1 sessions with accredited professionals for career advice, portfolio reviews, and Q&amp;A.</p>
-              <div class="other-works__footer">
-                <a class="other-works__open" href="${asset("case-studies/linkedin-redesign.html")}">Open</a>
-              </div>
-            </article>
-
-            <article class="other-works__card">
-              <div class="other-works__meta">
-                <h3 class="other-works__card-title">Social Startup Portal: Volunteers at Scale</h3>
-                <p class="other-works__client">Meaningful Work</p>
-              </div>
-              <div class="other-works__image">
-                <div class="other-works__image-slot other-works__image-slot--cover other-works__image-slot--cover-center">
-                  <img
-                    src="${asset("assets/case-studies/social-startup-portal/social-startup-portal-cover.png?v=1")}"
-                    alt="MeaningfulWork — Social Startup Portal opportunity detail cover"
-                    width="1024"
-                    height="647"
-                  />
-                </div>
-              </div>
-              <p class="other-works__blurb">Management solution app that helps nonprofits/companies manage opportunities and volunteers.</p>
-              <div class="other-works__footer">
-                <a class="other-works__open" href="${asset("case-studies/social-startup-portal.html")}">Open</a>
-              </div>
-            </article>
           </div>
         </div>
       </section>`;
@@ -739,6 +901,24 @@
         </div>
       </section>`;
     },
+
+    caseStudySideNav(sections) {
+      const wrapLabel = (label) => label.length > 26;
+      const items = sections
+        .map(({ id, label, wrap }) => {
+          const useWrap = wrap === true || (wrap !== false && wrapLabel(label));
+          const className = useWrap ? ' class="case-study__toc-link--wrap"' : "";
+          return `              <li><a${className} href="#${id}">${label}</a></li>`;
+        })
+        .join("\n");
+      return `
+          <aside class="case-study__nav" aria-label="Case study sections">
+            <a class="case-study__back" href="${asset("index.html#works")}">← Back</a>
+            <ul class="case-study__toc">
+${items}
+            </ul>
+          </aside>`;
+    },
   };
 
   const write = (chunk) => document.write(chunk);
@@ -747,7 +927,7 @@
     loader: () => write(html.loader()),
     nav: () => write(html.nav()),
     footer: () => write(html.footer()),
-    cursor: () => write(html.cursor()),
+    cursor: () => {},
     featuredWorks: () => {
       try {
         write(html.featuredWorks());
@@ -766,9 +946,9 @@
       </section>`);
       }
     },
-    otherWorks: () => write(html.otherWorks()),
     beemArch: (title, options) => write(html.beemArch(title, options)),
     plainArch: (title, subtitle) => write(html.plainArch(title, subtitle)),
+    caseStudySideNav: (sections) => write(html.caseStudySideNav(sections)),
     plFlow: () => write(plFlow()),
     capFlow: () => write(capFlow()),
   };

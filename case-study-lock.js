@@ -4,10 +4,7 @@
   const STORAGE_KEY = "caseStudyUnlockedSlugs";
   const LEGACY_STORAGE_KEY = "caseStudyUnlocked";
   const BACK_CONTEXT_KEY = "caseStudyLockBack";
-  const PROTECTED_SLUGS = new Set([
-    "marketing-pages.html",
-    "social-startup-portal.html",
-  ]);
+  const PROTECTED_SLUGS = new Set();
 
   const getSlugFromPath = (path) => {
     const parts = path.split("/");
@@ -72,7 +69,10 @@
     const path = window.location.pathname;
 
     if (isHomePath(path)) {
-      sessionStorage.setItem(BACK_CONTEXT_KEY, "home");
+      sessionStorage.setItem(
+        BACK_CONTEXT_KEY,
+        window.location.hash === "#works" ? "works" : "home",
+      );
       return;
     }
 
@@ -94,7 +94,7 @@
 
     if (stored === "works") {
       return {
-        href: onCaseStudy ? "../works.html" : "works.html",
+        href: onCaseStudy ? "../index.html#works" : "index.html#works",
         label: "Back to works",
       };
     }
@@ -114,7 +114,14 @@
 
         if (isWorksPath(refPath)) {
           return {
-            href: onCaseStudy ? "../works.html" : "works.html",
+            href: onCaseStudy ? "../index.html#works" : "index.html#works",
+            label: "Back to works",
+          };
+        }
+
+        if (isHomePath(refPath) && new URL(referrer).hash === "#works") {
+          return {
+            href: onCaseStudy ? "../index.html#works" : "index.html#works",
             label: "Back to works",
           };
         }
@@ -124,7 +131,7 @@
     }
 
     return {
-      href: onCaseStudy ? "../works.html" : "works.html",
+      href: onCaseStudy ? "../index.html#works" : "index.html#works",
       label: "Back to works",
     };
   };
